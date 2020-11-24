@@ -1,0 +1,327 @@
+---
+title: "Algorithmic trading and investment"
+subtitle: "FIN7030"
+author: "Barry Quinn"
+date: "2019/01/15 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: ["default", "css/sfah.css", "css/fonts.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      beforeInit: "https://platform.twitter.com/widgets.js"
+    seal: false 
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+# options(knitr.table.format = "html")
+library(tidyverse)
+library(babynames)
+library(fontawesome) 
+library(DiagrammeR)
+```
+
+layout: true
+  
+<div class="my-footer"><span>quinference.com</span></div>
+
+```{r xaringan-logo, echo=FALSE}
+xaringanExtra::use_logo(
+  image_url = "img/redlogo.png"
+)
+```
+
+```{r xaringan-panelset, echo=FALSE}
+xaringanExtra::use_panelset()
+```
+
+---
+name: ATL-title
+class: inverse,left, middle
+background-image: url(img/markus-spiske-466ENaLuhLY-unsplash.png)
+background-size: cover
+
+# Algorithmic Trading and Investing (FIN7030)
+
+
+# .fancy[Lecture 1: Why study Financial Machine Learning]
+
+.large[Barry Quinn PhD CStat | Queen's Management School | `r Sys.Date()`]
+
+<!-- this ends up being the title slide since seal = FALSE-->
+
+---
+class: right, middle
+
+<img class="circle" src="img/bq_paint.jpg" width="250px"/>
+
+Barry Quinn in Home Attic Office
+
+# Find me at...
+
+[<img src='img/twitter.png' width="25px"\> @quinference](http://twitter.com/quininference)  
+
+[<img src='img/github.png' width="25px"\> @barryquinn1](http://github.com/barryquinn1)  
+
+[<img src='img/link.png' width="25px"\>quinference.com](https://quinference.com)  
+
+[<img src='img/paper-plane.png' width="25px"\> b.quinn@qub.ac.uk](mailto:b.quinn@qub.ac.uk)
+
+
+---
+class: middle
+
+.left-column[
+
+# `r emo::ji("confused")`
+
+]
+
+.right-column[
+
+# What is an algorithm?
+
+>Very broadly speaking, algorithms are what statisticians *do* while inference says *why* they do them. A particularly energetic brand of the statistical enterprise has ﬂourished in the new century, **data science**, emphasizing algorithmic thinking rather than its inferential justiﬁcation.
+
+`r tufte::quote_footer('---- Efron and Hastie, 2016')`
+
+### .fancy[ML algorithms learn complex patterns in a high-dimensional space with little human guidance on model specification]
+
+`r tufte::quote_footer('---- Lopez de Prado, 2019')`
+]
+
+---
+name: usecourse
+class: middle
+
+.left-column[
+
+# `r emo::ji("confused")`
+
+]
+
+.right-column[
+
+# What is machine learning?
+
+>If a machine can think, it might think more intelligently than we do, and then where should we be? Even if we could keep the machines in a subservient position … we should, as a species, feel greatly humbled. 
+`r tufte::quote_footer('---- Alan Turing, 1951')`
+
+>The first ultraintelligent machine is the last invention that man need ever make, provided that the machine is docile enough to tell us how to keep it under control.
+
+`r tufte::quote_footer('---- Irving J. Good, 1965')`
+]
+
+---
+name: ninja
+class: middle
+
+
+# Artificial intellience
+ - We are now in the era of narrow AI.
+ - AI experts' predictions vary as to when we can see *artificial general intelligence* (AGI)
+--
+
+## Machine Learning(ML)
+ - This is generally thought of as a branch of AI
+ - Traditional machine learning algorithms are designed for cross-sectional data sets.
+ - Many financial problems require explicit modeling of complex time series properties.
+
+--
+ 
+### Deep learning
+ - Is a branch of ML which has been the media darling of AI industry expansion
+ - At its core it is using neural networks; algorithms inspired by the structure of the human brain.
+ - Statisticians are less impressed, and prefer to categorise these models as semi-parametric to non-parametric.
+
+
+---
+name: novice
+class: middle, inverse
+
+# Theory matters for algo investing strategy success
+
+--
+
+### .saltinline[.fancy[Backtesting is not a good research tool]] 
+
+--
+- Backtests can never prove that a strategy is a *true* positive.
+  - At best they can only provide evidence of a *false* postive strategy.
+- Strategy success requires theory support, not historical simulations.
+
+--
+
+### .saltinline[.fancy[Easley, David, Marcos M. López de Prado, and Maureen O’Hara. 2012. “Flow Toxicity and Liquidity in a High-Frequency World.” The Review of Financial Studies 25 (5): 1457–93.]]
+- This paper describes how a market mircostructure theory predicted the 2010 *Flash Crash* and use ML to profit from this *black swan* event.
+
+---
+class: middle
+# ML Helps discover theories
+
+```{r xaringan-tachyons, echo=FALSE}
+xaringanExtra::use_tachyons()
+```
+
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
+A successful theory will be predicted out-of-sample. Furthermore, it will explain not only positives (x cause y) but also negatives (the absence of y is due to the absences of x)
+]
+
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
+In a theory discovery process, ML plays the key role of decoupling the search for variables from the search for specification.
+]
+
+--
+.bg-hot-pink.b--dark-pink.ba.bw2.br3.shadow-5.ph4.mt5[
+Classical statistical methods do not allow this decoupling of the two searches.
+]
+
+---
+class: middle
+
+# Scientific discovery and ML
+- ML models are **wrongly** characterised as "oracles".
+
+--
+
+- An oracle is a black box that is able to produce a solution for any instance of a given computational problem **Complexity theory definition**.
+
+--
+
+Recent scientific discoveries have reveal radically different uses of ML
+
+1. **Existence:** ML has been deployed to evaluate the plausibility of a theory across many scientific fields
+
+2. **Importance:** ML algorithms can determine the relative informational content of explanatory variables for explaining or predicting purposes.
+
+3. **Causation:** ML algorithms are often used to evaluate causal inference (*casual random forest*; Athey,2015)
+
+---
+class: right, center
+
+# The Dark Side of ML
+.left-column[
+
+<img class="circle" src="img/darth_kid.jpg" width="250px"/>
+]
+.right-column[
+
+```{r,echo=FALSE,out.width="100%", out.height="100%"}
+library(DiagrammeR)
+grViz("digraph boxes_and_circles {
+graph [layout=dot,rankdir=LR]
+# define the global styles of the nodes. We can override these in box if we wish
+node [shape = rectangle, style = filled,width=1,fontsize=50]
+
+overfit [label='Overfitting', fillcolor=red,fontsize=80]
+
+train [label = 'Training Set ', fillcolor = Beige,fontsize=60]
+test [label = 'Testing Set \n (Backtest overfitting)', fillcolor = Beige,fontsize=60]
+trail [label =  'Report all trails \n number and variance']
+general [label = 'Generalisation error \n synthetic dataset']
+dsharpe [label= 'Deflated Sharpe Ratio']
+resample [label='Resampling \n CPCV']
+monte [label='Monte Carlo']
+ensemble [label='Ensemble Methods']
+reg [label='Regularisation']
+lasso [label='Number of variables \n (LASSO)']
+struc [label='Structure \n (early stopping, drop-out)']
+
+# edge definitions with the node IDs
+overfit -> {test,train}
+test -> {trail,general}
+trail -> dsharpe
+general -> {resample, monte}
+train -> {general,ensemble,reg}
+reg -> {lasso,struc}
+}")
+```
+]
+
+---
+class: middle
+
+# Training set overfitting
+
+## Problem
+
+- Training set overfitting results from choosing a specification that is so flexible that it explains not only the signal, but also the noise.
+- The results will be a model which is *overconfident* in predicting *incorrectly*
+
+--
+## Solutions
+
+1. Evaluate the **generalisation error**, through resampling techniques and Monte carlo methods
+2. **Regularisation methods** to prevent model complexity unless it is justified in terms of greater explanatory power. 
+  - For example LASSO techniques to reduce parameters or early stopping to restrict the model's structure
+3. **Ensemble techniques** to reduce the variance of the error by combining the forecasts of a collection of estimators.
+
+---
+class: middle
+
+# Test set overfitting
+
+.large[
+- A standard approach in industry is to use historical data to **backtest** an investment strategy identified from the training set
+
+- Researchers who run multiple statistical tests on the same data set are more likely to make a false discovery.
+
+- This selection bias comes from fitting the model to perform well on the test set, not the train set.
+
+- **Test set overfitting** occurs when a researcher backtests a strategy until the output achieves a desired performance.
+
+- The poor performance of a backtest should be a sign to fix the research process, not the investment strategy.
+]
+
+---
+class:middle
+
+# Solutions to test set overfitting
+
+1. Use the familywise error rate (FWER) or the Deflated Sharpe ratio.  - FWER evaluates the probability of at least one of the outcomes of a number of independent backtests is a false positive. The Deflated Sharpe ratio is a statistics that controls for the FWER.
+
+2. Use combinatorial purged cross-validation methods (CPCV), which generate many test sets using resampling combinatorial splits of train and test sets.
+
+3. Use historical series to estimate the underlying data-generating process, and use **Monte Carlo methods** to create *fake*/synethetic samples that match the statistical properties observed in history
+
+---
+class: middle inverse
+
+# Backtests cannot replace a theory
+
+.large[
+
+1. Black tests cannot simulate Black swans- only theories have the breadth and depth needed to consider the never-before-seen occurrences
+
+2. Backtest may insinuate that a strategy is profitable, but they do not tell us why
+]
+
+.bg-hot-pink.b--dark-pink.ba.bw2.br3.shadow-5.ph4.mt5[
+.large[**Backtest are not controlled experiments.**]  
+Only a theory can state the cause-effect mechanism, and formulate a wide range of predictions and implications that can be independently tested for facts and counterfacts
+]
+
+---
+class:middle
+# Schedule
+
+| Topic | Week | Learning | Pre-class reading |
+| :---:|:---:|----------|:-------------:|:--------------:|
+| Why study financial machine learning (FML)? | 1| FML misconceptions, Future of financial research, ML versus Econometrics, FML in industry |Book 1 Chapter 1 (Easley et al., 2020; Wasserstein et al., 2019; Chen, 2020)|
+|Data Denoising and detoning | 2 |Book 1 Chapter 2|  |
+|Distance metrics | 3| Book 1 Chapter 3| |
+| Optimal clustering |4 |Book 1 Chapter 4| |
+| Financial labels | 5|Book 1 Chapter 5| |
+| Explainable machine learning |6 & 7| Book 1 Chapter 6| Apley et al., (2020), Strumbelj and Kononenko (2014)]
+|Testing set overfitting| 8 & 9|Book 1 Chapter 8, Book 2 Chapters 12-15| Prado(2019)
+| Round up and numerai project |10| | | |
+

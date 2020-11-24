@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Algorithmic trading and investment</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Barry Quinn" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/panelset/panelset.css" rel="stylesheet" />
+    <script src="libs/panelset/panelset.js"></script>
+    <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <script src="libs/viz/viz.js"></script>
+    <link href="libs/DiagrammeR-styles/styles.css" rel="stylesheet" />
+    <script src="libs/grViz-binding/grViz.js"></script>
+    <link rel="stylesheet" href="css/sfah.css" type="text/css" />
+    <link rel="stylesheet" href="css/fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+layout: true
+  
+&lt;div class="my-footer"&gt;&lt;span&gt;quinference.com&lt;/span&gt;&lt;/div&gt;
+
+<div>
+<style type="text/css">.xaringan-extra-logo {
+width: 110px;
+height: 128px;
+z-index: 0;
+background-image: url(img/redlogo.png);
+background-size: contain;
+background-repeat: no-repeat;
+position: absolute;
+top:1em;right:1em;
+}
+</style>
+<script>(function () {
+  let tries = 0
+  function addLogo () {
+    if (typeof slideshow === 'undefined') {
+      tries += 1
+      if (tries < 10) {
+        setTimeout(addLogo, 100)
+      }
+    } else {
+      document.querySelectorAll('.remark-slide-content:not(.title-slide):not(.inverse):not(.hide_logo)')
+        .forEach(function (slide) {
+          const logo = document.createElement('div')
+          logo.classList = 'xaringan-extra-logo'
+          logo.href = null
+          slide.appendChild(logo)
+        })
+    }
+  }
+  document.addEventListener('DOMContentLoaded', addLogo)
+})()</script>
+</div>
+
+
+
+---
+name: ATL-title
+class: inverse,left, middle
+background-image: url(img/markus-spiske-466ENaLuhLY-unsplash.png)
+background-size: cover
+
+# Algorithmic Trading and Investing (FIN7030)
+
+
+# .fancy[Lecture 1: Why study Financial Machine Learning]
+
+.large[Barry Quinn PhD CStat | Queen's Management School | 2020-11-23]
+
+&lt;!-- this ends up being the title slide since seal = FALSE--&gt;
+
+---
+class: right, middle
+
+&lt;img class="circle" src="img/bq_paint.jpg" width="250px"/&gt;
+
+Barry Quinn in Home Attic Office
+
+# Find me at...
+
+[&lt;img src='img/twitter.png' width="25px"\&gt; @quinference](http://twitter.com/quininference)  
+
+[&lt;img src='img/github.png' width="25px"\&gt; @barryquinn1](http://github.com/barryquinn1)  
+
+[&lt;img src='img/link.png' width="25px"\&gt;quinference.com](https://quinference.com)  
+
+[&lt;img src='img/paper-plane.png' width="25px"\&gt; b.quinn@qub.ac.uk](mailto:b.quinn@qub.ac.uk)
+
+
+---
+class: middle
+
+.left-column[
+
+# 😕
+
+]
+
+.right-column[
+
+# What is an algorithm?
+
+&gt;Very broadly speaking, algorithms are what statisticians *do* while inference says *why* they do them. A particularly energetic brand of the statistical enterprise has ﬂourished in the new century, **data science**, emphasizing algorithmic thinking rather than its inferential justiﬁcation.
+
+&lt;footer&gt;---- Efron and Hastie, 2016&lt;/footer&gt;
+
+### .fancy[ML algorithms learn complex patterns in a high-dimensional space with little human guidance on model specification]
+
+&lt;footer&gt;---- Lopez de Prado, 2019&lt;/footer&gt;
+]
+
+---
+name: usecourse
+class: middle
+
+.left-column[
+
+# 😕
+
+]
+
+.right-column[
+
+# What is machine learning?
+
+&gt;If a machine can think, it might think more intelligently than we do, and then where should we be? Even if we could keep the machines in a subservient position … we should, as a species, feel greatly humbled. 
+&lt;footer&gt;---- Alan Turing, 1951&lt;/footer&gt;
+
+&gt;The first ultraintelligent machine is the last invention that man need ever make, provided that the machine is docile enough to tell us how to keep it under control.
+
+&lt;footer&gt;---- Irving J. Good, 1965&lt;/footer&gt;
+]
+
+---
+name: ninja
+class: middle
+
+
+# Artificial intellience
+ - We are now in the era of narrow AI.
+ - AI experts' predictions vary as to when we can see *artificial general intelligence* (AGI)
+--
+
+## Machine Learning(ML)
+ - This is generally thought of as a branch of AI
+ - Traditional machine learning algorithms are designed for cross-sectional data sets.
+ - Many financial problems require explicit modeling of complex time series properties.
+
+--
+ 
+### Deep learning
+ - Is a branch of ML which has been the media darling of AI industry expansion
+ - At its core it is using neural networks; algorithms inspired by the structure of the human brain.
+ - Statisticians are less impressed, and prefer to categorise these models as semi-parametric to non-parametric.
+
+
+---
+name: novice
+class: middle, inverse
+
+# Theory matters for algo investing strategy success
+
+--
+
+### .saltinline[.fancy[Backtesting is not a good research tool]] 
+
+--
+- Backtests can never prove that a strategy is a *true* positive.
+  - At best they can only provide evidence of a *false* postive strategy.
+- Strategy success requires theory support, not historical simulations.
+
+--
+
+### .saltinline[.fancy[Easley, David, Marcos M. López de Prado, and Maureen O’Hara. 2012. “Flow Toxicity and Liquidity in a High-Frequency World.” The Review of Financial Studies 25 (5): 1457–93.]]
+- This paper describes how a market mircostructure theory predicted the 2010 *Flash Crash* and use ML to profit from this *black swan* event.
+
+---
+class: middle
+# ML Helps discover theories
+
+
+
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
+A successful theory will be predicted out-of-sample. Furthermore, it will explain not only positives (x cause y) but also negatives (the absence of y is due to the absences of x)
+]
+
+--
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
+In a theory discovery process, ML plays the key role of decoupling the search for variables from the search for specification.
+]
+
+--
+.bg-hot-pink.b--dark-pink.ba.bw2.br3.shadow-5.ph4.mt5[
+Classical statistical methods do not allow this decoupling of the two searches.
+]
+
+---
+class: middle
+
+# Scientific discovery and ML
+- ML models are **wrongly** characterised as "oracles".
+
+--
+
+- An oracle is a black box that is able to produce a solution for any instance of a given computational problem **Complexity theory definition**.
+
+--
+
+Recent scientific discoveries have reveal radically different uses of ML
+
+1. **Existence:** ML has been deployed to evaluate the plausibility of a theory across many scientific fields
+
+2. **Importance:** ML algorithms can determine the relative informational content of explanatory variables for explaining or predicting purposes.
+
+3. **Causation:** ML algorithms are often used to evaluate causal inference (*casual random forest*; Athey,2015)
+
+---
+class: right, center
+
+# The Dark Side of ML
+.left-column[
+
+&lt;img class="circle" src="img/darth_kid.jpg" width="250px"/&gt;
+]
+.right-column[
+
+<div id="htmlwidget-fa9d3646faffa01d905a" style="width:100%;height:100%;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fa9d3646faffa01d905a">{"x":{"diagram":"digraph boxes_and_circles {\ngraph [layout=dot,rankdir=LR]\n# define the global styles of the nodes. We can override these in box if we wish\nnode [shape = rectangle, style = filled,width=1,fontsize=50]\n\noverfit [label=\"Overfitting\", fillcolor=red,fontsize=80]\n\ntrain [label = \"Training Set \", fillcolor = Beige,fontsize=60]\ntest [label = \"Testing Set \n (Backtest overfitting)\", fillcolor = Beige,fontsize=60]\ntrail [label =  \"Report all trails \n number and variance\"]\ngeneral [label = \"Generalisation error \n synthetic dataset\"]\ndsharpe [label= \"Deflated Sharpe Ratio\"]\nresample [label=\"Resampling \n CPCV\"]\nmonte [label=\"Monte Carlo\"]\nensemble [label=\"Ensemble Methods\"]\nreg [label=\"Regularisation\"]\nlasso [label=\"Number of variables \n (LASSO)\"]\nstruc [label=\"Structure \n (early stopping, drop-out)\"]\n\n# edge definitions with the node IDs\noverfit -> {test,train}\ntest -> {trail,general}\ntrail -> dsharpe\ngeneral -> {resample, monte}\ntrain -> {general,ensemble,reg}\nreg -> {lasso,struc}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+]
+
+---
+class: middle
+
+# Training set overfitting
+
+## Problem
+
+- Training set overfitting results from choosing a specification that is so flexible that it explains not only the signal, but also the noise.
+- The results will be a model which is *overconfident* in predicting *incorrectly*
+
+--
+## Solutions
+
+1. Evaluate the **generalisation error**, through resampling techniques and Monte carlo methods
+2. **Regularisation methods** to prevent model complexity unless it is justified in terms of greater explanatory power. 
+  - For example LASSO techniques to reduce parameters or early stopping to restrict the model's structure
+3. **Ensemble techniques** to reduce the variance of the error by combining the forecasts of a collection of estimators.
+
+---
+class: middle
+
+# Test set overfitting
+
+.large[
+- A standard approach in industry is to use historical data to **backtest** an investment strategy identified from the training set
+
+- Researchers who run multiple statistical tests on the same data set are more likely to make a false discovery.
+
+- This selection bias comes from fitting the model to perform well on the test set, not the train set.
+
+- **Test set overfitting** occurs when a researcher backtests a strategy until the output achieves a desired performance.
+
+- The poor performance of a backtest should be a sign to fix the research process, not the investment strategy.
+]
+
+---
+class:middle
+
+# Solutions to test set overfitting
+
+1. Use the familywise error rate (FWER) or the Deflated Sharpe ratio.  - FWER evaluates the probability of at least one of the outcomes of a number of independent backtests is a false positive. The Deflated Sharpe ratio is a statistics that controls for the FWER.
+
+2. Use combinatorial purged cross-validation methods (CPCV), which generate many test sets using resampling combinatorial splits of train and test sets.
+
+3. Use historical series to estimate the underlying data-generating process, and use **Monte Carlo methods** to create *fake*/synethetic samples that match the statistical properties observed in history
+
+---
+class: middle inverse
+
+# Backtests cannot replace a theory
+
+.large[
+
+1. Black tests cannot simulate Black swans- only theories have the breadth and depth needed to consider the never-before-seen occurrences
+
+2. Backtest may insinuate that a strategy is profitable, but they do not tell us why
+]
+
+.bg-hot-pink.b--dark-pink.ba.bw2.br3.shadow-5.ph4.mt5[
+.large[**Backtest are not controlled experiments.**]  
+Only a theory can state the cause-effect mechanism, and formulate a wide range of predictions and implications that can be independently tested for facts and counterfacts
+]
+
+---
+class:middle
+# Schedule
+
+| Topic | Week | Learning | Pre-class reading |
+| :---:|:---:|----------|:-------------:|:--------------:|
+| Why study financial machine learning (FML)? | 1| FML misconceptions, Future of financial research, ML versus Econometrics, FML in industry |Book 1 Chapter 1 (Easley et al., 2020; Wasserstein et al., 2019; Chen, 2020)|
+|Data Denoising and detoning | 2 |Book 1 Chapter 2|  |
+|Distance metrics | 3| Book 1 Chapter 3| |
+| Optimal clustering |4 |Book 1 Chapter 4| |
+| Financial labels | 5|Book 1 Chapter 5| |
+| Explainable machine learning |6 &amp; 7| Book 1 Chapter 6| Apley et al., (2020), Strumbelj and Kononenko (2014)]
+|Testing set overfitting| 8 &amp; 9|Book 1 Chapter 8, Book 2 Chapters 12-15| Prado(2019)
+| Round up and numerai project |10| | | |
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
