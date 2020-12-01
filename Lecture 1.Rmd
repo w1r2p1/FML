@@ -37,8 +37,8 @@ xaringanExtra::use_logo(
 )
 ```
 
-```{r xaringan-panelset, echo=FALSE}
-xaringanExtra::use_panelset()
+```{r xaringanExtra, include = FALSE}
+xaringanExtra::use_xaringan_extra(c("tileview", "webcam","panelset"))
 ```
 
 ---
@@ -50,7 +50,7 @@ background-size: cover
 # Algorithmic Trading and Investing (FIN7030)
 
 
-# .fancy[Lecture 1: Why study Financial Machine Learning]
+# .fancy[Lecture 1: Why study Financial Machine Learning (FML)?]
 
 .large[Barry Quinn PhD CStat | Queen's Management School | `r Sys.Date()`]
 
@@ -73,6 +73,50 @@ Barry Quinn in Home Attic Office
 
 [<img src='img/paper-plane.png' width="25px"\> b.quinn@qub.ac.uk](mailto:b.quinn@qub.ac.uk)
 
+---
+class: left
+# Big Data - Big Compute in Finance
+### Exponential growth in machine readable data to record and communicate activities in the financial system
+
+- IBM has estimated that 90% of the world's data ssets have been created in the last 2 years.
+- [IMB estimate by 2020 there will be 44 zettabytes (44 trillion gigabytes) created, 300 times the amount in 2005](https://www.ibmbigdatahub.com/sites/default/files/infographic_file/4-Vs-of-big-data.jpg?cm_mc_uid=16172304396014932905991&cm_mc_sid_50200000=1494235431&cm_mc_sid_52640000=1494235431).
+
+### Persistent growth in computer power
+
+[<img src='img/2sigma.png' width="80px",align="center"\>](https://www.twosigma.com/) Hedge-fund firm Two Sigma has built a computing sysetem with more than 100 teraflops of power, which is 100 trillion calculations per second
+
+---
+class: middle
+# Big Data - Alternative Data in Finance
+
+- .large[Many of these are new dataset are classed as **alternative**.] 
+- .large[Alternative data typically have the following properties: ]
+
+|Property|Example|Algorithmic Goal|
+|:-------:|:-----:|:---------:|
+|Unstructured, non-numerical and or non-categorical|News articles,Voice recordings, Satellite images| Sentiment Extraction, Commodity supply shocks|
+|High-dimensional|credit card transactions| Fraud|
+|Sparse containing NaNs (not-a-number)|mixed frequency|Economic nowcasting|
+|Implicitly contains imformation about networks of agents in system| Trade order book data|Black Swan event detection|
+
+---
+class: middle, inverse
+# Why study FML?
+- .large[Classical econometrics fails on these datasets]
+
+- .large[Linear algebra methods (eg.OLS) can fail in high dimensional data where there can be more variables than observations.]
+
+- .large[Geometric objects, like covariance matrices, fail to recognise the topological relationships that characterise networks]
+
+- .large[FML offer numerical power and functional flexibility needed to identify complex patterns in high-dimensional space.]
+---
+
+class: left
+# Fintech growth areas in FML
+
+## .saltinline[.fancy[Robo-Advisors]] 
+## .saltinline[.fancy[Fraud detection]] 
+## .saltinline[.fancy[Cryptocurrencies]] 
 
 ---
 class: middle
@@ -159,11 +203,12 @@ class: middle, inverse
 - Given the complexity of modern datasets, whether they are limit order books or high-dimensional financial time series, it is increasingly questionable whether we can posit inference on the basis of a known data generation process.
 - It is a reasonable assertion, even if an economic interpretation of the data generation process can be given, that the exact form cannot be known all the time. 
 - The paradigm that machine learning provides for data analysis therefore is very different from the traditional statistical modeling and testing framework. 
-- Traditional fit metrics, such as R2, t-values, p-values, and the notion of statistical significance, are replaced by out-of-sample forecasting and understanding the bias–variance tradeoff. Machine learning is data-driven and focuses on finding structure in large datasets. 
-- The main tools for variable or predictor selection are regularization and dropout
+- Traditional fit metrics, such as R2, t-values, p-values, and the notion of statistical significance, are replaced by out-of-sample forecasting and understanding the bias–variance tradeoff. 
+- Machine learning is data-driven and focuses on finding structure in large datasets. 
+- The main tools for variable or predictor selection are regularization and dropout.
 
 ---
-class: middle, inverse
+class: middle
 # Exaggerated comparison
 | Property | Statistical Inference | Supervised Machine learning|
 |:---------|:----------------------|:---------------------------|
@@ -177,8 +222,19 @@ class: middle, inverse
 |Diagnostics|Extensive             |Limited|
 
 ---
-name: novice
 class: middle, inverse
+# Modeling paradigms
+---
+class: middle, inverse
+# Financial Econometrics and Machine Learning
+---
+class: middle, inverse
+# Overfitting
+---
+class: middle, inverse
+# Reinforcement learning
+
+- Is placed somewhere between supervised and unsupervised machine learning
 
 # Theory matters for algo investing strategy success
 
