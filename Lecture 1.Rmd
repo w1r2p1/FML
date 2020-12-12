@@ -38,7 +38,7 @@ xaringanExtra::use_logo(
 ```
 
 ```{r xaringanExtra, include = FALSE}
-xaringanExtra::use_xaringan_extra(c("tileview", "webcam","panelset"))
+xaringanExtra::use_xaringan_extra(c("tileview", "webcam","panelset","tachuyon"))
 ```
 
 ---
@@ -110,7 +110,67 @@ class: middle, inverse
 
 - .large[FML offer numerical power and functional flexibility needed to identify complex patterns in high-dimensional space.]
 ---
+class: left
 
+.left-column[
+
+<img src='img/Turtles_all_the_Way_Down.jpeg'/>
+
+]
+
+.right-column[
+## Interaction effects all the way down
+- High-dimensional datasets with many features (predictors) may have complex patterns.
+- For $p$ features there may be up to $2^p-p-1$ interaction effects.
+- Unlike ML algorithms, econometric models do not *learn* the structure of the data.
+- In classical linear regression the model specification may easily miss some interactions, whereas, an ML algorithm, such as a decision tree, will recursively partition a dataset into subsets with simple patterns, which can be fit independently with simple linear specifications.  
+]
+<!-- --- -->
+<!-- class:left -->
+<!-- # Your turn: Interaction excercise -->
+
+<!-- .panelset[ -->
+<!-- .panel[.panel-name[R Code] -->
+
+<!-- ```{r panel-chunk, fig.show='hide'} -->
+<!-- # Load rpart and rpart.plot -->
+<!-- library(rpart) -->
+<!-- library(rpart.plot) -->
+<!-- # Create a decision tree model -->
+<!-- read_csv("data/creditcard.csv")->dat -->
+<!-- tree <- rpart(Class~., data=dat, cp=.01) -->
+
+<!-- ``` -->
+<!-- ] -->
+
+<!-- .panel[.panel-name[Plot] -->
+<!-- ```{r plot_tree, out.height="50%"} -->
+<!-- # Visualize the decision tree with rpart.plot -->
+<!-- rpart.plot(tree, box.palette="RdBu", shadow.col="gray", nn=TRUE) -->
+<!-- ``` -->
+<!-- ] -->
+<!-- .panel[.panel-name[Explain] -->
+
+<!-- - The data is 300,000 credit card transaction, a small proportion of which are fraudulent. -->
+<!-- - The major of the features are annoymised, and it is sourced from kaggle.com -->
+<!-- - The data has 30 features, which equates to how many potential interactions? -->
+<!-- - A naive decision tree is fitted and shows that the final depth is 5, suggesting that there are potentially interactions of order 5 which are useful in predicting fraud. -->
+
+<!-- ] -->
+<!-- ] -->
+---
+class: middle, inverse
+# Empirically Driven Asset Pricing
+- .large[Finance problems that are fundamental about prediction are easily reimagined in the FML paradigm]
+
+- .large[Measurement of an asset's risk premium is fundamentally a prediction problem where the risk premium is the conditional expectation of a future realised excess return.]
+
+.large[.saltinline[.fancy[Gu, Shihao, Bryan Kelly, and Dacheng Xiu. 2020. “Empirical Asset Pricing via Machine Learning.” The Review of Financial Studies, Working Paper Series, , February. https://doi.org/10.1093/rfs/hhaa009.]] ]
+
+- .large[Methods that can reliably attribute excess returns to tradable anomalies are highly prized.]
+
+
+---
 class: left
 # Fintech growth areas in FML
 
@@ -161,6 +221,40 @@ class: middle
 
 `r tufte::quote_footer('---- Irving J. Good, 1965')`
 ]
+
+---
+class:middle
+# Machine Learning and Prediction
+
+### ML covers various classes of algorithms for pattern recognition and decision-making.
+
+|Paradigm|Goal|Examples|
+|:--:|:--:|:--:|
+|Supervised Learning|Using labelled data the goal is to learn the relationship between $X$ and $Y$|Random Forests, Extreme Boosted Trees, Recurrent Neural Networks|
+|Unsupervised Learning|Given a set of unlabelled data the goal is to retrieve exploratory information about, groupings or hidden patterns|Hierarchical clustering, $k$-mean clustering,hidden Markov models, Gaussian mixtures|
+|Reinforcement learning| An algorithmic approach to Bellman optimality of a Markov Decision Process| A form of dynamic programming used for decisions leading to optimal trade execution, portfolio allocation, and liquidation over a given horizon|
+
+---
+```{r, include=FALSE}
+xaringanExtra::use_tachyons()
+```
+
+class:middle
+# Types of supervised learning models
+
+### Discriminative
+- Learnings the decision boundary between the classes
+- Implicitly learns the output conditional on the input
+
+.bg-hot-pink.b--dark-pink.ba.bw2.br3.shadow-5.ph4.mt5[Exanples: Decisions tree, Neural network]
+
+### Generative
+- Explicitly learns the joint distribution of the input and the output
+- Can use Bayes's rule to also extract the conditional distribution
+
+.bg-hot-pink.b--dark-pink.ba.bw2.br3.shadow-5.ph4.mt5[Exanple: Restricted Boltzmann machine (RBM)]
+
+
 
 ---
 name: ninja
@@ -224,9 +318,76 @@ class: middle
 ---
 class: middle, inverse
 # Modeling paradigms
+### Parametric models
+- Parametric assume finite set of parameters and model the response as a function of the input variables and the parameters.
+- They potentially easier to interpret but have limited flexibility, especially in big data with complex patterns.
+
+- .bg-hot-pink.b--dark-pink.ba.bw2.br3.shadow-5.ph4.mt5[Examples: OLS regression, neural networks, hidden Markov models, etc]
+### Non-parametric models
+- They treat the parameter space as infinite dimensional; i.e. they introduce a hidden or latent function.
+- They grow in complexity with more data.
+
+-  .bg-hot-pink.b--dark-pink.ba.bw2.br3.shadow-5.ph4.mt5[Examples: kernel methods, support vector machines, Gaussian processes]
+
+
+---
+class: middle
+# Modeling paradigms
+- Models can also be distinguished into .bg-hot-pink[probabilistic] and .bg-hot-pink[deterministic].
+
+- In finance, a particular niche of probabilistic models is occupied by *state-space models*.
+
+- They assume the existences of a **latent (unobserved)** process, whose **evolution** drives a certain observable process.
+
+- The evolution of the latent process and the dependence of the observable process on the latent process are usually given in stochastic, or probabilistic terms.
+
+- Confusingly, deterministic models may produce probabilistic outputs, for example a logistic regression gives the probability that the response is positive given the input variables.
+
+- The choice between probabilistic and deterministic falls under the general and more devisive topic of :
+.bg-hot-pink.b--dark-pink.ba.bw2.br3.shadow-5.ph4.mt5.center[Bayesian versus Frequentist]
+
 ---
 class: middle, inverse
 # Financial Econometrics and Machine Learning
+- Machine learning generalises parametric models in financial econometrics.
+
+```{r, echo=FALSE}
+library(DiagrammeR)
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 20]
+
+  # several 'node' statements
+  node [shape = box,fontsize = 9,fillcolor=yellow]
+  Generative_Models; Discrimative_Models
+  
+  node [shape=box,fontsize=8,fillcolor=yellow]
+  Pattern_Detection;TimeSeries_Pattern_Detection;Dynamic_State_Space_Models;Latent_Factor_Models;Smoothing_Filtering;Factorisation_Models
+  
+  node [shape=box,fontsize=8,fillcolor=green]
+  Stationary;Nonstationary
+  
+  node [shape=box,fontsize=7,fillcolor=green]
+  Homoschedastic;Heteroskedastic
+  
+  node [shape = egg,fontsize=6] // Econometric models
+  Bayesian_regression;Naive_Bayes;Kalman_Filter;Particle_Filter; HMMs; Mixture_Models; ARIMA; GARCH;ExpSmoothing;PCA
+  
+    node [shape = egg,fontsize=6] // Machine Learning Models
+  Bayesian_NNs;GPs;RNNs;GRNNs;LTSMsGRUs;CNNs;LTSM_CNNs;Autoencoders
+
+ # several 'edge' statements
+  Generative_Models->{Pattern_Detection;Dynamic_State_Space_Models;Latent_Factor_Models}
+  Pattern_Detection->{Bayesian_regression;Naive_BayesBayesian_NNs;GPs}
+
+}
+")
+```
+
+
+
 ---
 class: middle, inverse
 # Overfitting
@@ -255,10 +416,6 @@ class: middle, inverse
 ---
 class: middle
 # ML Helps discover theories
-
-```{r xaringan-tachyons, echo=FALSE}
-xaringanExtra::use_tachyons()
-```
 
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
