@@ -277,6 +277,10 @@ class: middle
  - Is a branch of ML which has been the media darling of AI industry expansion
  - At its core it is using neural networks; algorithms inspired by the structure of the human brain.
  - Statisticians are less impressed, and prefer to categorise these models as semi-parametric to non-parametric.
+<<<<<<< HEAD
+ - Opposite is a useful mental image to understand what deep learning is.
+=======
+>>>>>>> 487bc2730c67c76c0a00438b0f69a85b90c65226
 
 ---
 name: statistics

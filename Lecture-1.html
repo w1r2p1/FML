@@ -74,7 +74,11 @@ background-size: cover
 
 # .fancy[Lecture 1: Why study Financial Machine Learning (FML)?]
 
+<<<<<<< HEAD
+.large[Barry Quinn PhD CStat | Queen's Management School | 2020-12-17]
+=======
 .large[Barry Quinn PhD CStat | Queen's Management School | 2020-12-11]
+>>>>>>> 487bc2730c67c76c0a00438b0f69a85b90c65226
 
 &lt;!-- this ends up being the title slide since seal = FALSE--&gt;
 
@@ -297,6 +301,10 @@ class: middle
  - Is a branch of ML which has been the media darling of AI industry expansion
  - At its core it is using neural networks; algorithms inspired by the structure of the human brain.
  - Statisticians are less impressed, and prefer to categorise these models as semi-parametric to non-parametric.
+<<<<<<< HEAD
+ - Opposite is a useful mental image to understand what deep learning is.
+=======
+>>>>>>> 487bc2730c67c76c0a00438b0f69a85b90c65226
 
 ---
 name: statistics
@@ -371,8 +379,13 @@ class: middle, inverse
 # Financial Econometrics and Machine Learning
 - Machine learning generalises parametric models in financial econometrics.
 
+<<<<<<< HEAD
+<div id="htmlwidget-c271e08c5471311516d0" style="width:504px;height:504px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c271e08c5471311516d0">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 20]\n\n  # several \"node\" statements\n  node [shape = box,fontsize = 9,fillcolor=yellow]\n  Generative_Models; Discrimative_Models\n  \n  node [shape=box,fontsize=8,fillcolor=yellow]\n  Pattern_Detection;TimeSeries_Pattern_Detection;Dynamic_State_Space_Models;Latent_Factor_Models;Smoothing_Filtering;Factorisation_Models\n  \n  node [shape=box,fontsize=8,fillcolor=green]\n  Stationary;Nonstationary\n  \n  node [shape=box,fontsize=7,fillcolor=green]\n  Homoschedastic;Heteroskedastic\n  \n  node [shape = egg,fontsize=6] // Econometric models\n  Bayesian_regression;Naive_Bayes;Kalman_Filter;Particle_Filter; HMMs; Mixture_Models; ARIMA; GARCH;ExpSmoothing;PCA\n  \n    node [shape = egg,fontsize=6] // Machine Learning Models\n  Bayesian_NNs;GPs;RNNs;GRNNs;LTSMsGRUs;CNNs;LTSM_CNNs;Autoencoders\n\n # several \"edge\" statements\n  Generative_Models->{Pattern_Detection;Dynamic_State_Space_Models;Latent_Factor_Models}\n  Pattern_Detection->{Bayesian_regression;Naive_BayesBayesian_NNs;GPs}\n\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+=======
 <div id="htmlwidget-77b6ec22394df49cf3f6" style="width:504px;height:504px;" class="grViz html-widget"></div>
 <script type="application/json" data-for="htmlwidget-77b6ec22394df49cf3f6">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 20]\n\n  # several \"node\" statements\n  node [shape = box,fontsize = 9,fillcolor=yellow]\n  Generative_Models; Discrimative_Models\n  \n  node [shape=box,fontsize=8,fillcolor=yellow]\n  Pattern_Detection;TimeSeries_Pattern_Detection;Dynamic_State_Space_Models;Latent_Factor_Models;Smoothing_Filtering;Factorisation_Models\n  \n  node [shape=box,fontsize=8,fillcolor=green]\n  Stationary;Nonstationary\n  \n  node [shape=box,fontsize=7,fillcolor=green]\n  Homoschedastic;Heteroskedastic\n  \n  node [shape = egg,fontsize=6] // Econometric models\n  Bayesian_regression;Naive_Bayes;Kalman_Filter;Particle_Filter; HMMs; Mixture_Models; ARIMA; GARCH;ExpSmoothing;PCA\n  \n    node [shape = egg,fontsize=6] // Machine Learning Models\n  Bayesian_NNs;GPs;RNNs;GRNNs;LTSMsGRUs;CNNs;LTSM_CNNs;Autoencoders\n\n # several \"edge\" statements\n  Generative_Models->{Pattern_Detection;Dynamic_State_Space_Models;Latent_Factor_Models}\n  Pattern_Detection->{Bayesian_regression;Naive_BayesBayesian_NNs;GPs}\n\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+>>>>>>> 487bc2730c67c76c0a00438b0f69a85b90c65226
 
 
 
@@ -451,8 +464,13 @@ class: right, center
 ]
 .right-column[
 
+<<<<<<< HEAD
+<div id="htmlwidget-588c9cd1c6a5ecf86e0b" style="width:100%;height:100%;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-588c9cd1c6a5ecf86e0b">{"x":{"diagram":"digraph boxes_and_circles {\ngraph [layout=dot,rankdir=LR]\n# define the global styles of the nodes. We can override these in box if we wish\nnode [shape = rectangle, style = filled,width=1,fontsize=50]\n\noverfit [label=\"Overfitting\", fillcolor=red,fontsize=80]\n\ntrain [label = \"Training Set \", fillcolor = Beige,fontsize=60]\ntest [label = \"Testing Set \n (Backtest overfitting)\", fillcolor = Beige,fontsize=60]\ntrail [label =  \"Report all trails \n number and variance\"]\ngeneral [label = \"Generalisation error \n synthetic dataset\"]\ndsharpe [label= \"Deflated Sharpe Ratio\"]\nresample [label=\"Resampling \n CPCV\"]\nmonte [label=\"Monte Carlo\"]\nensemble [label=\"Ensemble Methods\"]\nreg [label=\"Regularisation\"]\nlasso [label=\"Number of variables \n (LASSO)\"]\nstruc [label=\"Structure \n (early stopping, drop-out)\"]\n\n# edge definitions with the node IDs\noverfit -> {test,train}\ntest -> {trail,general}\ntrail -> dsharpe\ngeneral -> {resample, monte}\ntrain -> {general,ensemble,reg}\nreg -> {lasso,struc}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+=======
 <div id="htmlwidget-0ef2b3cc35b8eb943a48" style="width:100%;height:100%;" class="grViz html-widget"></div>
 <script type="application/json" data-for="htmlwidget-0ef2b3cc35b8eb943a48">{"x":{"diagram":"digraph boxes_and_circles {\ngraph [layout=dot,rankdir=LR]\n# define the global styles of the nodes. We can override these in box if we wish\nnode [shape = rectangle, style = filled,width=1,fontsize=50]\n\noverfit [label=\"Overfitting\", fillcolor=red,fontsize=80]\n\ntrain [label = \"Training Set \", fillcolor = Beige,fontsize=60]\ntest [label = \"Testing Set \n (Backtest overfitting)\", fillcolor = Beige,fontsize=60]\ntrail [label =  \"Report all trails \n number and variance\"]\ngeneral [label = \"Generalisation error \n synthetic dataset\"]\ndsharpe [label= \"Deflated Sharpe Ratio\"]\nresample [label=\"Resampling \n CPCV\"]\nmonte [label=\"Monte Carlo\"]\nensemble [label=\"Ensemble Methods\"]\nreg [label=\"Regularisation\"]\nlasso [label=\"Number of variables \n (LASSO)\"]\nstruc [label=\"Structure \n (early stopping, drop-out)\"]\n\n# edge definitions with the node IDs\noverfit -> {test,train}\ntest -> {trail,general}\ntrail -> dsharpe\ngeneral -> {resample, monte}\ntrain -> {general,ensemble,reg}\nreg -> {lasso,struc}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+>>>>>>> 487bc2730c67c76c0a00438b0f69a85b90c65226
 ]
 
 ---

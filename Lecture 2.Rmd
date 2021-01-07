@@ -1,0 +1,135 @@
+---
+title: "Algorithmic trading and investment"
+subtitle: "FIN7030"
+author: "Barry Quinn"
+date: "2019/01/15 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: ["default", "css/sfah.css", "css/fonts.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      beforeInit: "https://platform.twitter.com/widgets.js"
+    seal: false 
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+# options(knitr.table.format = "html")
+library(tidyverse)
+library(babynames)
+library(fontawesome) 
+library(DiagrammeR)
+```
+
+layout: true
+  
+<div class="my-footer"><span>quinference.com</span></div>
+
+```{r xaringan-logo, echo=FALSE}
+xaringanExtra::use_logo(
+  image_url = "img/redlogo.png"
+)
+```
+
+```{r xaringanExtra, include = FALSE}
+xaringanExtra::use_xaringan_extra(c("tileview", "webcam","panelset","tachuyon"))
+```
+
+---
+name: ATL-title
+class: inverse,left, middle
+background-image: url(img/markus-spiske-466ENaLuhLY-unsplash.png)
+background-size: cover
+
+# Algorithmic Trading and Investing (FIN7030)
+
+
+# .fancy[Lecture 2: Denoising and detoning]
+
+.large[Barry Quinn PhD CStat | Queen's Management School | `r Sys.Date()`]
+
+<!-- this ends up being the title slide since seal = FALSE-->
+
+---
+class:inverse
+# Outline 
+
+- .large[Introduction to cloud computing]
+- .large[Rstudio, Rmarkdown and reproducibility]
+- .large[Integrated Python in R workflow]
+- .large[Denoising and detoning financial covariance matrices]
+- .large[Marcenko-Pastur Theorem]
+- .large.fancy[Breathing breaks to aid learning]
+---
+class: left
+
+## Cloud computing with R and Python
+
+- This course will expose you to the flexibility of cloud computing and combining R and Python.
+- The School has a high performance compute virtual machine, set-up in Microsoft Azure.
+- Financial institutions have a long history of heavily investing in technology for gaining market share and defending their current position.
+- The democratisation of computing processing power by cloud providers, has lead to an explosion in financial machine learning applications.
+- Today technology that would have costed millions 20 years ago can be rented for thousand from these cloud providers
+
+>Meriwther spent $20 million on a state-of-the-art computer system and hired a crack team of financial engineers to run the show at LTCM..... 
+`r tufte::quote_footer('---- Scott Patterson, The Quants, 2010')`
+
+---
+class:middle
+
+## Your Set Up in the Cloud
+
+- Go to http://qms.uksouth.cloudapp.azure.com:8787 on web browser.
+- login using your student number as both the username and password
+- Click on new session.
+- You should now see something like this:
+
+<img src="img/rstudio_server.png", height="400px"/>
+
+---
+class: inverse
+
+## Teaching mathematical concepts through code
+
+- Understanding machine learning requires familiarity with many simple mathematical concepts
+- **Some examples**
+- The goal of this course is to build your intuition about these notions without getting overly technical
+- In particular I will steer away from mathematical notation, which can be off-putting for those without any mathematics background and isn't strictly necessary to explain things well.
+- Mostly, we will use coded practical example to illustrate the concepts
+- This is a .large.fancy[**learning by doing**] approach when you can play around with the code yourself you understand underlying concepts.
+
+---
+---
+class: middle
+# Why study denoising and detoning?
+
+
+- .large[Covariance matrices are everywhere in finance.]
+- .large[Empirical covariances measure the linear co-movement between a set of random variables]  
+- .large[For example to estimate the linear comovement between FTSE 100 stocks you would gather 100 time series of each stocks returns]
+- .large[They are used to:]
+
+1. Run regressions
+2. Estimate risk
+3. Optimise portfolios
+4. Simulate scenarios via Monte Carlo
+5. Find clusters
+6. Reduce the dimensionality of a set of potential predictors
+
+---
+class: middle 
+# Why study denoising and detoning?
+
+- .large[Empirical covariance matrices are estimated with flawed, incomplete data which leads to estimates with an amount of noise]
+
+- .large[Such noise can render calculations using covariance matrix estimates useless]
+
+ .large[ In finance, we need a procedure to reduce this noise and enhance the signal **before** using in subsequent analysis like those listed previously]
+
+
