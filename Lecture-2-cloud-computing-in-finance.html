@@ -9,6 +9,17 @@
     <script src="libs/panelset/panelset.js"></script>
     <script src="libs/xaringanExtra-webcam/webcam.js"></script>
     <script id="xaringanExtra-webcam-options" type="application/json">{"width":"200","height":"200","margin":"1em"}</script>
+    <script src="libs/htmlwidgets/htmlwidgets.js"></script>
+    <link href="libs/vis/vis.min.css" rel="stylesheet" />
+    <script src="libs/vis/vis.min.js"></script>
+    <link href="libs/timeline/timevis.css" rel="stylesheet" />
+    <script src="libs/timevis-binding/timevis.js"></script>
+    <script src="libs/jquery/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/bootstrap/shim/html5shiv.min.js"></script>
+    <script src="libs/bootstrap/shim/respond.min.js"></script>
     <link rel="stylesheet" href="css/sfah.css" type="text/css" />
     <link rel="stylesheet" href="css/fonts.css" type="text/css" />
   </head>
@@ -69,7 +80,7 @@ background-size: cover
 
 # .fancy[Lecture 2: High performance cloud computing in finance]
 
-.large[Barry Quinn PhD CStat | Queen's Management School | 2021-01-07]
+.large[Barry Quinn PhD CStat | Queen's Management School | 2021-01-08]
 
 &lt;!-- this ends up being the title slide since seal = FALSE--&gt;
 
@@ -77,18 +88,113 @@ background-size: cover
 class:inverse
 # Outline 
 
-- .large[What is cloud computing?]
-- .large[Taxonomy of parallel computing]
-- .large[Financial applications of cloud computing]
-- .large[Challenges]
-- .large[Introduction to cloud based integration of R and Python]
-- .large.fancy[Re-energising 30 second breathing breaks]
+- .salt[What is cloud computing?]
+- .fat[Your Turn: Introduction to the QMS_HPCC]
+- .salt[Taxonomy of parallel computing]
+- .fat[Your turn: parallelising in R]
+- .salt[Financial applications in the cloud]
+- .salt[Economics of the cloud computing]
+- .salt[Some case studies]
 ---
-
 class: middle
 # What is cloud computing ?
+- .heat[Cloud computing shares many of the similarities of electricity]
 
-- .heat[Cloud computing share many of the similarities of electricity]
+.center.large[In the early days of electrical power, corporations and factories where powered by on-site small-scale power plants. Today, large scale power plants with efficient transmission networks have powered modern industrial society, allowing electricity to be at everyone's disposal ar reasonable prices]
+
+- .heat[Much like electricity the core concept of cloud computing is resource sharing]
+---
+class: top
+# What is cloud computing ?
+
+.fat[definitions:]
+
+&gt;A model for enabling ubiquitious, convenient, on-demand network access to a shared pool of configurable computing resources (e.g., networks, servers, storage, applications, and services) that can be rapidly provisioned and released with minimal management effort or server provider interaction
+
+&lt;footer&gt;National Institute of Standards and Technology(NIST) of the US Department of Commerce, 2019&lt;/footer&gt;
+
+&gt;Simply put, cloud computing is the delivery of computing services – including servers, storage, databases, networking, software, analytics and intelligence – over the Internet (**"the cloud"**) to offer faster innovation, flexible resources and economies of scale. Typically, you only pay for cloud services you use, helping you lower your operating costs, run your infrastructure more efficiently and scale as your business needs change.
+
+&lt;footer&gt;Beginners guide to cloud computing, Microsoft Azure, 2020&lt;/footer&gt;
+
+---
+class:top
+## Essential characteristics of cloud computing solutions
+.heatinline[The follow distinguish cloud computing from other solutions, such as on-site high performance computing servers]
+
+- .large.fancy[On-demand self-service] 
+  - A consumer can provision computing capacity as needed without interaction with service provider.
+- .large.fancy[Broad network access]
+  - Computing resources are available to the consumer through the network and can  be accessed fro mobile phones, tablets, laptops, and workstations.
+- .large.fancy[Resource pooling]
+  - Resources are dynamically assigned to customers' needs.
+- .large.fancy[Rapid elasticity]
+  - Capacities can be reconfigured automatically to scale rapidly in response to the changing demand.
+- .large.fancy[Measured service]
+  - The resource utilisation is automatically controlled and optimised by the cloud systems.  The usage is monitored, measured, and reported.
+
+---
+class: middle
+## Why high performance computing and why now?
+.salt[Regulatory response to the flash crash of 2010]
+&gt; On the 6th May, 2010 at 2.45 p.m.(EST), the US stock market experienced a nearly 10% drop in the Dow Jones Industrial Average, only to recover most of ther loss a few minutes later
+
+.saltinline[It took the regulatory agencies (SEC) five months to come up with an investigation report on this crash]
+
+.heatinline[In the congressional hearings after the event, the SEC official give the primary reason for the long delay as the volumne of data to be investigated (~20 terabytes)]
+
+.heatinline[HPC scientific computing systems such as the National Research Scientific Computing center(NERSC). routinely work with hundreds of terrabytes in minutes]
+
+.heatinline[After the congressional hearing Lawrence Berkley National Laboratory (LNBL) established the Computational Intelligence and Forecasting Technologies (CIFT) project to promote HPC tools and techniques for analysing of financial times series data]
+---
+class:top
+# Financial engineering evolutions and cloud computing
+
+```r
+library(timevis)
+library(timevis)
+
+data &lt;- data.frame(
+  id      = 1:4,
+  content = c("Black-Scholes-Merton Options pricing model", 
+              "Stochastic modelling of volatility"  ,
+              "Jump diffusion models", "Basel III"),
+  start   = c("1973", "1993", "2000","2013"),
+  end     = c(NA,NA,NA,NA)
+)
+
+timevis(data)
+```
+
+<div id="htmlwidget-adbad8133686ad301f0e" class="timevis html-widget" style="width:504px;height:504px;">
+<div class="btn-group zoom-menu">
+<button type="button" class="btn btn-default btn-lg zoom-in" title="Zoom in">+</button>
+<button type="button" class="btn btn-default btn-lg zoom-out" title="Zoom out">-</button>
+</div>
+</div>
+<script type="application/json" data-for="htmlwidget-adbad8133686ad301f0e">{"x":{"items":[{"id":"1","content":"Black-Scholes-Merton Options pricing model","start":"1973"},{"id":"2","content":"Stochastic modelling of volatility","start":"1993"},{"id":"3","content":"Jump diffusion models","start":"2000"},{"id":"4","content":"Basel III","start":"2013"}],"groups":null,"showZoom":true,"zoomFactor":0.5,"fit":true,"options":[],"height":null,"timezone":null,"api":[]},"evals":[],"jsHooks":[]}</script>
+
+
+---
+
+---
+class: middle,center
+# Queens Management School High Performance Cloud Computing
+---
+class:middle
+# Taxonomy of parallel computing
+---
+class:top,center
+# Parallelising in R
+---
+class:top,center
+#Financial application in cloud computing
+---
+class:top,center
+# Economics of cloud computing
+---
+class:middle
+# Some case studies
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
