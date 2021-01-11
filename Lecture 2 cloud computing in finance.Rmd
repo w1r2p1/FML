@@ -120,30 +120,75 @@ class: middle
 .heatinline[After the congressional hearing Lawrence Berkley National Laboratory (LNBL) established the Computational Intelligence and Forecasting Technologies (CIFT) project to promote HPC tools and techniques for analysing of financial times series data]
 ---
 class:top
-# Evolution of financial engineering and cloud computing
+.large.center[Evolution of financial problem complexity and cloud computing]
 
-```{r evolve, echo=FALSE}
+```{r cloud_timeline, echo=FALSE,out.width="100%",out.height="50%"}
 library(timevis)
-timevis() %>%
-  setItems(data.frame(
-  id      = 1:4,
-  content = c("Black-Scholes-Merton <br> options pricing model", 
-              "Stochastic modelling <br> of volatility"  ,
-              "Jump diffusion models", "Basel III"),
-  start   = c("1973", "1993","2000","2013"))) %>%
-  setOptions(list(editable = TRUE)) %>%
-  # addItem(list(id = 3, content = "three", start = "2016-01-11")) %>%
-  fitWindow(list(animation = FALSE))
+library(htmltools)
+c("Black-Scholes-Merton<br>options pricing model", 
+              "Stochastic modelling<br>of volatility"  ,
+              "Jump diffusion models",
+              "Flash Crash",
+              "Basel III",
+              "Rebentrost et al.2018<br> propose a quantum computational<br> algo to price derivatives",
+              "CME Smart Stream launched:<br> First derivatives exchange<br>to offer real-time cloud-based market data",
+              "Late Professor JohnMcCarthy (MIT) suggested<br>computing would be sold as a utility",
+              "IBM virtualised <br> operating systems",
+              "APRANET <br> launched",
+              "Nearly 100,000 computers connected to the internet",
+              "World Wide Web launched; 1 million<br>computers connected to the Internet",
+              "Compaq Computer Corp.introduce an<br>'An Internet Divisions Strategy for Cloud Computing'",
+              "Amazon Web Services (AWS) launch public Cloud",
+              "OpenNebula research project launched; 'Big data'starts to become popular",
+              "Amazon launch Elastic Compute Cloud (EC2)",
+              "Dropbox founded; Cloud storage becomes a service",
+              "Microsoft launch Azure",
+              "DigitalOcean launched; third largest cloud computing company (2020)",
+              "Real-time streaming data processed on AWS",
+              "Machine learning services on the Cloud",
+              "Microsoft launches under the sea data-centre",
+              "Google Tensor Processing Units (TPUs) avaliable on the Cloud")-> content
+start   = c("1973","1993","2000","2010","2013","2018","2019","1961","1967","1969","1988","1991","1996","2002","2005","2006","2007","2010","2012","2013","2015","2018","2019")
+
+timevis(data.frame(
+  start=start,
+  content =content ,
+  group=c(rep(1,7),rep(2,length(content)-7)),
+  style=c(rep("font-size: 0.5em; color: blue;",7),rep("font-size: 0.5em; color: red;",length(content)-7))),
+  groups = data.frame(id = 1:2, content = c("Finance<Br> Computational<br>Milestones","Cloud<br>Computing<br>Milestones")),
+  fit=TRUE)->tv
 
 
+style = ".vis-timeline { 
+border-color: #269026;
+  background-color: lightblue;
+  font-size: 12px;}
+.vis-item {
+  border: 2px solid #5ace5a;
+  font-size: 10pt;
+  background: #d9ffd9;
+  font-family: lucinda console;
+  padding: 2px;}"
+
+tv <- tagList(tags$style(style), tv)
+tv
 ```
-
-
 ---
 
 ---
-class: middle,center
-# Queens Management School High Performance Cloud Computing
+class: middle
+## QMS High-Performance Cloud Computing
+- In this course we will be using a cloud-based Linux machine running [RStudio Server Pro](https://rstudio.com/products/rstudio-server-pro/)
+>Rstudio Server Pro us the preferred data analysis and integrated development experience for professional R users and data science teams who use R and Python. `r tufte::quote_footer("RStudio Team, 2020")`
+
+- This machine is hosted on Microsoft Azure running a Linux (ubuntu 18.04) operating system with 64 vCPUs and 256 GiB of RAM.
+- Student accounts will have approximately 1 vCPU and 4 GiB RAM.
+- http://qms.uksouth.cloudapp.azure.com:8787/
+
+---
+class:middle
+# Accessing the server
+Login:
 ---
 class:middle
 # Taxonomy of parallel computing
