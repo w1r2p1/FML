@@ -8,9 +8,10 @@ output:
     css: ["default", "css/sfah.css", "css/fonts.css"]
     lib_dir: libs
     nature:
+      countdown: 120000
       highlightStyle: github
       highlightLines: true
-      countIncrementalSlides: false
+      countIncrementalSlides: true
       ratio: "16:9"
       beforeInit: "https://platform.twitter.com/widgets.js"
     seal: false 
@@ -63,7 +64,7 @@ class:inverse
 - .salt[What is cloud computing?]
 - .fat[Your Turn: Introduction to the QMS_HPCC]
 - .salt[Taxonomy of parallel computing]
-- .fat[Your turn: parallelising in R]
+- .fat[Performance computing in Python]
 - .salt[Financial applications in the cloud]
 - .salt[Economics of the cloud computing]
 - .salt[Some case studies]
@@ -349,26 +350,51 @@ class:middle
 ]
 ---
 class:middle
-# Integrating Python and R
----
-class:top
-# Parallelising in RStudio
+## Business reporting in `r fa('r-project')` for the `r fa(name = "user-ninja")` user
 .pull-left[
-```{python}
-def gen_paths(S0, r, sigma, T, M, I):
-    dt = float(T) / M
-    paths = np.zeros((M + 1, I), np.float64)
-    paths[0] = S0
-    for t in range(1, M + 1):
-        rand = np.random.standard_normal(I)
-        paths[t] = paths[t - 1] * np.exp((r - 0.5 * sigma ** 2) * dt +
-                                         sigma * np.sqrt(dt) * rand)
-    return paths
+
+###<img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rmarkdown.png" width="10%" style="float:left"/>&nbsp; R Markdown can be used to create: 
+
+- Reports (HTML, PDF, Word)
+- Slide Decks (HTML, PowerPoint)
+- Web Apps
+- Web Pages
+- Books
+- It is part of the `tidyverse` package
+
+![](https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/9791d/images/rmarkdownflow.png)
+]
+.pull-right[ 
+### Your turn
+- Go to server, login in and create new session
+- Create a `RMarkdown` file by *File > New File > R Markdown*
+
+<img src="img/qms_rstudio_rmarkdown.png" alt="rmarkdown",height="100"/>
+]
+
+---
+class:middle
+# Integrating `r fa('python')` and`r fa('r-project')`
+### Setup R's Python interface
+- In your `Rmd` file, insert a `R code chunk` by clicking Insert and selecting R 
+- `r fa('windows')` **Ctrl+Shift+i**
+- `r fa('apple')` **Cmd+Shift+i**
+
+```{r}
+library(reticulate)
+help(reticulate)
 ```
-]
-.pull-right[
-- The code implements
-]
+- Can you insert a `python` code chunk and tell it to print "Hello World"?
+--
+
+```{python}
+print("Hello World")
+````
+
+---
+class:middle
+# Improving performance in python 
+
 ---
 class:top,center
 #Financial application in cloud computing

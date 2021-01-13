@@ -83,7 +83,7 @@ background-size: cover
 
 # .fancy[Lecture 2: High performance cloud computing in finance]
 
-.large[Barry Quinn PhD CStat | Queen's Management School | 2021-01-12]
+.large[Barry Quinn PhD CStat | Queen's Management School | 2021-01-13]
 
 &lt;!-- this ends up being the title slide since seal = FALSE--&gt;
 
@@ -94,7 +94,7 @@ class:inverse
 - .salt[What is cloud computing?]
 - .fat[Your Turn: Introduction to the QMS_HPCC]
 - .salt[Taxonomy of parallel computing]
-- .fat[Your turn: parallelising in R]
+- .fat[Performance computing in Python]
 - .salt[Financial applications in the cloud]
 - .salt[Economics of the cloud computing]
 - .salt[Some case studies]
@@ -163,13 +163,13 @@ border-color: #269026;
   background: #d9ffd9;
   font-family: lucinda console;
   padding: 2px;}</style>
-<div id="htmlwidget-5ccf4979616f8716bd6f" class="timevis html-widget" style="width:960px;height:500px;">
+<div id="htmlwidget-f54e9796721f7dd4066a" class="timevis html-widget" style="width:960px;height:500px;">
 <div class="btn-group zoom-menu">
 <button type="button" class="btn btn-default btn-lg zoom-in" title="Zoom in">+</button>
 <button type="button" class="btn btn-default btn-lg zoom-out" title="Zoom out">-</button>
 </div>
 </div>
-<script type="application/json" data-for="htmlwidget-5ccf4979616f8716bd6f">{"x":{"items":[{"start":"1973","content":"Black-Scholes-Merton<br>options pricing model","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"1993","content":"Stochastic modelling<br>of volatility","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2000","content":"Jump diffusion models","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2010","content":"Flash Crash","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2013","content":"Basel III","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2018","content":"Rebentrost et al.2018<br> propose a quantum computational<br> algo to price derivatives","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2019","content":"CME Smart Stream launched:<br> First derivatives exchange<br>to offer real-time cloud-based market data","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"1961","content":"Late Professor JohnMcCarthy (MIT) suggested<br>computing would be sold as a utility","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1967","content":"IBM virtualised <br> operating systems","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1969","content":"APRANET <br> launched","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1988","content":"Nearly 100,000 computers connected to the internet","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1991","content":"World Wide Web launched; 1 million<br>computers connected to the Internet","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1996","content":"Compaq Computer Corp.introduce an<br>'An Internet Divisions Strategy for Cloud Computing'","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2002","content":"Amazon Web Services (AWS) launch public Cloud","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2005","content":"OpenNebula research project launched; 'Big data'starts to become popular","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2006","content":"Amazon launch Elastic Compute Cloud (EC2)","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2007","content":"Dropbox founded; Cloud storage becomes a service","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2010","content":"Microsoft launch Azure","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2012","content":"DigitalOcean launched; third largest cloud computing company (2020)","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2013","content":"Real-time streaming data processed on AWS","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2015","content":"Machine learning services on the Cloud","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2018","content":"Microsoft launches under the sea data-centre","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2019","content":"Google Tensor Processing Units (TPUs) avaliable on the Cloud","group":"2","style":"font-size: 0.5em; color: red;"}],"groups":[{"id":"1","content":"Finance<Br> Computational<br>Milestones"},{"id":"2","content":"Cloud<br>Computing<br>Milestones"}],"showZoom":true,"zoomFactor":0.5,"fit":true,"options":[],"height":null,"timezone":null,"api":[]},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-f54e9796721f7dd4066a">{"x":{"items":[{"start":"1973","content":"Black-Scholes-Merton<br>options pricing model","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"1993","content":"Stochastic modelling<br>of volatility","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2000","content":"Jump diffusion models","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2010","content":"Flash Crash","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2013","content":"Basel III","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2018","content":"Rebentrost et al.2018<br> propose a quantum computational<br> algo to price derivatives","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2019","content":"CME Smart Stream launched:<br> First derivatives exchange<br>to offer real-time cloud-based market data","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"1961","content":"Late Professor JohnMcCarthy (MIT) suggested<br>computing would be sold as a utility","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1967","content":"IBM virtualised <br> operating systems","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1969","content":"APRANET <br> launched","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1988","content":"Nearly 100,000 computers connected to the internet","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1991","content":"World Wide Web launched; 1 million<br>computers connected to the Internet","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1996","content":"Compaq Computer Corp.introduce an<br>'An Internet Divisions Strategy for Cloud Computing'","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2002","content":"Amazon Web Services (AWS) launch public Cloud","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2005","content":"OpenNebula research project launched; 'Big data'starts to become popular","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2006","content":"Amazon launch Elastic Compute Cloud (EC2)","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2007","content":"Dropbox founded; Cloud storage becomes a service","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2010","content":"Microsoft launch Azure","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2012","content":"DigitalOcean launched; third largest cloud computing company (2020)","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2013","content":"Real-time streaming data processed on AWS","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2015","content":"Machine learning services on the Cloud","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2018","content":"Microsoft launches under the sea data-centre","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2019","content":"Google Tensor Processing Units (TPUs) avaliable on the Cloud","group":"2","style":"font-size: 0.5em; color: red;"}],"groups":[{"id":"1","content":"Finance<Br> Computational<br>Milestones"},{"id":"2","content":"Cloud<br>Computing<br>Milestones"}],"showZoom":true,"zoomFactor":0.5,"fit":true,"options":[],"height":null,"timezone":null,"api":[]},"evals":[],"jsHooks":[]}</script>
 ---
 
 ---
@@ -211,12 +211,12 @@ class:middle
 .pull-left.acid[Parallel computing problems in contrast to serial computing problems, refer to the type of problem that can be divided into small Jobs which can be processed simultaneously ]
 .pull-right[
 **embarrassingly parallel computing**:
-<div id="htmlwidget-3c5ebe92c6ec116b5ae2" style="width:504px;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-3c5ebe92c6ec116b5ae2">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-45ffb538a72e7a8b9eaf" style="width:504px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-45ffb538a72e7a8b9eaf">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 **nonembarrassingly parallel computing**:
-<div id="htmlwidget-895c4ed0233df7d52de8" style="width:504px;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-895c4ed0233df7d52de8">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\nJob1->Job2[dir=\"both\",label=\"Information\",style=\"dashed\"]\nJob2->Job3[dir=\"both\",label=\"Information\",style=\"dashed\"]\n{rank=same; Job1;Job2;Job3}\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-1f03c3f82ecad3c4506a" style="width:504px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1f03c3f82ecad3c4506a">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\nJob1->Job2[dir=\"both\",label=\"Information\",style=\"dashed\"]\nJob2->Job3[dir=\"both\",label=\"Information\",style=\"dashed\"]\n{rank=same; Job1;Job2;Job3}\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ]
 ---
 class:top
@@ -226,12 +226,12 @@ class:top
 .pull-left[
 
 #### Figure 1: embarrassingly parallel computing
-<div id="htmlwidget-ee4597a14ad166730806" style="width:504px;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ee4597a14ad166730806">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-12cf4312e4915c95624e" style="width:504px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-12cf4312e4915c95624e">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 #### Figure 2: snonembarrassingly parallel computing
-<div id="htmlwidget-0ba7063067021a309455" style="width:504px;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-0ba7063067021a309455">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\nJob1->Job2[dir=\"both\",label=\"Information\",style=\"dashed\"]\nJob2->Job3[dir=\"both\",label=\"Information\",style=\"dashed\"]\n{rank=same; Job1;Job2;Job3}\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-2b51b3579d1b765b2179" style="width:504px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2b51b3579d1b765b2179">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\nJob1->Job2[dir=\"both\",label=\"Information\",style=\"dashed\"]\nJob2->Job3[dir=\"both\",label=\"Information\",style=\"dashed\"]\n{rank=same; Job1;Job2;Job3}\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ]
 .pull-right[
 -  Based on the dependence structure of sub-Jobs problems parallel computing problems can be further classified into *embarrassingly parallel* and  *non embarrassingly parallel*
@@ -249,8 +249,8 @@ class:middle
 class:middle,left
 # The serial-parallel scale
 .left-column[
-<div id="htmlwidget-05135ff7e40dc9e3cbba" style="width:504px;height:400px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-05135ff7e40dc9e3cbba">{"x":{"diagram":"\ndigraph  {\ngraph [label=\"Figure 1: Inherently serial\"]\n\"Input Data\"->Job1->\"Results\"->Job2->\"More Results\"->Job3\n} \n","config":{"engine":"dot","options":"margin: auto !important;"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-e12e7a7e63c5c63674dd" style="width:504px;height:400px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e12e7a7e63c5c63674dd">{"x":{"diagram":"\ndigraph  {\ngraph [label=\"Figure 1: Inherently serial\"]\n\"Input Data\"->Job1->\"Results\"->Job2->\"More Results\"->Job3\n} \n","config":{"engine":"dot","options":"margin: auto !important;"}},"evals":[],"jsHooks":[]}</script>
 ]
 
 .right-column[
@@ -297,27 +297,57 @@ class:middle
 ]
 ---
 class:middle
-# Integrating Python and R
----
-class:top
-# Parallelising in RStudio
+## Business reporting in &lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 581 512"&gt;&lt;path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/&gt;&lt;/svg&gt; for the &lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 448 512"&gt;&lt;path d="M325.4 289.2L224 390.6 122.6 289.2C54 295.3 0 352.2 0 422.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-41.6c0-70.2-54-127.1-122.6-133.2zM32 192c27.3 0 51.8-11.5 69.2-29.7 15.1 53.9 64 93.7 122.8 93.7 70.7 0 128-57.3 128-128S294.7 0 224 0c-50.4 0-93.6 29.4-114.5 71.8C92.1 47.8 64 32 32 32c0 33.4 17.1 62.8 43.1 80-26 17.2-43.1 46.6-43.1 80zm144-96h96c17.7 0 32 14.3 32 32H144c0-17.7 14.3-32 32-32z"/&gt;&lt;/svg&gt; user
 .pull-left[
 
-```python
-def gen_paths(S0, r, sigma, T, M, I):
-    dt = float(T) / M
-    paths = np.zeros((M + 1, I), np.float64)
-    paths[0] = S0
-    for t in range(1, M + 1):
-        rand = np.random.standard_normal(I)
-        paths[t] = paths[t - 1] * np.exp((r - 0.5 * sigma ** 2) * dt +
-                                         sigma * np.sqrt(dt) * rand)
-    return paths
+###&lt;img src="https://raw.githubusercontent.com/rstudio/hex-stickers/master/PNG/rmarkdown.png" width="10%" style="float:left"/&gt;&amp;nbsp; R Markdown can be used to create: 
+
+- Reports (HTML, PDF, Word)
+- Slide Decks (HTML, PowerPoint)
+- Web Apps
+- Web Pages
+- Books
+- It is part of the `tidyverse` package
+
+![](https://d33wubrfki0l68.cloudfront.net/61d189fd9cdf955058415d3e1b28dd60e1bd7c9b/9791d/images/rmarkdownflow.png)
+]
+.pull-right[ 
+### Your turn
+- Go to server, login in and create new session
+- Create a `RMarkdown` file by *File &gt; New File &gt; R Markdown*
+
+&lt;img src="img/qms_rstudio_rmarkdown.png" alt="rmarkdown",height="100"/&gt;
+]
+
+---
+class:middle
+# Integrating &lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 448 512"&gt;&lt;path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/&gt;&lt;/svg&gt; and&lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 581 512"&gt;&lt;path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/&gt;&lt;/svg&gt;
+### Setup R's Python interface
+- In your `Rmd` file, insert a `R code chunk` by clicking Insert and selecting R 
+- &lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 448 512"&gt;&lt;path d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"/&gt;&lt;/svg&gt; **Ctrl+Shift+i**
+- &lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 384 512"&gt;&lt;path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/&gt;&lt;/svg&gt; **Cmd+Shift+i**
+
+
+```r
+library(reticulate)
+help(reticulate)
 ```
-]
-.pull-right[
-- The code implements
-]
+- Can you insert a `python` code chunk and tell it to print "Hello World"?
+--
+
+
+```python
+print("Hello World")
+```
+
+```
+## Hello World
+```
+
+---
+class:middle
+# Improving performance in python 
+
 ---
 class:top,center
 #Financial application in cloud computing
@@ -334,7 +364,7 @@ class:middle
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,
-"countIncrementalSlides": false,
+"countIncrementalSlides": true,
 "ratio": "16:9"
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
@@ -402,6 +432,51 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     }
   }
 })();
+(function(time) {
+  var d2 = function(number) {
+    return ('0' + number).slice(-2); // left-pad 0 to minutes/seconds
+  },
+
+  time_format = function(total) {
+    var secs = Math.abs(total) / 1000;
+    var h = Math.floor(secs / 3600);
+    var m = Math.floor(secs % 3600 / 60);
+    var s = Math.round(secs % 60);
+    var res = d2(m) + ':' + d2(s);
+    if (h > 0) res = h + ':' + res;
+    return res;  // [hh:]mm:ss
+  },
+
+  slide_number_div = function(i) {
+    return document.getElementsByClassName('remark-slide-number').item(i);
+  },
+
+  current_page_number = function(i) {
+    return slide_number_div(i).firstChild.textContent;  // text "i / N"
+  };
+
+  var timer = document.createElement('span'); timer.id = 'slide-time-left';
+  var time_left = time, k = slideshow.getCurrentSlideIndex(),
+      last_page_number = current_page_number(k);
+
+  setInterval(function() {
+    time_left = time_left - 1000;
+    timer.innerHTML = ' ' + time_format(time_left);
+    if (time_left < 0) timer.style.color = 'red';
+  }, 1000);
+
+  slide_number_div(k).appendChild(timer);
+
+  slideshow.on('showSlide', function(slide) {
+    var i = slide.getSlideIndex(), n = current_page_number(i);
+    // reset timer when a new slide is shown and the page number is changed
+    if (last_page_number !== n) {
+      time_left = time; last_page_number = n;
+      timer.innerHTML = ' ' + time_format(time); timer.style.color = null;
+    }
+    slide_number_div(i).appendChild(timer);
+  });
+})(120000);
 // adds .remark-code-has-line-highlighted class to <pre> parent elements
 // of code chunks containing highlighted lines with class .remark-code-line-highlighted
 (function(d) {
