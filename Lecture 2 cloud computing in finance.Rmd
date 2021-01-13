@@ -183,18 +183,192 @@ class: middle
 
 - This machine is hosted on Microsoft Azure running a Linux (ubuntu 18.04) operating system with 64 vCPUs and 256 GiB of RAM.
 - Student accounts will have approximately 1 vCPU and 4 GiB RAM.
-- http://qms.uksouth.cloudapp.azure.com:8787/
+- This state-of-the-art student resource will allow you to integrate R and Python to produce agile analyitical solutions for assessment and beyond.
 
 ---
-class:middle
+class:top,center
 # Accessing the server
-Login:
+
+.pull-left[ 
+### Steps
+1. Open a web browser
+2. Navigate to: http://qms.uksouth.cloudapp.azure.com:8787/
+3. login using the credential provided
+]
+.pull-right[ 
+<img src="img/qms_rstudio_login.png" alt="server_login" />
+
+]
 ---
 class:middle
 # Taxonomy of parallel computing
+- Computer processors process instructions sequentially.
+- Traditional computing problems are serial by design.
+- The birth of multiprocessors (*multicore processors*) has innovated a new type of computing problem:
+
+.acid.center[how to utilise the parallel structure]
+- Roughly speaking, multicore processors are equivalent to running multiple computers at a time
 ---
-class:top,center
-# Parallelising in R
+class:middle
+# Taxonomy of parallel computing
+.pull-left.acid[Parallel computing problems in contrast to serial computing problems, refer to the type of problem that can be divided into small Jobs which can be processed simultaneously ]
+.pull-right[
+**embarrassingly parallel computing**:
+```{r embar_parallel,echo=FALSE}
+DiagrammeR::grViz("
+digraph rmarkdown {
+'Input Data'->{Job1,Job2,Job3}
+{Job1,Job2,Job3}->'Results'
+} 
+"
+,height = 200
+)
+
+```
+
+**nonembarrassingly parallel computing**:
+```{r nonembar_parallel,echo=FALSE}
+DiagrammeR::grViz("
+digraph rmarkdown {
+'Input Data'->{Job1,Job2,Job3}
+{Job1,Job2,Job3}->'Results'
+Job1->Job2[dir='both',label='Information',style='dashed']
+Job2->Job3[dir='both',label='Information',style='dashed']
+{rank=same; Job1;Job2;Job3}
+} 
+"
+,height = 200
+)
+```
+]
+---
+class:top
+
+# Taxonomy of parallel computing
+
+.pull-left[
+
+#### Figure 1: embarrassingly parallel computing
+```{r embar_parallel1,echo=FALSE}
+DiagrammeR::grViz("
+digraph rmarkdown {
+'Input Data'->{Job1,Job2,Job3}
+{Job1,Job2,Job3}->'Results'
+} 
+"
+,height = 200
+)
+
+```
+
+#### Figure 2: snonembarrassingly parallel computing
+```{r nonembar_parallel1,echo=FALSE}
+DiagrammeR::grViz("
+digraph rmarkdown {
+'Input Data'->{Job1,Job2,Job3}
+{Job1,Job2,Job3}->'Results'
+Job1->Job2[dir='both',label='Information',style='dashed']
+Job2->Job3[dir='both',label='Information',style='dashed']
+{rank=same; Job1;Job2;Job3}
+} 
+"
+,height = 200
+)
+```
+]
+.pull-right[
+-  Based on the dependence structure of sub-Jobs problems parallel computing problems can be further classified into *embarrassingly parallel* and  *non embarrassingly parallel*
+- If sub-Jobs are independent then we have an *embarrassingly parallel* problem
+- Otherwise we have a  *non embarrassingly parallel* problem
+- In figure 1 there is no communication between Jobs, while in figure 2 some communication between Jobs is required
+]
+---
+# Taxonomy of parallel computing
+class:middle
+- Problems can also be classified by there nature
+- Data parallelism focuses on distributing data across different processors
+- Job parallelism focuses on distributing execution processes (subtasks) to different processors
+---
+class:middle,left
+# The serial-parallel scale
+.left-column[
+```{r, echo=FALSE}
+DiagrammeR::grViz("
+digraph  {
+graph [label='Figure 1: Inherently serial']
+'Input Data'->Job1->'Results'->Job2->'More Results'->Job3
+} 
+"
+,height = 400
+,options = "margin: auto !important;"
+)
+```
+]
+
+.right-column[
+
+- Another important aspect of parallel computing is whether the parallel computing problem is *scaleable*.
+- An inherently serial problem cannot be parallelised, e.g. Figure 1
+- Scalable problems have either a scalable problem size or scalable parallelism.
+- Either the solution time reduces with the increasing of parallelism or the performance of the solution increases with the problem size.
+- The elasticity of the computing architecture is the key to the success of the processing of scalable problems
+
+]
+
+.footnote.saltinline[*Elastic computing*: Elastic computing is a computing service which has the ability to scale resources to meet requirements, e.g. Amazon's EC2 instances]
+
+---
+class:middle
+# Example from the finance industry
+####.heat[Monte Carlo (MC) Options Pricing]
+- Using arbitrage pricing theory, the option price is equal to the expected payoff $V$ discounted by a factor $D$ which can be evaluated via MC method.
+The Monte Carlo estimator of option price is given by
+$$C_0=D \times \frac{1}{N} \sum_{\omega \in sampleset}V(\omega)$$
+where N is the number of sample paths (simulations)
+
+1. The simulation of each price path is independent of other paths, therefore it is easy to parallel process the simulation of different paths on different computing nodes
+2. It is a task-parallel in the sense that simulations of each path is a small task.  However it is not data-parallel since there is no data set to be distributed to different computing nodes.
+3. The scalable benefit is improved price accuracy as $N$ increases, the error reduction being approximately $1/\sqrt{N}$
+
+---
+class:middle
+# Example from the finance industry
+#####.heat[Backtesting Investment Strategies]
+
+.pull-left[
+#### Task-parallel backtesting
+- Suppose you need to backtest a basket of different investment strategies to identify the optimal strategies
+- The process of each investment strategy is independent of each other and can be run simultaneously.
+- Distributing the processing of different strategies to different computing nodes is an *embarrassingly parallel* and *task parallel* implementation.
+]
+.pull-right[
+#### Data-parallel backtesting
+- Backtesting on one strategy can also be implemented as *data parallel*
+- By generating subsamples from test data set(e.g. by bootstrapping), strategy can be processed on different subsamples simultaneously
+- The results on different subsamples is then aggregated to generate the performance and risk report of the strategy
+]
+---
+class:middle
+# Integrating Python and R
+---
+class:top
+# Parallelising in RStudio
+.pull-left[
+```{python}
+def gen_paths(S0, r, sigma, T, M, I):
+    dt = float(T) / M
+    paths = np.zeros((M + 1, I), np.float64)
+    paths[0] = S0
+    for t in range(1, M + 1):
+        rand = np.random.standard_normal(I)
+        paths[t] = paths[t - 1] * np.exp((r - 0.5 * sigma ** 2) * dt +
+                                         sigma * np.sqrt(dt) * rand)
+    return paths
+```
+]
+.pull-right[
+- The code implements
+]
 ---
 class:top,center
 #Financial application in cloud computing
@@ -203,4 +377,4 @@ class:top,center
 # Economics of cloud computing
 ---
 class:middle
-# Some case studies
+# Terminology

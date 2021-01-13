@@ -20,6 +20,9 @@
     <script src="libs/bootstrap/js/bootstrap.min.js"></script>
     <script src="libs/bootstrap/shim/html5shiv.min.js"></script>
     <script src="libs/bootstrap/shim/respond.min.js"></script>
+    <script src="libs/viz/viz.js"></script>
+    <link href="libs/DiagrammeR-styles/styles.css" rel="stylesheet" />
+    <script src="libs/grViz-binding/grViz.js"></script>
     <link rel="stylesheet" href="css/sfah.css" type="text/css" />
     <link rel="stylesheet" href="css/fonts.css" type="text/css" />
   </head>
@@ -80,7 +83,7 @@ background-size: cover
 
 # .fancy[Lecture 2: High performance cloud computing in finance]
 
-.large[Barry Quinn PhD CStat | Queen's Management School | 2021-01-11]
+.large[Barry Quinn PhD CStat | Queen's Management School | 2021-01-12]
 
 &lt;!-- this ends up being the title slide since seal = FALSE--&gt;
 
@@ -160,13 +163,13 @@ border-color: #269026;
   background: #d9ffd9;
   font-family: lucinda console;
   padding: 2px;}</style>
-<div id="htmlwidget-86f67d8895c26a9cb56f" class="timevis html-widget" style="width:960px;height:500px;">
+<div id="htmlwidget-5ccf4979616f8716bd6f" class="timevis html-widget" style="width:960px;height:500px;">
 <div class="btn-group zoom-menu">
 <button type="button" class="btn btn-default btn-lg zoom-in" title="Zoom in">+</button>
 <button type="button" class="btn btn-default btn-lg zoom-out" title="Zoom out">-</button>
 </div>
 </div>
-<script type="application/json" data-for="htmlwidget-86f67d8895c26a9cb56f">{"x":{"items":[{"start":"1973","content":"Black-Scholes-Merton<br>options pricing model","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"1993","content":"Stochastic modelling<br>of volatility","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2000","content":"Jump diffusion models","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2010","content":"Flash Crash","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2013","content":"Basel III","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2018","content":"Rebentrost et al.2018<br> propose a quantum computational<br> algo to price derivatives","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2019","content":"CME Smart Stream launched:<br> First derivatives exchange<br>to offer real-time cloud-based market data","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"1961","content":"Late Professor JohnMcCarthy (MIT) suggested<br>computing would be sold as a utility","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1967","content":"IBM virtualised <br> operating systems","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1969","content":"APRANET <br> launched","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1988","content":"Nearly 100,000 computers connected to the internet","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1991","content":"World Wide Web launched; 1 million<br>computers connected to the Internet","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1996","content":"Compaq Computer Corp.introduce an<br>'An Internet Divisions Strategy for Cloud Computing'","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2002","content":"Amazon Web Services (AWS) launch public Cloud","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2005","content":"OpenNebula research project launched; 'Big data'starts to become popular","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2006","content":"Amazon launch Elastic Compute Cloud (EC2)","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2007","content":"Dropbox founded; Cloud storage becomes a service","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2010","content":"Microsoft launch Azure","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2012","content":"DigitalOcean launched; third largest cloud computing company (2020)","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2013","content":"Real-time streaming data processed on AWS","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2015","content":"Machine learning services on the Cloud","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2018","content":"Microsoft launches under the sea data-centre","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2019","content":"Google Tensor Processing Units (TPUs) avaliable on the Cloud","group":"2","style":"font-size: 0.5em; color: red;"}],"groups":[{"id":"1","content":"Finance<Br> Computational<br>Milestones"},{"id":"2","content":"Cloud<br>Computing<br>Milestones"}],"showZoom":true,"zoomFactor":0.5,"fit":true,"options":[],"height":null,"timezone":null,"api":[]},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-5ccf4979616f8716bd6f">{"x":{"items":[{"start":"1973","content":"Black-Scholes-Merton<br>options pricing model","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"1993","content":"Stochastic modelling<br>of volatility","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2000","content":"Jump diffusion models","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2010","content":"Flash Crash","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2013","content":"Basel III","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2018","content":"Rebentrost et al.2018<br> propose a quantum computational<br> algo to price derivatives","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2019","content":"CME Smart Stream launched:<br> First derivatives exchange<br>to offer real-time cloud-based market data","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"1961","content":"Late Professor JohnMcCarthy (MIT) suggested<br>computing would be sold as a utility","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1967","content":"IBM virtualised <br> operating systems","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1969","content":"APRANET <br> launched","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1988","content":"Nearly 100,000 computers connected to the internet","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1991","content":"World Wide Web launched; 1 million<br>computers connected to the Internet","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1996","content":"Compaq Computer Corp.introduce an<br>'An Internet Divisions Strategy for Cloud Computing'","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2002","content":"Amazon Web Services (AWS) launch public Cloud","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2005","content":"OpenNebula research project launched; 'Big data'starts to become popular","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2006","content":"Amazon launch Elastic Compute Cloud (EC2)","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2007","content":"Dropbox founded; Cloud storage becomes a service","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2010","content":"Microsoft launch Azure","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2012","content":"DigitalOcean launched; third largest cloud computing company (2020)","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2013","content":"Real-time streaming data processed on AWS","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2015","content":"Machine learning services on the Cloud","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2018","content":"Microsoft launches under the sea data-centre","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2019","content":"Google Tensor Processing Units (TPUs) avaliable on the Cloud","group":"2","style":"font-size: 0.5em; color: red;"}],"groups":[{"id":"1","content":"Finance<Br> Computational<br>Milestones"},{"id":"2","content":"Cloud<br>Computing<br>Milestones"}],"showZoom":true,"zoomFactor":0.5,"fit":true,"options":[],"height":null,"timezone":null,"api":[]},"evals":[],"jsHooks":[]}</script>
 ---
 
 ---
@@ -177,18 +180,144 @@ class: middle
 
 - This machine is hosted on Microsoft Azure running a Linux (ubuntu 18.04) operating system with 64 vCPUs and 256 GiB of RAM.
 - Student accounts will have approximately 1 vCPU and 4 GiB RAM.
-- http://qms.uksouth.cloudapp.azure.com:8787/
+- This state-of-the-art student resource will allow you to integrate R and Python to produce agile analyitical solutions for assessment and beyond.
 
 ---
-class:middle
+class:top,center
 # Accessing the server
-Login:
+
+.pull-left[ 
+### Steps
+1. Open a web browser
+2. Navigate to: http://qms.uksouth.cloudapp.azure.com:8787/
+3. login using the credential provided
+]
+.pull-right[ 
+&lt;img src="img/qms_rstudio_login.png" alt="server_login" /&gt;
+
+]
 ---
 class:middle
 # Taxonomy of parallel computing
+- Computer processors process instructions sequentially.
+- Traditional computing problems are serial by design.
+- The birth of multiprocessors (*multicore processors*) has innovated a new type of computing problem:
+
+.acid.center[how to utilise the parallel structure]
+- Roughly speaking, multicore processors are equivalent to running multiple computers at a time
 ---
-class:top,center
-# Parallelising in R
+class:middle
+# Taxonomy of parallel computing
+.pull-left.acid[Parallel computing problems in contrast to serial computing problems, refer to the type of problem that can be divided into small Jobs which can be processed simultaneously ]
+.pull-right[
+**embarrassingly parallel computing**:
+<div id="htmlwidget-3c5ebe92c6ec116b5ae2" style="width:504px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-3c5ebe92c6ec116b5ae2">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+
+**nonembarrassingly parallel computing**:
+<div id="htmlwidget-895c4ed0233df7d52de8" style="width:504px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-895c4ed0233df7d52de8">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\nJob1->Job2[dir=\"both\",label=\"Information\",style=\"dashed\"]\nJob2->Job3[dir=\"both\",label=\"Information\",style=\"dashed\"]\n{rank=same; Job1;Job2;Job3}\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+]
+---
+class:top
+
+# Taxonomy of parallel computing
+
+.pull-left[
+
+#### Figure 1: embarrassingly parallel computing
+<div id="htmlwidget-ee4597a14ad166730806" style="width:504px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ee4597a14ad166730806">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+
+#### Figure 2: snonembarrassingly parallel computing
+<div id="htmlwidget-0ba7063067021a309455" style="width:504px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-0ba7063067021a309455">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\nJob1->Job2[dir=\"both\",label=\"Information\",style=\"dashed\"]\nJob2->Job3[dir=\"both\",label=\"Information\",style=\"dashed\"]\n{rank=same; Job1;Job2;Job3}\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+]
+.pull-right[
+-  Based on the dependence structure of sub-Jobs problems parallel computing problems can be further classified into *embarrassingly parallel* and  *non embarrassingly parallel*
+- If sub-Jobs are independent then we have an *embarrassingly parallel* problem
+- Otherwise we have a  *non embarrassingly parallel* problem
+- In figure 1 there is no communication between Jobs, while in figure 2 some communication between Jobs is required
+]
+---
+# Taxonomy of parallel computing
+class:middle
+- Problems can also be classified by there nature
+- Data parallelism focuses on distributing data across different processors
+- Job parallelism focuses on distributing execution processes (subtasks) to different processors
+---
+class:middle,left
+# The serial-parallel scale
+.left-column[
+<div id="htmlwidget-05135ff7e40dc9e3cbba" style="width:504px;height:400px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-05135ff7e40dc9e3cbba">{"x":{"diagram":"\ndigraph  {\ngraph [label=\"Figure 1: Inherently serial\"]\n\"Input Data\"->Job1->\"Results\"->Job2->\"More Results\"->Job3\n} \n","config":{"engine":"dot","options":"margin: auto !important;"}},"evals":[],"jsHooks":[]}</script>
+]
+
+.right-column[
+
+- Another important aspect of parallel computing is whether the parallel computing problem is *scaleable*.
+- An inherently serial problem cannot be parallelised, e.g. Figure 1
+- Scalable problems have either a scalable problem size or scalable parallelism.
+- Either the solution time reduces with the increasing of parallelism or the performance of the solution increases with the problem size.
+- The elasticity of the computing architecture is the key to the success of the processing of scalable problems
+
+]
+
+.footnote.saltinline[*Elastic computing*: Elastic computing is a computing service which has the ability to scale resources to meet requirements, e.g. Amazon's EC2 instances]
+
+---
+class:middle
+# Example from the finance industry
+####.heat[Monte Carlo (MC) Options Pricing]
+- Using arbitrage pricing theory, the option price is equal to the expected payoff `\(V\)` discounted by a factor `\(D\)` which can be evaluated via MC method.
+The Monte Carlo estimator of option price is given by
+`$$C_0=D \times \frac{1}{N} \sum_{\omega \in sampleset}V(\omega)$$`
+where N is the number of sample paths (simulations)
+
+1. The simulation of each price path is independent of other paths, therefore it is easy to parallel process the simulation of different paths on different computing nodes
+2. It is a task-parallel in the sense that simulations of each path is a small task.  However it is not data-parallel since there is no data set to be distributed to different computing nodes.
+3. The scalable benefit is improved price accuracy as `\(N\)` increases, the error reduction being approximately `\(1/\sqrt{N}\)`
+
+---
+class:middle
+# Example from the finance industry
+#####.heat[Backtesting Investment Strategies]
+
+.pull-left[
+#### Task-parallel backtesting
+- Suppose you need to backtest a basket of different investment strategies to identify the optimal strategies
+- The process of each investment strategy is independent of each other and can be run simultaneously.
+- Distributing the processing of different strategies to different computing nodes is an *embarrassingly parallel* and *task parallel* implementation.
+]
+.pull-right[
+#### Data-parallel backtesting
+- Backtesting on one strategy can also be implemented as *data parallel*
+- By generating subsamples from test data set(e.g. by bootstrapping), strategy can be processed on different subsamples simultaneously
+- The results on different subsamples is then aggregated to generate the performance and risk report of the strategy
+]
+---
+class:middle
+# Integrating Python and R
+---
+class:top
+# Parallelising in RStudio
+.pull-left[
+
+```python
+def gen_paths(S0, r, sigma, T, M, I):
+    dt = float(T) / M
+    paths = np.zeros((M + 1, I), np.float64)
+    paths[0] = S0
+    for t in range(1, M + 1):
+        rand = np.random.standard_normal(I)
+        paths[t] = paths[t - 1] * np.exp((r - 0.5 * sigma ** 2) * dt +
+                                         sigma * np.sqrt(dt) * rand)
+    return paths
+```
+]
+.pull-right[
+- The code implements
+]
 ---
 class:top,center
 #Financial application in cloud computing
@@ -197,7 +326,7 @@ class:top,center
 # Economics of cloud computing
 ---
 class:middle
-# Some case studies
+# Terminology
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
