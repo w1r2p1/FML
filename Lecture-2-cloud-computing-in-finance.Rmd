@@ -192,7 +192,6 @@ tv
 ```
 ---
 
----
 class: middle
 ## QMS High-Performance Cloud Computing
 - In this course we will be using a cloud-based Linux machine running [RStudio Server Pro](https://rstudio.com/products/rstudio-server-pro/)
@@ -518,11 +517,11 @@ class:top
 - In derivative pricing it is standard practice to simulate a set of discrete time series paths for the value of a stock
 - We can create a hybrid MC simulator by implementing a Python loop on `ndarray` objects.
 - As before we will then use this function, `mcs_simulation_py()`, to benchmark execution time across a number of performance enhancing approaches.
+- Specify, this function simulates geometric Brownian motion price paths using Equation 10-2. in Hilpisch (2018) "Python for Finance".
 ]
-.panel[.panel-name[Python Code]
+.panel[.panel-name[Python Code for MC simulator]
 
 ```{python}
-import random
 import math
 S0=36.
 T=1.0
@@ -540,21 +539,27 @@ def mcs_simulation_py(p):
     for i in range(I):
       S[t,i] = S[t-1,i] * math.exp((r-sigma**2/2) * dt + sigma * math.sqrt(dt) * rn[t,i])
   return S
+```
+]
+
+.panel[.panel-name[Python Code Run MC simulator]
+```{python,time_it=TRUE}
 I=100
-M=5000
+M=100
 S = mcs_simulation_py((M,I))
 ```
-]
-
-.panel[.panel-name[Output]
-```
- S = mcs_simulation_py((M,I));
-```
 
 ]
-.panel[.panel-name[Plot Paths in R]
-```{r}
-py$S %>% as_tibble()
+.panel[.panel-name[Plot `r py$I` Price Paths in R]
+```{r plot_python_object, echo=FALSE, width="100%",height="50%"}
+py$S %>% 
+  as_tibble() %>%
+  mutate(t=row_number()) %>%
+  gather(Path,Price,-t) %>%
+  ggplot(aes(x=t,y=Price,colour=Path)) + 
+  geom_line() +
+  theme(legend.position = "none") +
+  labs(y="Simulated Prices")
 ```
 
 ]
