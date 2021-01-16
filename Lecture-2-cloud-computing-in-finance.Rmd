@@ -63,7 +63,7 @@ use_xaringan_extra(c("tileview", "webcam","panelset","tachuyon"))
 ---
 name: ATL-title
 class: inverse,left, middle
-background-image: url(img/markus-spiske-466ENaLuhLY-unsplash.png)
+background-image: url(img/title-slide-img.png)
 background-size: cover
 
 # Algorithmic Trading and Investing (FIN7030)
@@ -331,8 +331,6 @@ graph [label='Figure 1: Inherently serial']
 
 ]
 
-.footnote.saltinline[*Elastic computing*: Elastic computing is a computing service which has the ability to scale resources to meet requirements, e.g. Amazon's EC2 instances]
-
 ---
 class:middle
 # Example from the finance industry
@@ -527,10 +525,8 @@ S0=36.
 T=1.0
 r=0.06
 sigma=0.2
-# M= number of time intervals for discretisation
-# I = number of paths to simulate
 def mcs_simulation_py(p):
-  M,I = p
+  M,I = p # M= number of time intervals for discretisation. I = number of paths to simulate. 
   dt = T/M
   S = np.zeros((M+1,I))
   S[0]=S0
@@ -542,16 +538,18 @@ def mcs_simulation_py(p):
 ```
 ]
 
-.panel[.panel-name[Python Code Run MC simulator]
+.panel[.panel-name[Execution for MC simulator]
 ```{python,time_it=TRUE}
-I=100
+I=1000
 M=100
 S = mcs_simulation_py((M,I))
 ```
 
 ]
 .panel[.panel-name[Plot `r py$I` Price Paths in R]
-```{r plot_python_object, echo=FALSE, width="100%",height="50%"}
+.pull-left[
+- `reticulate` allows you to pull objects back into `R` using the `py$OBJECT_NAME` convention.
+```
 py$S %>% 
   as_tibble() %>%
   mutate(t=row_number()) %>%
@@ -561,15 +559,121 @@ py$S %>%
   theme(legend.position = "none") +
   labs(y="Simulated Prices")
 ```
+]
+.pull-right[
+```{r plot_python_object, echo=FALSE, fig.retina=3,fig.height=6}
+py$S %>% 
+  as_tibble() %>%
+  mutate(t=row_number()) %>%
+  gather(Path,Price,-t) %>%
+  ggplot(aes(x=t,y=Price,colour=Path)) + 
+  geom_line() +
+  theme(legend.position = "none") +
+  labs(y="Simulated Prices")
+```
+]
+]
+]
+---
+class:middle
+```{r xaringan-extra-styles, echo=FALSE}
+xaringanExtra::use_extra_styles(
+  hover_code_line = TRUE,         #<<
+  mute_unhighlighted_code = TRUE  #<<
+)
+```
+# MC simulator using `Numpy`
+.panelset[
+.panel[.panel-name[`Numpy` Version]
+- The below python code is very similar to the previous except for the highlighted line
+
+```{python}
+def mcs_simulation_np(p):
+  M,I = p
+  dt = T/M
+  S = np.zeros((M+1,I))
+  S[0]=S0
+  rn = np.random.standard_normal(S.shape)
+  for t in range(1,M+1):
+    for i in range(I):
+      S[t,i] = S[t-1,i] * np.exp((r-sigma**2/2) * dt + sigma * math.sqrt(dt) * rn[t,i]) #<<
+  return S
+```
+]
+.panel[.panel-name[Execution time for MC simulator]
+```{python,time_it=TRUE}
+S = mcs_simulation_np((M,I))
+```
+
+- In this instance this is not much faster than the base Python code.
 
 ]
 ]
+
 ---
-class:top,center
-#Financial application in cloud computing
+class:top
+# MC simulator using `Numba`
+
+```{python}
+import numba
+mcs_simulation_nb=numba.jit(mcs_simulation_np)
+```
+
+### This call includes the compile time overhead
+
+```{python, time_it=TRUE}
+S=mcs_simulation_nb((M,I))
+```
+
+### This call excludes the compile time overhead
+
+```{python, time_it=TRUE}
+S=mcs_simulation_nb((M,I))
+```
+
+- Again a significant improvement on the raw Python
+- After compilation `Numba` is much faster than `Numpy`
+
 ---
-class:top,center
-# Economics of cloud computing
+class: middle
+# Multiprocessing
+
+.panelset[
+.panel[.panel-name[Explanation]
+
+- As mentioned before, Monte Carlo simulation is a task that lends itself well to parallelisation.
+- It is an *embarrassingly* parallel problem with no information shared across sub Jobs.
+- In the example we could parallelise the simulation of 1000 paths into 10 processes simulating 100 paths each.
+- .saltinline[On the server students are restricted to one vCPU, so what follows is better run on a local multiprocessor machine]
+]
+.panel[.panel-name[Parallelisation in Python]
+
+- .saltinline[The following code makes use of the `multiprocessing` module and divides the total number of paths to be simulated into small chunks of size $I/p$, where $p>0$]
+
+```{python}
+import multiprocessing as mp
+pool = mp.Pool(processes=8)
+p=10
+```
+
+- .saltinline[After all the single tasks are finished, the results are put together in a single `ndarray` object using `np.stack`]
+
+```{python, time_it=TRUE}
+S= np.hstack(pool.map(mcs_simulation_np,p*[(M,int(I/p))]))
+```
+
+- .heatinline[In this instance there is no more speed-up to be observed.]
+]
+]
 ---
 class:middle
-# Terminology
+# Terminology   
+```{r glossary, echo=FALSE}
+library(kableExtra)
+tibble(Term=c("Computing instances"," Data center","Middelware", "Virtualisation","Cloud bursting","Elastic computing","Wall clock time(WCT)","CPU time"),
+       Explanation=c("Refers to a (virtual) server instance that is linked to a computing network to provide computing resource. To offer flexibility to their customers, cloud vendors offer different types of nodes that comprise various combinations of CPU (central processing unit), memory, storage, and networking capacity","A data center comprises a large number of computing nodes and necessary facilities to house the computer system","is the computer software that *glues* software applications with computing hardware. In cloud computing, middleware is used to enable communication and management data","Using computer resources to imitate other computer resources. By virtualisation, users are not locked with specific operating systems, CPU architecture, etc. Middleware and virtualisation are particularly important to ensure on-demand self-service of cloud computing","Cloud computing offers on-demand service. Cloud bursting refers to the process of dynamic deployment of software applications","is a computing service which has the ability to scale resources to meet requirements, e.g. Amazon's EC2 instances","is the human perception of the passage of time from the start to the completion of a task","The amount of time for which a CPU was used for processing instructions of a computer program or operating system, as opposed to, for example, waiting for input/output(I/O) operations or entering low-power (idle) mode.")) %>%
+  kbl() %>%
+  kable_paper() %>%
+  scroll_box(width = "100%", height = "400px")
+```
+

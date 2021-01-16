@@ -4,7 +4,7 @@
     <title>Algorithmic trading and investment</title>
     <meta charset="utf-8" />
     <meta name="author" content="Barry Quinn" />
-    <meta name="date" content="2021-01-15" />
+    <meta name="date" content="2021-01-16" />
     <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/panelset/panelset.css" rel="stylesheet" />
     <script src="libs/panelset/panelset.js"></script>
@@ -25,6 +25,9 @@
     <link href="libs/DiagrammeR-styles/styles.css" rel="stylesheet" />
     <script src="libs/grViz-binding/grViz.js"></script>
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <link href="libs/xaringanExtra-extra-styles/xaringanExtra-extra-styles.css" rel="stylesheet" />
+    <script src="libs/kePrint/kePrint.js"></script>
+    <link href="libs/lightable/lightable.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/sfah.css" type="text/css" />
     <link rel="stylesheet" href="css/fonts.css" type="text/css" />
   </head>
@@ -77,7 +80,7 @@ top:1em;right:1em;
 ---
 name: ATL-title
 class: inverse,left, middle
-background-image: url(img/markus-spiske-466ENaLuhLY-unsplash.png)
+background-image: url(img/title-slide-img.png)
 background-size: cover
 
 # Algorithmic Trading and Investing (FIN7030)
@@ -85,7 +88,7 @@ background-size: cover
 
 # .fancy[Lecture 2: High performance cloud computing in finance]
 
-.large[Barry Quinn PhD CStat | Queen's Management School | 2021-01-15]
+.large[Barry Quinn PhD CStat | Queen's Management School | 2021-01-16]
 
 &lt;!-- this ends up being the title slide since seal = FALSE--&gt;
 
@@ -165,13 +168,13 @@ border-color: #269026;
   background: #d9ffd9;
   font-family: lucinda console;
   padding: 2px;}</style>
-<div id="htmlwidget-a00e87173390cdaedab4" class="timevis html-widget" style="width:960px;height:500px;">
+<div id="htmlwidget-6ec8b988b0c008893123" class="timevis html-widget" style="width:960px;height:500px;">
 <div class="btn-group zoom-menu">
 <button type="button" class="btn btn-default btn-lg zoom-in" title="Zoom in">+</button>
 <button type="button" class="btn btn-default btn-lg zoom-out" title="Zoom out">-</button>
 </div>
 </div>
-<script type="application/json" data-for="htmlwidget-a00e87173390cdaedab4">{"x":{"items":[{"start":"1973","content":"Black-Scholes-Merton<br>options pricing model","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"1993","content":"Stochastic modelling<br>of volatility","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2000","content":"Jump diffusion models","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2010","content":"Flash Crash","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2013","content":"Basel III","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2018","content":"Rebentrost et al.2018<br> propose a quantum computational<br> algo to price derivatives","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2019","content":"CME Smart Stream launched:<br> First derivatives exchange<br>to offer real-time cloud-based market data","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"1961","content":"Late Professor JohnMcCarthy (MIT) suggested<br>computing would be sold as a utility","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1967","content":"IBM virtualised <br> operating systems","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1969","content":"APRANET <br> launched","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1988","content":"Nearly 100,000 computers connected to the internet","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1991","content":"World Wide Web launched; 1 million<br>computers connected to the Internet","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1996","content":"Compaq Computer Corp.introduce an<br>'An Internet Divisions Strategy for Cloud Computing'","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2002","content":"Amazon Web Services (AWS) launch public Cloud","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2005","content":"OpenNebula research project launched; 'Big data'starts to become popular","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2006","content":"Amazon launch Elastic Compute Cloud (EC2)","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2007","content":"Dropbox founded; Cloud storage becomes a service","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2010","content":"Microsoft launch Azure","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2012","content":"DigitalOcean launched; third largest cloud computing company (2020)","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2013","content":"Real-time streaming data processed on AWS","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2015","content":"Machine learning services on the Cloud","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2018","content":"Microsoft launches under the sea data-centre","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2019","content":"Google Tensor Processing Units (TPUs) avaliable on the Cloud","group":"2","style":"font-size: 0.5em; color: red;"}],"groups":[{"id":"1","content":"Finance<Br> Computational<br>Milestones"},{"id":"2","content":"Cloud<br>Computing<br>Milestones"}],"showZoom":true,"zoomFactor":0.5,"fit":true,"options":[],"height":null,"timezone":null,"api":[]},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-6ec8b988b0c008893123">{"x":{"items":[{"start":"1973","content":"Black-Scholes-Merton<br>options pricing model","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"1993","content":"Stochastic modelling<br>of volatility","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2000","content":"Jump diffusion models","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2010","content":"Flash Crash","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2013","content":"Basel III","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2018","content":"Rebentrost et al.2018<br> propose a quantum computational<br> algo to price derivatives","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2019","content":"CME Smart Stream launched:<br> First derivatives exchange<br>to offer real-time cloud-based market data","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"1961","content":"Late Professor JohnMcCarthy (MIT) suggested<br>computing would be sold as a utility","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1967","content":"IBM virtualised <br> operating systems","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1969","content":"APRANET <br> launched","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1988","content":"Nearly 100,000 computers connected to the internet","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1991","content":"World Wide Web launched; 1 million<br>computers connected to the Internet","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1996","content":"Compaq Computer Corp.introduce an<br>'An Internet Divisions Strategy for Cloud Computing'","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2002","content":"Amazon Web Services (AWS) launch public Cloud","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2005","content":"OpenNebula research project launched; 'Big data'starts to become popular","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2006","content":"Amazon launch Elastic Compute Cloud (EC2)","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2007","content":"Dropbox founded; Cloud storage becomes a service","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2010","content":"Microsoft launch Azure","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2012","content":"DigitalOcean launched; third largest cloud computing company (2020)","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2013","content":"Real-time streaming data processed on AWS","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2015","content":"Machine learning services on the Cloud","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2018","content":"Microsoft launches under the sea data-centre","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2019","content":"Google Tensor Processing Units (TPUs) avaliable on the Cloud","group":"2","style":"font-size: 0.5em; color: red;"}],"groups":[{"id":"1","content":"Finance<Br> Computational<br>Milestones"},{"id":"2","content":"Cloud<br>Computing<br>Milestones"}],"showZoom":true,"zoomFactor":0.5,"fit":true,"options":[],"height":null,"timezone":null,"api":[]},"evals":[],"jsHooks":[]}</script>
 ---
 
 class: middle
@@ -212,12 +215,12 @@ class:middle
 .pull-left.acid[Parallel computing problems in contrast to serial computing problems, refer to the type of problem that can be divided into small Jobs which can be processed simultaneously ]
 .pull-right[
 **embarrassingly parallel computing**:
-<div id="htmlwidget-f15de40a7545aedf8cac" style="width:504px;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f15de40a7545aedf8cac">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d2e856325eb89587ae05" style="width:504px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d2e856325eb89587ae05">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 **nonembarrassingly parallel computing**:
-<div id="htmlwidget-589293987c675e12ccd5" style="width:504px;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-589293987c675e12ccd5">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\nJob1->Job2[dir=\"both\",label=\"Information\",style=\"dashed\"]\nJob2->Job3[dir=\"both\",label=\"Information\",style=\"dashed\"]\n{rank=same; Job1;Job2;Job3}\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-4ed0351fb7c0a338697d" style="width:504px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4ed0351fb7c0a338697d">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\nJob1->Job2[dir=\"both\",label=\"Information\",style=\"dashed\"]\nJob2->Job3[dir=\"both\",label=\"Information\",style=\"dashed\"]\n{rank=same; Job1;Job2;Job3}\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ]
 ---
 class:top
@@ -227,12 +230,12 @@ class:top
 .pull-left[
 
 #### Figure 1: embarrassingly parallel computing
-<div id="htmlwidget-573a7c9a67a16d4896ad" style="width:504px;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-573a7c9a67a16d4896ad">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-f7acbea09676625996d9" style="width:504px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f7acbea09676625996d9">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 #### Figure 2: snonembarrassingly parallel computing
-<div id="htmlwidget-d57d02e3d6e35996b57e" style="width:504px;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d57d02e3d6e35996b57e">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\nJob1->Job2[dir=\"both\",label=\"Information\",style=\"dashed\"]\nJob2->Job3[dir=\"both\",label=\"Information\",style=\"dashed\"]\n{rank=same; Job1;Job2;Job3}\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-31fa86891cdb28f4d127" style="width:504px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-31fa86891cdb28f4d127">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\nJob1->Job2[dir=\"both\",label=\"Information\",style=\"dashed\"]\nJob2->Job3[dir=\"both\",label=\"Information\",style=\"dashed\"]\n{rank=same; Job1;Job2;Job3}\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ]
 .pull-right[
 -  Based on the dependence structure of sub-Jobs problems parallel computing problems can be further classified into *embarrassingly parallel* and  *non embarrassingly parallel*
@@ -250,8 +253,8 @@ class:middle
 class:middle,left
 # The serial-parallel scale
 .left-column[
-<div id="htmlwidget-768a10269e04f02b510c" style="width:504px;height:400px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-768a10269e04f02b510c">{"x":{"diagram":"\ndigraph  {\ngraph [label=\"Figure 1: Inherently serial\"]\n\"Input Data\"->Job1->\"Results\"->Job2->\"More Results\"->Job3\n} \n","config":{"engine":"dot","options":"margin: auto !important;"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-922c286294306cb617f2" style="width:504px;height:400px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-922c286294306cb617f2">{"x":{"diagram":"\ndigraph  {\ngraph [label=\"Figure 1: Inherently serial\"]\n\"Input Data\"->Job1->\"Results\"->Job2->\"More Results\"->Job3\n} \n","config":{"engine":"dot","options":"margin: auto !important;"}},"evals":[],"jsHooks":[]}</script>
 ]
 
 .right-column[
@@ -263,8 +266,6 @@ class:middle,left
 - The elasticity of the computing architecture is the key to the success of the processing of scalable problems
 
 ]
-
-.footnote.saltinline[*Elastic computing*: Elastic computing is a computing service which has the ability to scale resources to meet requirements, e.g. Amazon's EC2 instances]
 
 ---
 class:middle
@@ -403,10 +404,10 @@ average_py(n)
 ```
 
 ```
-## 0.49966889878534454
+## 0.4997201734041062
 ```
 
-Time for this code chunk to run: 0.221940279006958
+Time for this code chunk to run: 0.256777286529541
 
 ]
 ]
@@ -440,10 +441,10 @@ average_np(n)
 ```
 
 ```
-## 0.5001437653097257
+## 0.4994724653282721
 ```
 
-Time for this code chunk to run: 0.0462455749511719
+Time for this code chunk to run: 0.059607982635498
 
 ]
 .panel[.panel-name[Vectorisation and Memory]
@@ -479,10 +480,8 @@ S0=36.
 T=1.0
 r=0.06
 sigma=0.2
-# M= number of time intervals for discretisation
-# I = number of paths to simulate
 def mcs_simulation_py(p):
-  M,I = p
+  M,I = p # M= number of time intervals for discretisation. I = number of paths to simulate. 
   dt = T/M
   S = np.zeros((M+1,I))
   S[0]=S0
@@ -494,31 +493,182 @@ def mcs_simulation_py(p):
 ```
 ]
 
-.panel[.panel-name[Python Code Run MC simulator]
+.panel[.panel-name[Execution for MC simulator]
 
 ```python
-I=100
+I=1000
 M=100
 S = mcs_simulation_py((M,I))
 ```
 
-Time for this code chunk to run: 0.0504417419433594
+Time for this code chunk to run: 0.272613763809204
 
 ]
-.panel[.panel-name[Plot 100 Price Paths in R]
-![](Lecture-2-cloud-computing-in-finance_files/figure-html/plot_python_object-1.png)&lt;!-- --&gt;
-
+.panel[.panel-name[Plot 1000 Price Paths in R]
+.pull-left[
+- `reticulate` allows you to pull objects back into `R` using the `py$OBJECT_NAME` convention.
+```
+py$S %&gt;% 
+  as_tibble() %&gt;%
+  mutate(t=row_number()) %&gt;%
+  gather(Path,Price,-t) %&gt;%
+  ggplot(aes(x=t,y=Price,colour=Path)) + 
+  geom_line() +
+  theme(legend.position = "none") +
+  labs(y="Simulated Prices")
+```
+]
+.pull-right[
+&lt;img src="Lecture-2-cloud-computing-in-finance_files/figure-html/plot_python_object-1.png" width="504" /&gt;
 ]
 ]
----
-class:top,center
-#Financial application in cloud computing
----
-class:top,center
-# Economics of cloud computing
+]
 ---
 class:middle
-# Terminology
+
+# MC simulator using `Numpy`
+.panelset[
+.panel[.panel-name[`Numpy` Version]
+- The below python code is very similar to the previous except for the highlighted line
+
+
+```python
+def mcs_simulation_np(p):
+  M,I = p
+  dt = T/M
+  S = np.zeros((M+1,I))
+  S[0]=S0
+  rn = np.random.standard_normal(S.shape)
+  for t in range(1,M+1):
+    for i in range(I):
+*     S[t,i] = S[t-1,i] * np.exp((r-sigma**2/2) * dt + sigma * math.sqrt(dt) * rn[t,i])
+  return S
+```
+]
+.panel[.panel-name[Execution time for MC simulator]
+
+```python
+S = mcs_simulation_np((M,I))
+```
+
+Time for this code chunk to run: 0.472728490829468
+
+- In this instance this is not much faster than the base Python code.
+
+]
+]
+
+---
+class:top
+# MC simulator using `Numba`
+
+
+```python
+import numba
+mcs_simulation_nb=numba.jit(mcs_simulation_np)
+```
+
+### This call includes the compile time overhead
+
+
+```python
+S=mcs_simulation_nb((M,I))
+```
+
+Time for this code chunk to run: 0.479059457778931
+
+### This call excludes the compile time overhead
+
+
+```python
+S=mcs_simulation_nb((M,I))
+```
+
+Time for this code chunk to run: 0.0314102172851562
+
+- Again a significant improvement on the raw Python
+- After compilation `Numba` is much faster than `Numpy`
+
+---
+class: middle
+# Multiprocessing
+
+.panelset[
+.panel[.panel-name[Explanation]
+
+- As mentioned before, Monte Carlo simulation is a task that lends itself well to parallelisation.
+- It is an *embarrassingly* parallel problem with no information shared across sub Jobs.
+- In the example we could parallelise the simulation of 1000 paths into 10 processes simulating 100 paths each.
+- .saltinline[On the server students are restricted to one vCPU, so what follows is better run on a local multiprocessor machine]
+]
+.panel[.panel-name[Parallelisation in Python]
+
+- .saltinline[The following code makes use of the `multiprocessing` module and divides the total number of paths to be simulated into small chunks of size `\(I/p\)`, where `\(p&gt;0\)`]
+
+
+```python
+import multiprocessing as mp
+pool = mp.Pool(processes=8)
+p=10
+```
+
+- .saltinline[After all the single tasks are finished, the results are put together in a single `ndarray` object using `np.stack`]
+
+
+```python
+S= np.hstack(pool.map(mcs_simulation_np,p*[(M,int(I/p))]))
+```
+
+Time for this code chunk to run: 0.128818511962891
+
+- .heatinline[In this instance there is no more speed-up to be observed.]
+]
+]
+---
+class:middle
+# Terminology   
+&lt;div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:100%; "&gt;&lt;table class=" lightable-paper" style='font-family: "Arial Narrow", arial, helvetica, sans-serif; margin-left: auto; margin-right: auto;'&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; Term &lt;/th&gt;
+   &lt;th style="text-align:left;position: sticky; top:0; background-color: #FFFFFF;"&gt; Explanation &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Computing instances &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Refers to a (virtual) server instance that is linked to a computing network to provide computing resource. To offer flexibility to their customers, cloud vendors offer different types of nodes that comprise various combinations of CPU (central processing unit), memory, storage, and networking capacity &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Data center &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; A data center comprises a large number of computing nodes and necessary facilities to house the computer system &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Middelware &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; is the computer software that *glues* software applications with computing hardware. In cloud computing, middleware is used to enable communication and management data &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Virtualisation &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Using computer resources to imitate other computer resources. By virtualisation, users are not locked with specific operating systems, CPU architecture, etc. Middleware and virtualisation are particularly important to ensure on-demand self-service of cloud computing &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Cloud bursting &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; Cloud computing offers on-demand service. Cloud bursting refers to the process of dynamic deployment of software applications &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Elastic computing &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; is a computing service which has the ability to scale resources to meet requirements, e.g. Amazon's EC2 instances &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Wall clock time(WCT) &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; is the human perception of the passage of time from the start to the completion of a task &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; CPU time &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; The amount of time for which a CPU was used for processing instructions of a computer program or operating system, as opposed to, for example, waiting for input/output(I/O) operations or entering low-power (idle) mode. &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;&lt;/div&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
