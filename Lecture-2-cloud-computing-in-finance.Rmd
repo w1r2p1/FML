@@ -87,6 +87,17 @@ class:inverse
 - .salt[Economics of the cloud computing]
 - .salt[Some case studies]
 ---
+class:middle
+## Cloud computing intro
+- This course will expose you to the flexibility of cloud computing and combining R and Python.
+- The School has a high performance compute virtual machine, set-up in Microsoft Azure.
+- Financial institutions have a long history of heavily investing in technology for gaining market share and defending their current position.
+- The democratisation of computing processing power by cloud providers, has lead to an explosion in financial machine learning applications.
+- Today technology that would have costed millions 20 years ago can be rented for thousand from these cloud providers
+
+>Meriwther spent $20 million on a state-of-the-art computer system and hired a crack team of financial engineers to run the show at LTCM..... 
+`r tufte::quote_footer('Scott Patterson, The Quants, 2010')`
+---
 class: middle
 # What is cloud computing ?
 - .heat[Cloud computing shares many of the similarities of electricity]

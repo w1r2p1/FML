@@ -44,11 +44,10 @@ xaringanExtra::use_xaringan_extra(c("tileview", "webcam","panelset","tachuyon"))
 ---
 name: ATL-title
 class: inverse,left, middle
-background-image: url(img/markus-spiske-466ENaLuhLY-unsplash.png)
+background-image: url(img/title-slide-img.png)
 background-size: cover
 
 # Algorithmic Trading and Investing (FIN7030)
-
 
 # .fancy[Lecture 3: Denoising and detoning]
 
@@ -60,41 +59,11 @@ background-size: cover
 class:inverse
 # Outline 
 
-- .large[Introduction to cloud computing]
-- .large[Rstudio, Rmarkdown and reproducibility]
-- .large[Integrated Python in R workflow]
 - .large[Denoising and detoning financial covariance matrices]
 - .large[Marcenko-Pastur Theorem]
 - .large.fancy[Breathing breaks to aid learning]
 ---
-class: left
-
-## Cloud computing with R and Python
-
-- This course will expose you to the flexibility of cloud computing and combining R and Python.
-- The School has a high performance compute virtual machine, set-up in Microsoft Azure.
-- Financial institutions have a long history of heavily investing in technology for gaining market share and defending their current position.
-- The democratisation of computing processing power by cloud providers, has lead to an explosion in financial machine learning applications.
-- Today technology that would have costed millions 20 years ago can be rented for thousand from these cloud providers
-
->Meriwther spent $20 million on a state-of-the-art computer system and hired a crack team of financial engineers to run the show at LTCM..... 
-`r tufte::quote_footer('---- Scott Patterson, The Quants, 2010')`
-
----
-class:middle
-
-## Your Set Up in the Cloud
-
-- Go to http://qms.uksouth.cloudapp.azure.com:8787 on web browser.
-- login using your student number as both the username and password
-- Click on new session.
-- You should now see something like this:
-
-<img src="img/rstudio_server.png", height="400px"/>
-
----
 class: inverse
-
 ## Teaching mathematical concepts through code
 
 - Understanding machine learning requires familiarity with many simple mathematical concepts
@@ -103,12 +72,9 @@ class: inverse
 - In particular I will steer away from mathematical notation, which can be off-putting for those without any mathematics background and isn't strictly necessary to explain things well.
 - Mostly, we will use coded practical example to illustrate the concepts
 - This is a .large.fancy[**learning by doing**] approach when you can play around with the code yourself you understand underlying concepts.
-
----
 ---
 class: middle
 # Why study denoising and detoning?
-
 
 - .large[Covariance matrices are everywhere in finance.]
 - .large[Empirical covariances measure the linear co-movement between a set of random variables]  
@@ -131,5 +97,93 @@ class: middle
 - .large[Such noise can render calculations using covariance matrix estimates useless]
 
  .large[ In finance, we need a procedure to reduce this noise and enhance the signal **before** using in subsequent analysis like those listed previously]
+
+---
+class: middle
+# The Marcenko-Pastur Theorem
+- This is an elegant mathematical theorem that can help *denoise* data by distinguishing random from non-random from nonrandom by means of the empirical correlation matrix of the data.
+
+- The probability density function (pdf) of a Marcenko-Pastur distribution produces a set of eigenvalues which are randomly distributed.
+
+- We can exploit this property to extract the non-random component of some empirical correlation matrix, thus removing the random noise.
+---
+---
+class: top
+## The Marcenko-Pastur Theorem in Python
+.panelset[
+.panel[.panel-name[ Python + R set-up]
+```{r set-up}
+library(reticulate)
+```
+
+- *Insert Python code chunk in RMarkdown file*
+]
+.panel[.panel-name[Define the Marcenko-Pastur PDF]
+```{python}
+import numpy as np
+import pandas as pd
+# ------------------------------
+def mpPDF(var,q,pts):
+  eMin,eMax=var*(1-(1./q)**.5)**2,var*(1+(1./q)**.5)**2
+  eVal=np.linspace(eMin,eMax,pts)
+  pdf=q/(2*np.pi*var*eVal)*((eMax-eVal)*(eVal-eMin))**.5
+  pdf=pd.Series(pdf,index=eVal)
+  return pdf
+```
+]
+.panel[.panel-name[Define a functions to test theorem]
+
+- This function is a principal component analysis function which will extract the Eigenvalues (principal components)
+```{python}
+from sklearn.neighbors.kde import KernelDensity
+##-----------------
+def getPCA(matrix):
+# Get eVal,eVec from a Hermitian Matrix
+  eVal,eVec=np.linalg.eigh(matrix)
+  indices=eVal.argsort()[::-1] # arguments for sorting eVal in descending order
+  eVal,eVec=eVal[indices],eVec[:,indices]
+  eVal=np.diagflat(eVal)
+  return eVal,eVec
+```
+
+- This function create a pdf for a series of supplied observations (obs)
+
+```{python}
+##---------------
+def fitKDE(obs,bWidth=.25,kernel='gaussian',x=None):
+# Fit kernel to a series of obs, and derive the probability of obs
+# x is the array of values on which to fit KDE will be evaluate
+  if len(obs.shape)==1:obs=obs.reshape(-1,1)
+  kde=KernelDensity(kernel=kernel,bandwidth=bWidth).fit(obs)
+  if x is None:x=np.unique(obs).reshape(-1,1)
+  if len(x.shape)==1:x=x.reshape(-1,1)
+  logProb=kde.score_samples(x) # log of probability density
+  pdf=pd.Series(np.exp(logProb),index=x.flatten())
+  return pdf
+```
+]
+.panel[.panel-name[Test the theorem]
+
+```{python}
+# Create a random sample for testing
+x=np.random.normal(size=(10000,1000))
+# Extract correlation matrix from the random sample
+eVal0,eVec0=getPCA(np.corrcoef(x,rowvar=0))
+# Create theoretical Marcenko-Pastur distribution of the random sample x
+pdf0=mpPDF(1.,q=x.shape[0]/float(x.shape[1]),pts=1000)
+# Create the empirical pdf of x
+pdf1=fitKDE(np.diag(eVal0),bWidth=.01)
+
+```
+]
+.panel[.panel-name[Visualising Marcenko-Pastur theorem]
+```{r plot pdfs}
+pdf_mp=py$pdf0
+pdf_emp=py$pdf1
+```
+
+]
+]
+---
 
 
