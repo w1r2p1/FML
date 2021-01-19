@@ -398,8 +398,8 @@ class:middle
 
 ---
 class:middle
-# Integrating `r fa('python')` and`r fa('r-project')`
-### Setup R's Python interface
+### R Python Interface <img src="https://raw.githubusercontent.com/barryquinn1/reticulate/master/images/reticulated_python.png" width="10%" style="float:right"/>&nbsp;:the `reticulate` package
+
 - In your `Rmd` file, insert a `R code chunk` by clicking Insert and selecting R 
 - `r fa('windows')` **Ctrl+Shift+i**
 - `r fa('apple')` **Cmd+Shift+i**
