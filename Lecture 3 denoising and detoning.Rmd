@@ -97,7 +97,7 @@ class:middle
 - As discussed, the financial world is increasing becoming defined by *Big Data*, and data-driven decision making.
 - As everything becomes defined by data, they are stored in matrices
 - Success in this evolving industry increasing requires creative analytics and communications of complex and complication matrix-stored data.
-- At the center of the matrix lie its Jewel 
+- At the center of the matrix, through the complexities, lie its Jewel  
 
 ---
 class: middle 
