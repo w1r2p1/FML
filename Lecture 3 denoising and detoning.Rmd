@@ -49,7 +49,7 @@ background-size: cover
 
 # Algorithmic Trading and Investing (FIN7030)
 
-# .fancy[Lecture 3: Denoising and detoning]
+# .fancy[Lecture 3: Extracting signal from noisy data]
 
 .large[Barry Quinn PhD CStat | Queen's Management School | `r Sys.Date()`]
 
@@ -58,19 +58,22 @@ background-size: cover
 ---
 class:inverse
 # Learning outcomes 
-- .large[Denoising and detoning financial covariance matrices]
-- .large[Marcenko-Pastur Theorem]
+- .large[Teaching mathematics]
+- .large[The Jewel of the Matrix: Eigenvalues and Eigenvectors]
+- .large.fancy[Mining the Jewel]
+  -   .large[Marcenko-Pastur Theorem]
+  - .large[Denoising and detoning financial covariance matrices]
+  
 - .large.fancy[Breathing breaks to aid learning]
 ---
 class: inverse
-## Teaching mathematical concepts through code
+## Teaching mathematical concepts
 
 - Understanding machine learning requires familiarity with many simple mathematical concepts
-- **Some examples**
 - The goal of this course is to build your intuition about these notions without getting overly technical
-- In particular I will steer away from mathematical notation, which can be off-putting for those without any mathematics background and isn't strictly necessary to explain things well.
+- In particular I will limit mathematical notation , which can be off-putting for those without any mathematics background and isn't strictly necessary to explain things well
 - Mostly, we will use coded practical example to illustrate the concepts
-- This is a .large.fancy[**learning by doing**] approach when you can play around with the code yourself you understand underlying concepts.
+- This is a .large.fancy[**learning by doing**] approach when you can play around with the code yourself you understand underlying concepts
 ---
 class: middle
 # Why study denoising and detoning?
@@ -89,8 +92,12 @@ class: middle
 
 ---
 class:middle
-# Things to know before we begin
+# Key mathematical concepts for the future of finance
 
+- As discussed, the financial world is increasing becoming defined by *Big Data*, and data-driven decision making.
+- As everything becomes defined by data, they are stored in matrices
+- Success in this evolving industry increasing requires creative analytics and communications of complex and complication matrix-stored data.
+- At the center of the matrix lie its Jewel 
 
 ---
 class: middle 
@@ -286,21 +293,40 @@ def findMaxEval(eVal, q, bWidth):
 ```
 
 ]
-.panel[.panel-name[Visualise the results]
+.panel[.panel-name[Find optimal values]
 ```{python}
 # Find optimal values
-eMax0, var0 = findMaxEval(np.diag(eVal01), q, bWidth=.01)
-nFacts0 = eVal01.shape[0]-np.diag(eVal01)[::-1].searchsorted(eMax0)
+eMax0, var0 = findMaxEval(np.diag(eVal01), q, bWidth=.01);
+nFacts0 = eVal01.shape[0]-np.diag(eVal01)[::-1].searchsorted(eMax0);
 pdf0 = mpPDF(var0, q=x.shape[0]/float(x.shape[1]), pts=N)
 pdf2=fitKDE(np.diag(eVal01),bWidth=.005)
+```
+]
+.panel[.panel-name[Visualise results]
+```{python include=FALSE}
 # Plot results
 fig = plt.figure()
 ax  = fig.add_subplot(111)
-ax.hist(np.diag(eVal01), density = True, bins=50); # Histogram the eigenvalues
+hist_data=np.diag(eVal01)
+ax.hist(hist_data, density = True, bins=50); # Histogram the eigenvalues
 plt.plot(pdf0.keys(), pdf0, color='r', label="Marcenko-Pastur pdf");
-plt.plot(pdf1.keys(), pdf1, color='g', label="Empirical:KDE");
+# plt.plot(pdf1.keys(), pdf1, color='g', label="Empirical:KDE");
 plt.plot(pdf2.keys(), pdf2, color='b', label="Eigenvalues of random-matrix with signal");
 plt.legend(loc="upper right");
+```
+
+```
+# Plot results
+fig = plt.figure()
+ax  = fig.add_subplot(111)
+hist_data=np.diag(eVal01)
+ax.hist(hist_data, density = True, bins=50); # Histogram the eigenvalues
+plt.plot(pdf0.keys(), pdf0, color='r', label="Marcenko-Pastur pdf");
+# plt.plot(pdf1.keys(), pdf1, color='g', label="Empirical:KDE");
+plt.plot(pdf2.keys(), pdf2, color='b', label="Eigenvalues of random-matrix with signal");
+plt.legend(loc="upper right");
+```
+```{python}
 plt.show()    
 ```
 
