@@ -92,12 +92,75 @@ class: middle
 
 ---
 class:middle
-# Key mathematical concepts for the future of finance
+# <i class="fas fa-gem"></i> of financial matrices
+## Eigenvalues and EigenVectors
 
 - As discussed, the financial world is increasing becoming defined by *Big Data*, and data-driven decision making.
 - As everything becomes defined by data, they are stored in matrices
-- Success in this evolving industry increasing requires creative analytics and communications of complex and complication matrix-stored data.
-- At the center of the matrix, through the complexities, lie its Jewel  
+- Success in the rapidly evolving quant finance industry increasing requires creative analytics and communications of complex and complication matrix-stored data.
+- At the center of the matrix, through the complexities, lie its `r fa(name = "gem")` the eigenvector and eignenvalues.
+- The provide clarity and the true signal in the noisy data.
+- Understand what they are is vital to be successful in modern finance. 
+---
+class:middle
+# Deep dive into the nature of matrices
+- One of the simplest matrix forms is a two-dimensional vector.
+- It has two elements which each correspond to one coordinate on the two-dimensional plane.
+-  For example each of the following vectors represent a movement on the y and x planes
+![](img/vectors.png)
+---
+class:middle
+# Deep dive into the nature of matrices
+- In the matrix world, a linear transformation is performed by multiplying a vector by a matrix.
+- Visually, the effect is to stretch (or squish) the coordinate system along two vectors
+- For example the linear transformation matrix $\begin{bmatrix} 3 & 1 \\ 1 & 2 \end{bmatrix}$ aligns the x-axis along the vector $\begin{bmatrix} 3&1 \end{bmatrix}$ (the first column) and the y-axis along the vector $\begin{bmatrix} 1&2 \end{bmatrix}$
+![](img/lineartransform.png)
+.heat[The red lines show the transformation aligned to the y-axis]
+.salt[The blue lines show the transformation aligned to the x-axis]
+---
+middle:class
+# Deep dive into matrices
+- Consider the vector  $\begin{bmatrix} -1&-1 \end{bmatrix}$ in the below figure
+![](img/lineartransform2.png)
+- After it is multiplied by the linear transformation matrix, it lands on the point $\begin{bmatrix} -4&-3 \end{bmatrix}$
+.saltinline[A vector's span is the line that runs through the vector forever]
+.saltinline[When a vector undergoes a linear transformation usually it is knocked off of its span]
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
+*Eigenvectors* are vectors that do not get knocked off their span.  Instead, when eigenvectors are multiplied by a matrix, the eigenvector is simply scaled by a factor of the *eigenvalue*, landing somewhere else along the span
+]
+---
+class:middle
+# Deep dive into matrices
+.pull-left[
+![](img/eigenvector_messy.png)
+ - Eigenvectors and eigenvalues are messy
+ - They are seldom whole numbers and easy calculate
+]
+.pull-right[
+- The nature of eigenvectors means that scaling an *Original* eigenvector in the same or directly opposite direction will yield yet another *scaled* eigenvector
+![](img/eigenvector_scale.png)
+]
+
+---
+class:middle
+# Deep dive into the nature of matrices
+.pull-left[
+- In 3-D, the matrix describes a transformation of 3 axes,$x,y,z$, corresponding to the three coordinates that represent the transformation each coordinate undergoes.
+- For this reason, *eigenvectors* and *eigenvalues* are only defined for square matrices
+.footnote[A square matrix is a general $n$ by $n$ matrix describing the transformation of $n$ axes, each corresponding to a coordinate with $n$ elements]
+![](img/3x3sqmatrix.png)
+]
+.pull-right[
+- In order to find the eigenvector of a matrix, we need to find the eigenvalue
+- From the definition of the eigenvalue, we can construct an equality $Ax=\lambda x$, where $A$ represents the matrix and $\lambda$ represents the eigenvalue.
+
+![](img/matrixalgebra.png )    
+
+.saltinline[The logic of this equality is that multiplying the eigenvector by the transformation matrix $x$ should have the same effect as scaling it by eigenvalue $\lambda$]
+]
+---
+class:middle
 
 ---
 class: middle 
@@ -119,7 +182,7 @@ class: middle
 - We can exploit this property to extract the non-random component of some empirical correlation matrix, thus removing the random noise.
 
 .heat.fancy[Our goal is to learn how to discriminate between eigenvalues associated with noise components and eigenvalues associated with signal components]
----
+
 ---
 class: top
 ## The Marcenko-Pastur Theorem in Python

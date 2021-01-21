@@ -66,28 +66,31 @@ background-size: cover
 
 # Algorithmic Trading and Investing (FIN7030)
 
-# .fancy[Lecture 3: Denoising and detoning]
+# .fancy[Lecture 3: Extracting signal from noisy data]
 
-.large[Barry Quinn PhD CStat | Queen's Management School | 2021-01-19]
+.large[Barry Quinn PhD CStat | Queen's Management School | 2021-01-21]
 
 &lt;!-- this ends up being the title slide since seal = FALSE--&gt;
 
 ---
 class:inverse
 # Learning outcomes 
-- .large[Denoising and detoning financial covariance matrices]
-- .large[Marcenko-Pastur Theorem]
+- .large[Teaching mathematics]
+- .large[The Jewel of the Matrix: Eigenvalues and Eigenvectors]
+- .large.fancy[Mining the Jewel]
+  -   .large[Marcenko-Pastur Theorem]
+  - .large[Denoising and detoning financial covariance matrices]
+  
 - .large.fancy[Breathing breaks to aid learning]
 ---
 class: inverse
-## Teaching mathematical concepts through code
+## Teaching mathematical concepts
 
 - Understanding machine learning requires familiarity with many simple mathematical concepts
-- **Some examples**
 - The goal of this course is to build your intuition about these notions without getting overly technical
-- In particular I will steer away from mathematical notation, which can be off-putting for those without any mathematics background and isn't strictly necessary to explain things well.
+- In particular I will limit mathematical notation , which can be off-putting for those without any mathematics background and isn't strictly necessary to explain things well
 - Mostly, we will use coded practical example to illustrate the concepts
-- This is a .large.fancy[**learning by doing**] approach when you can play around with the code yourself you understand underlying concepts.
+- This is a .large.fancy[**learning by doing**] approach when you can play around with the code yourself you understand underlying concepts
 ---
 class: middle
 # Why study denoising and detoning?
@@ -106,8 +109,75 @@ class: middle
 
 ---
 class:middle
-# Things to know before we begin
+# &lt;i class="fas fa-gem"&gt;&lt;/i&gt; of financial matrices
+## Eigenvalues and EigenVectors
 
+- As discussed, the financial world is increasing becoming defined by *Big Data*, and data-driven decision making.
+- As everything becomes defined by data, they are stored in matrices
+- Success in the rapidly evolving quant finance industry increasing requires creative analytics and communications of complex and complication matrix-stored data.
+- At the center of the matrix, through the complexities, lie its &lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 576 512"&gt;&lt;path d="M485.5 0L576 160H474.9L405.7 0h79.8zm-128 0l69.2 160H149.3L218.5 0h139zm-267 0h79.8l-69.2 160H0L90.5 0zM0 192h100.7l123 251.7c1.5 3.1-2.7 5.9-5 3.3L0 192zm148.2 0h279.6l-137 318.2c-1 2.4-4.5 2.4-5.5 0L148.2 192zm204.1 251.7l123-251.7H576L357.3 446.9c-2.3 2.7-6.5-.1-5-3.2z"/&gt;&lt;/svg&gt; the eigenvector and eignenvalues.
+- The provide clarity and the true signal in the noisy data.
+- Understand what they are is vital to be successful in modern finance. 
+---
+class:middle
+# Deep dive into the nature of matrices
+- One of the simplest matrix forms is a two-dimensional vector.
+- It has two elements which each correspond to one coordinate on the two-dimensional plane.
+-  For example each of the following vectors represent a movement on the y and x planes
+![](img/vectors.png)
+---
+class:middle
+# Deep dive into the nature of matrices
+- In the matrix world, a linear transformation is performed by multiplying a vector by a matrix.
+- Visually, the effect is to stretch (or squish) the coordinate system along two vectors
+- For example the linear transformation matrix `\(\begin{bmatrix} 3 &amp; 1 \\ 1 &amp; 2 \end{bmatrix}\)` aligns the x-axis along the vector `\(\begin{bmatrix} 3&amp;1 \end{bmatrix}\)` (the first column) and the y-axis along the vector `\(\begin{bmatrix} 1&amp;2 \end{bmatrix}\)`
+![](img/lineartransform.png)
+.heat[The red lines show the transformation aligned to the y-axis]
+.salt[The blue lines show the transformation aligned to the x-axis]
+---
+middle:class
+# Deep dive into matrices
+- Consider the vector  `\(\begin{bmatrix} -1&amp;-1 \end{bmatrix}\)` in the below figure
+![](img/lineartransform2.png)
+- After it is multiplied by the linear transformation matrix, it lands on the point `\(\begin{bmatrix} -4&amp;-3 \end{bmatrix}\)`
+.saltinline[A vector's span is the line that runs through the vector forever]
+.saltinline[When a vector undergoes a linear transformation usually it is knocked off of its span]
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
+*Eigenvectors* are vectors that do not get knocked off their span.  Instead, when eigenvectors are multiplied by a matrix, the eigenvector is simply scaled by a factor of the *eigenvalue*, landing somewhere else along the span
+]
+---
+class:middle
+# Deep dive into matrices
+.pull-left[
+![](img/eigenvector_messy.png)
+ - Eigenvectors and eigenvalues are messy
+ - They are seldom whole numbers and easy calculate
+]
+.pull-right[
+- The nature of eigenvectors means that scaling an *Original* eigenvector in the same or directly opposite direction will yield yet another *scaled* eigenvector
+![](img/eigenvector_scale.png)
+]
+
+---
+class:middle
+# Deep dive into the nature of matrices
+.pull-left[
+- In 3-D, the matrix describes a transformation of 3 axes,$x,y,z$, corresponding to the three coordinates that represent the transformation each coordinate undergoes.
+- For this reason, *eigenvectors* and *eigenvalues* are only defined for square matrices
+.footnote[A square matrix is a general `\(n\)` by `\(n\)` matrix describing the transformation of `\(n\)` axes, each corresponding to a coordinate with `\(n\)` elements]
+![](img/3x3sqmatrix.png)
+]
+.pull-right[
+- In order to find the eigenvector of a matrix, we need to find the eigenvalue
+- From the definition of the eigenvalue, we can construct an equality `\(Ax=\lambda x\)`, where `\(A\)` represents the matrix and `\(\lambda\)` represents the eigenvalue.
+
+![](img/matrixalgebra.png )    
+
+.saltinline[The logic of this equality is that multiplying the eigenvector by the transformation matrix `\(x\)` should have the same effect as scaling it by eigenvalue `\(\lambda\)`]
+]
+---
+class:middle
 
 ---
 class: middle 
@@ -129,7 +199,7 @@ class: middle
 - We can exploit this property to extract the non-random component of some empirical correlation matrix, thus removing the random noise.
 
 .heat.fancy[Our goal is to learn how to discriminate between eigenvalues associated with noise components and eigenvalues associated with signal components]
----
+
 ---
 class: top
 ## The Marcenko-Pastur Theorem in Python
@@ -220,7 +290,10 @@ plt.show()
 ```
 ]
 .pull-right[
-&lt;img src="Lecture-3-denoising-and-detoning_files/figure-html/unnamed-chunk-1-1.png" width="768" /&gt;
+
+```
+## /opt/python/3.7.7/bin/python:1: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+```
 ]
 ]
 ]
@@ -313,37 +386,37 @@ eMax0, var0 = findMaxEval(np.diag(eVal01), q, bWidth=.01);
 ```
 
 ```
-## sse:739.9441088898633
-## sse:739.9440162401789
-## sse:289.0209110824115
-## sse:289.02090701220294
-## sse:280.0264610903838
-## sse:280.0264655622451
-## sse:229.51816611837455
-## sse:229.51817352224492
-## sse:324.97833092232014
-## sse:324.978278744306
-## sse:60.78878770273689
-## sse:60.78879933239974
-## sse:19.006410279744458
-## sse:19.006413109910717
+## sse:744.7355142682438
+## sse:744.735419269762
+## sse:290.7957463390385
+## sse:290.7957424533919
+## sse:282.3394998615902
+## sse:282.33950459149276
+## sse:235.37064280616664
+## sse:235.37065009124075
+## sse:193.6415143203381
+## sse:193.64147497081086
+## sse:194.67634305635184
+## sse:194.67635225207653
+## sse:20.146201025473594
+## sse:20.146204395008223
 ## sse:7036642712506.261
 ## sse:7022590508897.954
-## sse:1246.5098885829473
-## sse:1246.5097500909508
-## sse:17.86292585604117
-## sse:17.862925781312136
-## sse:289.0209110824115
-## sse:289.02090701220294
-## sse:17.864861503982983
-## sse:17.864861646047522
-## sse:17.862191119313632
-## sse:17.86219111931628
-## sse:17.862191119313895
-## sse:17.86219111931401
-## sse:17.86219111931353
-## sse:17.86219111931551
-## found errPDFs0.6761854246360635
+## sse:1230.0986453620005
+## sse:1230.0985057559374
+## sse:18.460782827173635
+## sse:18.46078267193625
+## sse:290.7957463390385
+## sse:290.7957424533919
+## sse:18.46781957818509
+## sse:18.467819853148185
+## sse:18.457543902587865
+## sse:18.45754390259085
+## sse:18.45754390258828
+## sse:18.457543902588164
+## sse:18.457543902587723
+## sse:18.45754390259009
+## found errPDFs0.6766758019302465
 ```
 
 ```python
@@ -371,7 +444,9 @@ plt.legend(loc="upper right");
 plt.show()    
 ```
 
-&lt;img src="Lecture-3-denoising-and-detoning_files/figure-html/unnamed-chunk-1-3.png" width="672" /&gt;
+```
+## /opt/python/3.7.7/bin/python:1: UserWarning: Matplotlib is currently using agg, which is a non-GUI backend, so cannot show the figure.
+```
 
 ]
 ]
