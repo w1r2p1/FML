@@ -92,8 +92,7 @@ class: middle
 
 ---
 class:middle
-# <i class="fas fa-gem"></i> of financial matrices
-## Eigenvalues and EigenVectors
+## The `r  fa(name="gem")` of financial matrices: *Eigenvalues* and *eigenVectors*
 
 - As discussed, the financial world is increasing becoming defined by *Big Data*, and data-driven decision making.
 - As everything becomes defined by data, they are stored in matrices
@@ -104,31 +103,45 @@ class:middle
 ---
 class:middle
 # Deep dive into the nature of matrices
+.left-column[
+![](img/vectors.png)
+]
+.right-column[
 - One of the simplest matrix forms is a two-dimensional vector.
 - It has two elements which each correspond to one coordinate on the two-dimensional plane.
--  For example each of the following vectors represent a movement on the y and x planes
-![](img/vectors.png)
+-  For example each of the following vectors represent a movement on the y and x planes 
+]
+
 ---
 class:middle
 # Deep dive into the nature of matrices
+.left-column[
+![](img/lineartransform.png)
+]
+.right-column[
 - In the matrix world, a linear transformation is performed by multiplying a vector by a matrix.
 - Visually, the effect is to stretch (or squish) the coordinate system along two vectors
 - For example the linear transformation matrix $\begin{bmatrix} 3 & 1 \\ 1 & 2 \end{bmatrix}$ aligns the x-axis along the vector $\begin{bmatrix} 3&1 \end{bmatrix}$ (the first column) and the y-axis along the vector $\begin{bmatrix} 1&2 \end{bmatrix}$
-![](img/lineartransform.png)
-.heat[The red lines show the transformation aligned to the y-axis]
-.salt[The blue lines show the transformation aligned to the x-axis]
+.heatinline[The red lines show the transformation aligned to the y-axis]
+.saltinline[The blue lines show the transformation aligned to the x-axis]
+]
+
 ---
 middle:class
 # Deep dive into matrices
-- Consider the vector  $\begin{bmatrix} -1&-1 \end{bmatrix}$ in the below figure
+.left-column[
 ![](img/lineartransform2.png)
+]
+-right[
+- Consider the vector  $\begin{bmatrix} -1&-1 \end{bmatrix}$ in the below figure
 - After it is multiplied by the linear transformation matrix, it lands on the point $\begin{bmatrix} -4&-3 \end{bmatrix}$
 .saltinline[A vector's span is the line that runs through the vector forever]
 .saltinline[When a vector undergoes a linear transformation usually it is knocked off of its span]
-
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
 *Eigenvectors* are vectors that do not get knocked off their span.  Instead, when eigenvectors are multiplied by a matrix, the eigenvector is simply scaled by a factor of the *eigenvalue*, landing somewhere else along the span
 ]
+]
+
 ---
 class:middle
 # Deep dive into matrices
@@ -143,25 +156,38 @@ class:middle
 ]
 
 ---
-class:middle
+class:top,right
 # Deep dive into the nature of matrices
 .pull-left[
-- In 3-D, the matrix describes a transformation of 3 axes,$x,y,z$, corresponding to the three coordinates that represent the transformation each coordinate undergoes.
+- In 3-D, the matrix describes a transformation of 3 axes, x, y and z, corresponding to the three coordinates that represent the transformation each coordinate undergoes.
 - For this reason, *eigenvectors* and *eigenvalues* are only defined for square matrices
-.footnote[A square matrix is a general $n$ by $n$ matrix describing the transformation of $n$ axes, each corresponding to a coordinate with $n$ elements]
 ![](img/3x3sqmatrix.png)
 ]
 .pull-right[
 - In order to find the eigenvector of a matrix, we need to find the eigenvalue
 - From the definition of the eigenvalue, we can construct an equality $Ax=\lambda x$, where $A$ represents the matrix and $\lambda$ represents the eigenvalue.
 
-![](img/matrixalgebra.png )    
-
 .saltinline[The logic of this equality is that multiplying the eigenvector by the transformation matrix $x$ should have the same effect as scaling it by eigenvalue $\lambda$]
 ]
+.footnote.mid-gray[A square matrix is a general $n$ by $n$ matrix describing the transformation of $n$ axes, each corresponding to a coordinate with $n$ elements]
 ---
 class:middle
+# Deep dive into matrices
+.pull-left[
+<img src=img/matrixalgebra.png, width="50%" height="50% align="middle">
 
+- Rarrange the equality to make all terms on the right side (A is a matrix and $\lambda$ is a number so we have to an identity matrix $I$ which applies no transformation at all) to find a solution fo the eigenvalue.
+- As the previous plot shows, there are infinite number of *trivial solutions*, or solutions that can be achieved simply by scaling an eigenvector by any number.
+In order to get rid of trivial solutions, we use the determinant.
+]
+.pull-right[
+<img src="img/squareunit.png" width="25%" height="25% align="left">
+<img src="img/4squnits.png" width="25%" height="25% align="right">
+- The determinant is simply a measure of the factor in which area is stretched by a transformation matrix.
+- In the above image, one standard square on the coordinate plan ha an area of one square unit
+- When the space is stretched by a transformation matrix, the new area is four square units
+- Because the area increases by a factor of four, the determinant of the matrix is four
+]
 ---
 class: middle 
 # Why study denoising and detoning?
@@ -174,7 +200,7 @@ class: middle
 
 ---
 class: middle
-# .heat[Denoising] The Marcenko-Pastur Theorem
+# Denoising using the Marcenko-Pastur Theorem
 - This is an elegant mathematical theorem that can help *denoise* data by distinguishing random from non-random from nonrandom by means of the empirical correlation matrix of the data.
 
 - The probability density function (pdf) of a Marcenko-Pastur distribution produces a set of eigenvalues which are randomly distributed.
@@ -247,8 +273,8 @@ def fitKDE(obs,bWidth=.25,kernel='gaussian',x=None):
 
 ```{python}
 # Create a random sample for testing
-N = 1000
-T = 10000
+N = 100
+T = 1000
 x=np.random.normal(0,1,size=(T,N))
 cor=np.corrcoef(x,rowvar=0)
 eVal0,eVec0=getPCA(cor)
