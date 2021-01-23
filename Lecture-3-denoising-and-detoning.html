@@ -68,14 +68,14 @@ background-size: cover
 
 # .fancy[Lecture 3: Extracting signal from noisy data]
 
-.large[Barry Quinn PhD CStat | Queen's Management School | 2021-01-22]
+.large[Barry Quinn PhD CStat | Queen's Management School | 2021-01-23]
 
 &lt;!-- this ends up being the title slide since seal = FALSE--&gt;
 
 ---
 class:inverse
 # Learning outcomes 
-- .large[Teaching mathematics]
+- .large[Growth learning of mathematics]
 - .large[The Jewel of the Matrix: Eigenvalues and Eigenvectors]
 - .large.fancy[Mining the Jewel]
   -   .large[Marcenko-Pastur Theorem]
@@ -88,7 +88,8 @@ class: inverse
 
 - Understanding machine learning requires familiarity with many simple mathematical concepts
 - The goal of this course is to build your intuition about these notions without getting overly technical
-- In particular I will limit mathematical notation , which can be off-putting for those without any mathematics background and isn't strictly necessary to explain things well
+- In particular I will limit mathematical notation , which can be off-putting for those without any mathematics background and isn't strictly necessary to explain things well.
+- Instead we will visual concepts through code, conversation and real-world applications
 - Mostly, we will use coded practical example to illustrate the concepts
 - This is a .large.fancy[**learning by doing**] approach when you can play around with the code yourself you understand underlying concepts
 ---
@@ -106,6 +107,17 @@ class: middle
 4. Simulate scenarios via Monte Carlo
 5. Find clusters
 6. Reduce the dimensionality of a set of potential predictors
+
+---
+class:middle
+## The story of the billion dollar eigenvector
+
+
+- .heatinline[Larry page and Sergy Bin built a  dollar company based on solving a linear alegbra problem using eigenvectors]
+- In the following clip, Professor Steve Strogatz tells the story of the eigenvector, and its billion dollar application in Google.
+
+
+&lt;iframe height="300", width="500" scrolling="no" frameborder="yes" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/302257938&amp;color=%23d0aca4&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_teaser=true&amp;visual=true"&gt;&lt;/iframe&gt;&lt;div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"&gt;&lt;a href="https://soundcloud.com/edwardoneill" title="edwardoneill" target="_blank" style="color: #cccccc; text-decoration: none;"&gt;edwardoneill&lt;/a&gt; · &lt;a href="https://soundcloud.com/edwardoneill/steven-strogatz-on-teaching-eigenvectors-and-eigenvalues" title="Steven Strogatz on Teaching Eigenvectors and Eigenvalues" target="_blank" style="color: #cccccc; text-decoration: none;"&gt;Steven Strogatz on Teaching Eigenvectors and Eigenvalues&lt;/a&gt;&lt;/div&gt;
 
 ---
 class:middle
@@ -173,7 +185,7 @@ class:middle
 ]
 
 ---
-class:top,right
+class:top,left
 # Deep dive into the nature of matrices
 .pull-left[
 - In 3-D, the matrix describes a transformation of 3 axes, x, y and z, corresponding to the three coordinates that represent the transformation each coordinate undergoes.
@@ -188,23 +200,36 @@ class:top,right
 ]
 .footnote.mid-gray[A square matrix is a general `\(n\)` by `\(n\)` matrix describing the transformation of `\(n\)` axes, each corresponding to a coordinate with `\(n\)` elements]
 ---
-class:middle
+class:top
 # Deep dive into matrices
 .pull-left[
-&lt;img src=img/matrixalgebra.png, width="50%" height="50% align="middle"&gt;
+
+&lt;img src="img/matrixalgebra.png" width="100%"&gt;
 
 - Rarrange the equality to make all terms on the right side (A is a matrix and `\(\lambda\)` is a number so we have to an identity matrix `\(I\)` which applies no transformation at all) to find a solution fo the eigenvalue.
 - As the previous plot shows, there are infinite number of *trivial solutions*, or solutions that can be achieved simply by scaling an eigenvector by any number.
 In order to get rid of trivial solutions, we use the determinant.
 ]
 .pull-right[
-&lt;img src="img/squareunit.png" width="25%" height="25% align="left"&gt;
-&lt;img src="img/4squnits.png" width="25%" height="25% align="right"&gt;
-- The determinant is simply a measure of the factor in which area is stretched by a transformation matrix.
-- In the above image, one standard square on the coordinate plan ha an area of one square unit
+
+&lt;img src="img/squareunit.png" width="60%" align="left"&gt;
+The determinant is simply a measure of the factor in which area is stretched by a transformation matrix.
+In the above image, one standard square on the coordinate plan ha an area of one square unit
+
+&lt;img src="img/4squnits.png" width="60%" align="right"&gt;
+
 - When the space is stretched by a transformation matrix, the new area is four square units
 - Because the area increases by a factor of four, the determinant of the matrix is four
 ]
+---
+class: middle
+background-image: url(img/title-slide-img.png)
+background-size: cover
+# A breathing break
+background-image: url(img/title-slide-img.png)
+background-size: cover
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/cEqZthCaMpo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
 ---
 class: middle 
 # Why study denoising and detoning?
@@ -412,73 +437,33 @@ eMax0, var0 = findMaxEval(np.diag(eVal01), q, bWidth=.01);
 ```
 
 ```
-## sse:750.3398249314938
-## sse:750.3397291658346
-## sse:289.58559266933975
-## sse:289.5855891007325
-## sse:282.613333412812
-## sse:282.6133376495279
-## sse:239.5691183786367
-## sse:239.5691258528267
-## sse:86.27415257352799
-## sse:86.27412886974565
-## sse:179.86745657293906
-## sse:179.86746656418458
-## sse:19.85349717823129
-## sse:19.853500284350044
-## sse:7036642712506.261
-## sse:7022590508897.954
-## sse:1235.9587339406157
-## sse:1235.9585949594075
-## sse:18.430099575403773
-## sse:18.430099455621544
-## sse:289.58559266933975
-## sse:289.5855891007325
-## sse:18.433990894196224
-## sse:18.433991101267722
-## sse:18.428167351457923
-## sse:18.42816735146069
-## sse:18.428167351458434
-## sse:18.428167351458356
-## sse:18.42816735145798
-## sse:18.42816735146002
-## sse:18.428167351457958
-## sse:18.42816735146049
-## sse:18.428167351457965
-## sse:18.42816735146059
-## sse:18.42816735145798
-## sse:18.42816735146065
-## sse:18.428167351457954
-## sse:18.428167351460587
-## sse:18.428167351457923
-## sse:18.42816735146069
-## sse:18.42816735145793
-## sse:18.42816735146059
-## sse:18.428167351457923
-## sse:18.42816735146069
-## sse:18.428167351457976
-## sse:18.42816735146058
-## sse:18.428167351457923
-## sse:18.42816735146069
-## sse:18.428167351457983
-## sse:18.42816735146069
-## sse:18.428167351457923
-## sse:18.42816735146069
-## sse:18.428167351458036
-## sse:18.428167351460687
-## sse:18.428167351457923
-## sse:18.42816735146069
-## sse:18.429586731672885
-## sse:18.429586629033096
-## sse:18.428167351458317
-## sse:18.428167351458256
-## sse:18.428167351457965
-## sse:18.428167351459955
-## sse:18.428167351457855
-## sse:18.42816735146047
-## sse:18.42816735145791
-## sse:18.428167351460022
-## found errPDFs0.6777809780748054
+## sse:750.352645137873
+## sse:750.3525508673242
+## sse:287.02204549845
+## sse:287.022041327251
+## sse:277.7669747802201
+## sse:277.76697939953976
+## sse:224.81351650496984
+## sse:224.81352429216977
+## sse:346.0965315250172
+## sse:346.0964756554871
+## sse:60.23759519045325
+## sse:60.237606406983396
+## sse:18.187167967314657
+## sse:18.18717022735248
+## sse:5610.616460959162
+## sse:5610.615896508957
+## sse:71.75750603451911
+## sse:71.75748421565402
+## sse:17.4751019451357
+## sse:17.47510231742134
+## sse:17.456457771010484
+## sse:17.4564577508393
+## sse:17.456403498411326
+## sse:17.456403498576883
+## sse:17.456403494835804
+## sse:17.456403494835854
+## found errPDFs0.6778616403954383
 ```
 
 ```python

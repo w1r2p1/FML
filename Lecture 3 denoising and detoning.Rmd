@@ -58,7 +58,7 @@ background-size: cover
 ---
 class:inverse
 # Learning outcomes 
-- .large[Teaching mathematics]
+- .large[Growth learning of mathematics]
 - .large[The Jewel of the Matrix: Eigenvalues and Eigenvectors]
 - .large.fancy[Mining the Jewel]
   -   .large[Marcenko-Pastur Theorem]
@@ -71,7 +71,8 @@ class: inverse
 
 - Understanding machine learning requires familiarity with many simple mathematical concepts
 - The goal of this course is to build your intuition about these notions without getting overly technical
-- In particular I will limit mathematical notation , which can be off-putting for those without any mathematics background and isn't strictly necessary to explain things well
+- In particular I will limit mathematical notation , which can be off-putting for those without any mathematics background and isn't strictly necessary to explain things well.
+- Instead we will visual concepts through code, conversation and real-world applications
 - Mostly, we will use coded practical example to illustrate the concepts
 - This is a .large.fancy[**learning by doing**] approach when you can play around with the code yourself you understand underlying concepts
 ---
@@ -92,6 +93,16 @@ class: middle
 
 ---
 class:middle
+## The story of the billion dollar eigenvector
+
+- .heatinline[Larry page and Sergy Bin built a  dollar company based on solving a linear alegbra problem using eigenvectors]
+- In the following clip, Professor Steve Strogatz tells the story of the eigenvector, and its billion dollar application in Google.
+
+
+<iframe height="300", width="500" scrolling="no" frameborder="yes" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/302257938&color=%23d0aca4&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/edwardoneill" title="edwardoneill" target="_blank" style="color: #cccccc; text-decoration: none;">edwardoneill</a> · <a href="https://soundcloud.com/edwardoneill/steven-strogatz-on-teaching-eigenvectors-and-eigenvalues" title="Steven Strogatz on Teaching Eigenvectors and Eigenvalues" target="_blank" style="color: #cccccc; text-decoration: none;">Steven Strogatz on Teaching Eigenvectors and Eigenvalues</a></div>
+
+---
+class:middle
 ## The `r  fa(name="gem")` of financial matrices: *Eigenvalues* and *eigenVectors*
 
 - As discussed, the financial world is increasing becoming defined by *Big Data*, and data-driven decision making.
@@ -102,7 +113,7 @@ class:middle
 - Understand what they are is vital to be successful in modern finance. 
 ---
 class:middle
-# Deep dive into the nature of matrices
+# Deep dive: What is a matrix?
 .left-column[
 ![](img/vectors.png)
 ]
@@ -114,7 +125,7 @@ class:middle
 
 ---
 class:middle
-# Deep dive into the nature of matrices
+# Deep dive: Matrix are linear transformers
 .left-column[
 ![](img/lineartransform.png)
 ]
@@ -128,7 +139,7 @@ class:middle
 
 ---
 middle:class
-# Deep dive into matrices
+# Deep dive: What are eigenvectors and eigenvalues?
 .left-column[
 ![](img/lineartransform2.png)
 ]
@@ -144,11 +155,10 @@ middle:class
 
 ---
 class:middle
-# Deep dive into matrices
+# Deep dive: Eigenvectors explained
 .pull-left[
 ![](img/eigenvector_messy.png)
- - Eigenvectors and eigenvalues are messy
- - They are seldom whole numbers and easy calculate
+ - Eigenvectors and eigenvalues are seldom whole numbers and challenging to calculate with accuracy
 ]
 .pull-right[
 - The nature of eigenvectors means that scaling an *Original* eigenvector in the same or directly opposite direction will yield yet another *scaled* eigenvector
@@ -156,8 +166,8 @@ class:middle
 ]
 
 ---
-class:top,right
-# Deep dive into the nature of matrices
+class:top,left
+# Deep dive: The world in 3-dimensions
 .pull-left[
 - In 3-D, the matrix describes a transformation of 3 axes, x, y and z, corresponding to the three coordinates that represent the transformation each coordinate undergoes.
 - For this reason, *eigenvectors* and *eigenvalues* are only defined for square matrices
@@ -171,23 +181,111 @@ class:top,right
 ]
 .footnote.mid-gray[A square matrix is a general $n$ by $n$ matrix describing the transformation of $n$ axes, each corresponding to a coordinate with $n$ elements]
 ---
-class:middle
-# Deep dive into matrices
+class:top
+## Deep dive: Calculating the eigenvector and eigenvalue
 .pull-left[
-<img src=img/matrixalgebra.png, width="50%" height="50% align="middle">
+![](img/matrixalgebra.png)
 
-- Rarrange the equality to make all terms on the right side (A is a matrix and $\lambda$ is a number so we have to an identity matrix $I$ which applies no transformation at all) to find a solution fo the eigenvalue.
-- As the previous plot shows, there are infinite number of *trivial solutions*, or solutions that can be achieved simply by scaling an eigenvector by any number.
-In order to get rid of trivial solutions, we use the determinant.
 ]
 .pull-right[
-<img src="img/squareunit.png" width="25%" height="25% align="left">
-<img src="img/4squnits.png" width="25%" height="25% align="right">
-- The determinant is simply a measure of the factor in which area is stretched by a transformation matrix.
-- In the above image, one standard square on the coordinate plan ha an area of one square unit
-- When the space is stretched by a transformation matrix, the new area is four square units
-- Because the area increases by a factor of four, the determinant of the matrix is four
+- Rearrange the equality to make all terms on the right side (A is a matrix and $\lambda$ is a number so we have to an identity matrix $I$ which applies no transformation at all) to find a solution fo the eigenvalue.
+
+- As the previous plot shows, there are infinite number of *trivial solutions*, or solutions that can be achieved simply by scaling an eigenvector by any number.
+
+- In order to get rid of trivial solutions, we use the .red[determinant].
 ]
+---
+class:middle
+## Deep dive: What is a determinant?
+```{r squareunit, echo=FALSE, fig.cap="Figure 1",out.width="50%",fig.align='left'}
+knitr::include_graphics(path="img/squareunit.png")
+```
+
+```{r squareunit, echo=FALSE, fig.cap="Figure 1",out.width="50%",fig.align='right'}
+knitr::include_graphics(path="img/4squnits.png")
+```
+
+- The .red[determinant] is a measure of the factor in which area is stretched by a transformation matrix.
+
+- Figure 1 shows one standard square on the coordinate space, with an area of one square unit.
+
+- When the space is stretched $\begin{bmatrix} 2&1\\0 &2\end{bmatrix}$ , the new area is four square units
+
+- **Because the area increases by a factor of four, the determinant of the matrix is four**
+---
+class:middle
+## Deep dive: What is the determinant is zero?
+![](img/det.png)
+- When the determinant is zero, the area of the square is collapsed to zero, meaning that the two vectors describing the locations of the axes are on the same line.
+
+- .heatinline[when the determinant equals zero all of space is warped into one single line (one-dimensional)]
+
+.heat[Therefore to make the previous equality easily solvable (by discarding the space of redundant or trivial solutions) it must be true that the determinant of the matrix must be equal to zero]
+
+---
+class:middle
+## Deep dive: Get ready for the math! 
+.left-column[
+`r emo::ji("confused")`
+]
+.right-column[
+```{r squareunit, echo=FALSE, fig.cap="Figure 3",out.width="50%",fig.align='right'}
+knitr::include_graphics(path="img/detcalc.png")
+```
+- In 2-D finding the eigenvalue is then a task of solving a quadratic
+- Figure 3 shows that the eigenvalues of the matrix $\begin{bmatrix}1&4\\3&2\end{bmatrix}$ are 5 and -2
+- This means that when the eigenvectors of the matrix are multiplied by the matrix, their vector length will be stretched by a factor of 5 and -2, respective to each of the eigenvectors
+]
+
+.footnote[.red.bold[ For three or more dimension matrice, a different form of the determinant formula must be used]]
+---
+class:middle
+## Deep dive: Even more math!
+.left-column[
+`r emo::ji("confused")`
+]
+.right-column[
+```{r squareunit, echo=FALSE, fig.cap="Figure 4",out.width="50%",fig.align='right'}
+knitr::include_graphics(path="img/detcalc1.png")
+```
+- By plugging in the discovered eigenvalues into our originally derived equation, we find the eigenvectors
+- In the case of the calculation in figure 4, when we plug in $\lambda=5$ we get $x=\begin{bmatrix}1\\1\end{bmatrix}$
+- When we plug in when we plug in $\lambda=-2$ we get $x=\begin{bmatrix}-4\\3\end{bmatrix}$
+
+.heatinline.bold[Given only the eigenvectors and eigenvalues of any matrix, one can easily completely reconstruct the original matrix]
+
+.saltinline.bold[This special property guarantees that eigenvectors will show up in almost all financial data science problems]
+
+]
+---
+class:middle
+## Deep dive: Machine learning and Eigenvectors
+- Principal component analysis (PCA) is a common unsupervised machine learning technique that seeks to reduce the dimensionality of data whilst retaining key statistical measures like variance and mean.
+
+- Consider a financial data set with 100 features (100-Dimensions), we can attempt to reduce this to 2-D using PCA.
+
+-Firstly, the algorithm constructs the covariance matrix, which evaluates (in a sense) how correlated two variables are.
+
+- This matrix as a whole defines the **shape** of the data.
+
+.footnote[We see come across this **shape** concept again when we using code.]
+
+---
+class:middle
+## Deep dive: Machine learning and eigenvectors
+
+---
+class:middle
+## Deep dive: the
+---
+
+class: middle,center
+background-image: url(img/title-slide-img.png)
+background-size: cover
+# A breathing break
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cEqZthCaMpo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ---
 class: middle 
 # Why study denoising and detoning?
@@ -422,6 +520,5 @@ plt.show()
 ]
 ]
 ---
-
 
 

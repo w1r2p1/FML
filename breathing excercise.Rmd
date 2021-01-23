@@ -1,0 +1,60 @@
+---
+title: "Algorithmic trading and investment"
+subtitle: "FIN7030"
+author: "Barry Quinn"
+date: "2019/01/15 (updated: `r Sys.Date()`)"
+output:
+  xaringan::moon_reader:
+    css: ["default", "css/sfah.css", "css/fonts.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      beforeInit: "https://platform.twitter.com/widgets.js"
+    seal: false 
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(knitr)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
+# options(knitr.table.format = "html")
+library(tidyverse)
+library(babynames)
+library(fontawesome) 
+library(DiagrammeR)
+```
+
+layout: true
+  
+<div class="my-footer"><span>quinference.com</span></div>
+
+```{r xaringan-logo, echo=FALSE}
+xaringanExtra::use_logo(
+  image_url = "img/redlogo.png"
+)
+```
+
+```{r xaringanExtra, include = FALSE}
+xaringanExtra::use_xaringan_extra(c("tileview", "webcam","panelset","tachuyon"))
+```
+
+---
+name: ATL-title
+class: inverse,left, middle
+background-image: url(img/title-slide-img.png)
+background-size: cover
+
+# Algorithmic Trading and Investing (FIN7030)
+
+# .fancy[Lecture 3: Extracting signal from noisy data]
+
+.large[Barry Quinn PhD CStat | Queen's Management School | `r Sys.Date()`]
+
+<!-- this ends up being the title slide since seal = FALSE-->
+---
+class:middle
+
+![](https://www.google.com/search?q=breathing+exercise)
