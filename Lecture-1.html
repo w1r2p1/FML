@@ -439,20 +439,12 @@ class: middle, inverse
 # Financial Econometrics and Machine Learning
 - Machine learning generalises parametric models in financial econometrics.
 
-<div id="htmlwidget-aa2d166bc330546eb390" style="width:504px;height:504px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-aa2d166bc330546eb390">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 20]\n\n  # several \"node\" statements\n  node [shape = box,fontsize = 9,fillcolor=yellow]\n  Generative_Models; Discrimative_Models\n  \n  node [shape=box,fontsize=8,fillcolor=yellow]\n  Pattern_Detection;TimeSeries_Pattern_Detection;Dynamic_State_Space_Models;Latent_Factor_Models;Smoothing_Filtering;Factorisation_Models\n  \n  node [shape=box,fontsize=8,fillcolor=green]\n  Stationary;Nonstationary\n  \n  node [shape=box,fontsize=7,fillcolor=green]\n  Homoschedastic;Heteroskedastic\n  \n  node [shape = egg,fontsize=6] // Econometric models\n  Bayesian_regression;Naive_Bayes;Kalman_Filter;Particle_Filter; HMMs; Mixture_Models; ARIMA; GARCH;ExpSmoothing;PCA\n  \n    node [shape = egg,fontsize=6] // Machine Learning Models\n  Bayesian_NNs;GPs;RNNs;GRNNs;LTSMsGRUs;CNNs;LTSM_CNNs;Autoencoders\n\n # several \"edge\" statements\n  Generative_Models->{Pattern_Detection;Dynamic_State_Space_Models;Latent_Factor_Models}\n  Pattern_Detection->{Bayesian_regression;Naive_BayesBayesian_NNs;GPs}\n\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-
+![](img/MLvsFE.png)
+&lt;footer&gt;Dixon et al., 2020, Machine Learning in Finance&lt;/footer&gt;
 
 
 ---
-class: middle, inverse
-# Overfitting
----
-class: middle, inverse
-# Reinforcement learning
-
-- Is placed somewhere between supervised and unsupervised machine learning
-
+class:middle
 # Theory matters for algo investing strategy success
 
 --
@@ -461,18 +453,17 @@ class: middle, inverse
 
 --
 - Backtests can never prove that a strategy is a *true* positive.
-  - At best they can only provide evidence of a *false* postive strategy.
+  - At best they can only provide evidence of a *false* positive strategy.
 - Strategy success requires theory support, not historical simulations.
 
 --
 
 ### .saltinline[.fancy[Easley, David, Marcos M. López de Prado, and Maureen O’Hara. 2012. “Flow Toxicity and Liquidity in a High-Frequency World.” The Review of Financial Studies 25 (5): 1457–93.]]
-- This paper describes how a market mircostructure theory predicted the 2010 *Flash Crash* and use ML to profit from this *black swan* event.
+- This paper describes how a market microstructure theory predicted the 2010 *Flash Crash* and use ML to profit from this *black swan* event.
 
 ---
 class: middle
 # ML Helps discover theories
-
 
 .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
 A successful theory will be predicted out-of-sample. Furthermore, it will explain not only positives (x cause y) but also negatives (the absence of y is due to the absences of x)
@@ -491,17 +482,16 @@ Classical statistical methods do not allow this decoupling of the two searches.
 
 ---
 class: middle
-
 # Scientific discovery and ML
-- ML models are **wrongly** characterised as "oracles".
+- .large[ML models are **wrongly** characterised as "oracles"]
 
 --
 
-- An oracle is a black box that is able to produce a solution for any instance of a given computational problem **Complexity theory definition**.
+- .large[An oracle is a black box that is able to produce a solution for any instance of a given computational problem **Complexity theory definition**]
 
 --
 
-Recent scientific discoveries have reveal radically different uses of ML
+.salt[Recent scientific discoveries have reveal radically different uses of ML]
 
 1. **Existence:** ML has been deployed to evaluate the plausibility of a theory across many scientific fields
 
@@ -519,8 +509,8 @@ class: right, center
 ]
 .right-column[
 
-<div id="htmlwidget-1111b23a43970c4779c1" style="width:100%;height:100%;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1111b23a43970c4779c1">{"x":{"diagram":"digraph boxes_and_circles {\ngraph [layout=dot,rankdir=LR]\n# define the global styles of the nodes. We can override these in box if we wish\nnode [shape = rectangle, style = filled,width=1,fontsize=50]\n\noverfit [label=\"Overfitting\", fillcolor=red,fontsize=80]\n\ntrain [label = \"Training Set \", fillcolor = Beige,fontsize=60]\ntest [label = \"Testing Set \n (Backtest overfitting)\", fillcolor = Beige,fontsize=60]\ntrail [label =  \"Report all trails \n number and variance\"]\ngeneral [label = \"Generalisation error \n synthetic dataset\"]\ndsharpe [label= \"Deflated Sharpe Ratio\"]\nresample [label=\"Resampling \n CPCV\"]\nmonte [label=\"Monte Carlo\"]\nensemble [label=\"Ensemble Methods\"]\nreg [label=\"Regularisation\"]\nlasso [label=\"Number of variables \n (LASSO)\"]\nstruc [label=\"Structure \n (early stopping, drop-out)\"]\n\n# edge definitions with the node IDs\noverfit -> {test,train}\ntest -> {trail,general}\ntrail -> dsharpe\ngeneral -> {resample, monte}\ntrain -> {general,ensemble,reg}\nreg -> {lasso,struc}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-9b5eab55e84943c7ed81" style="width:100%;height:100%;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-9b5eab55e84943c7ed81">{"x":{"diagram":"digraph boxes_and_circles {\ngraph [layout=dot,rankdir=LR]\n# define the global styles of the nodes. We can override these in box if we wish\nnode [shape = rectangle, style = filled,width=1,fontsize=50]\n\noverfit [label=\"Overfitting\", fillcolor=red,fontsize=80]\n\ntrain [label = \"Training Set \", fillcolor = Beige,fontsize=60]\ntest [label = \"Testing Set \n (Backtest overfitting)\", fillcolor = Beige,fontsize=60]\ntrail [label =  \"Report all trails \n number and variance\"]\ngeneral [label = \"Generalisation error \n synthetic dataset\"]\ndsharpe [label= \"Deflated Sharpe Ratio\"]\nresample [label=\"Resampling \n CPCV\"]\nmonte [label=\"Monte Carlo\"]\nensemble [label=\"Ensemble Methods\"]\nreg [label=\"Regularisation\"]\nlasso [label=\"Number of variables \n (LASSO)\"]\nstruc [label=\"Structure \n (early stopping, drop-out)\"]\n\n# edge definitions with the node IDs\noverfit -> {test,train}\ntest -> {trail,general}\ntrail -> dsharpe\ngeneral -> {resample, monte}\ntrain -> {general,ensemble,reg}\nreg -> {lasso,struc}\n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ]
 
 ---
@@ -563,15 +553,16 @@ class:middle
 
 # Solutions to test set overfitting
 
-1. Use the familywise error rate (FWER) or the Deflated Sharpe ratio.  - FWER evaluates the probability of at least one of the outcomes of a number of independent backtests is a false positive. The Deflated Sharpe ratio is a statistics that controls for the FWER.
+1. Use the familywise error rate (FWER) or the Deflated Sharpe ratio. 
+  
+  - FWER evaluates the probability of at least one of the outcomes of a number of independent backtests is a false positive. The Deflated Sharpe ratio is a statistics that controls for the FWER.
 
 2. Use combinatorial purged cross-validation methods (CPCV), which generate many test sets using resampling combinatorial splits of train and test sets.
 
-3. Use historical series to estimate the underlying data-generating process, and use **Monte Carlo methods** to create *fake*/synethetic samples that match the statistical properties observed in history
-
+3. Use historical series to estimate the underlying data-generating process, and use **Monte Carlo methods** to create *fake*/synthetic samples that match the statistical properties observed in history
+w
 ---
 class: middle inverse
-
 # Backtests cannot replace a theory
 
 .large[
