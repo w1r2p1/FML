@@ -34,32 +34,43 @@ layout: true
   
 <div class="my-footer"><span>quinference.com</span></div>
 
-```{r xaringan-logo, echo=FALSE}
-use_logo(
-  image_url = "img/redlogo.png"
-)
-```
-
-```{r xaringanExtra, echo=FALSE}
-use_xaringan_extra(c("tileview", "webcam","panelset","tachuyon"))
-```
-
 ---
 name: ATL-title
 class: inverse,left, middle
 background-image: url(img/title-slide-img.png)
 background-size: cover
 
-# Algorithmic Trading and Investing (FIN7030)
+.salt[FIN7030]
 
+# Algorithmic Trading and Investing 
 
 # .fancy[Lecture 2: Why study financial machine learning?]
 
 .large[Barry Quinn PhD CStat | Queen's Management School | `r Sys.Date()`]
 
 <!-- this ends up being the title slide since seal = FALSE-->
+```{r xaringan-logo, echo=FALSE}
+use_logo(
+  image_url = "img/redlogo.png"
+)
+```
+
+```{r xaringan-tile-view, echo=FALSE}
+xaringanExtra::use_tile_view()
+```
+
 ---
-class: right, middle
+class:inverse
+# Outline
+- .salt[Course introduction]
+- .heat[Industry motives for studying FML]
+- .salt[Statistical Modelling]
+- .heat[Machine learning and financial econometrics]
+- .salt[Advantages and challenges in using ML]
+- .large.fancy[Breathing breaks to aid learning]
+
+---
+class:middle
 <img class="circle" src="img/bq_paint.jpg" width="250px"/>
 Barry Quinn in Home Attic Office
 
@@ -72,6 +83,81 @@ Barry Quinn in Home Attic Office
 [<img src='img/link.png' width="25px"\>quinference.com](https://quinference.com)  
 
 [<img src='img/paper-plane.png' width="25px"\> b.quinn@qub.ac.uk](mailto:b.quinn@qub.ac.uk)
+
+---
+class:middle
+# Course objective
+
+- Introduce the modern practices in finance of using algorithms to extract computer age statistical inference. 
+
+- The purpose of this course is not to introduce students to the vast array of machine learning algorithms. 
+
+- The purpose is to introduce the emerging field of [Financial Machine Learning (FML)](https://jfds.pm-research.com/).  as a complement to traditional financial research techniques. 
+
+.bg-hot-pink.b--dark-pink.ba.bw2.br3.shadow-5.ph4.mt5[
+This course presents machine learning as a non-linear extension of various topics in quantitative economics such as financial econometrics and dynamic programming, with an emphasis on novel algorithmic representations of data, regularization, and techniques for controlling the bias-variance tradeoff leading to improved out-of-sample forecasting.
+`r tufte::quote_footer("Dixon et al., 2020")`
+]
+
+---
+class:inverse
+# Computer age statistical inference
+
+.heatinline[Context is king in statistics]
+
+- Financial datasets used to solve modern investment problems offer unique challenges which are beyond many *plug and play* data science algorithms. 
+
+- The era of "Big Data" has provided a backdrop for the rapid expansion of immense computer-based processing algorithms, for instance, random forest for prediction. 
+
+- The importance of inferential arguments in support of the ML applications has emerged as an exciting (yet underdeveloped) field.  
+
+- This is particularly true for financial research questions where the complexity of the **data story** (or more formally the data generating process which underpins the sample) result in notoriously noise covariance matrices.  
+
+- A small percentage of information these matrices contain is *signal*, which is systemically suppressed by arbitrage forces. 
+
+- This course will introduce best practice techniques in financial data science which can help illicit economically meaningful *signal* and answer contemporary financial research questions.
+---
+class:middle
+# Expectations
+.pull-left[
+### What to expect from me
+- I am passionate about students learning through growth mindsets
+- Neuroscience tells us that permanent changes in our brain require a journey which can take you through the learning pit
+![](img/learningpit.jpeg)
+- I will provide you with the tools to navigate your way through this learning journey.
+- Give you feedback because I believe in you
+]
+.pull-left[
+### What I expect of you
+- Be curious and challenge yourself
+- Communicate in a polite and professional manner
+- Be prepared and motivated to self study
+- Ask for help only after trying and coming up short
+]
+
+
+---
+class:middle
+# Asessment
+.heat[30% Critical essay worth due in the middle of the term]
+
+.salt[70% End of term computer based practical test]
+
+---
+class: middle
+# Rough course plan
+
+| Topic | Week| 
+|:---:|:---:|
+| Why to study financial machine learning? | 1 |
+| High-performance cloud computing in finance|2|
+|Denoising and *detoning* | 3| 
+|Distance metrics | 4| 
+| Optimal clustering |5 | 
+| Financial labels | 6| 
+| Explainable machine learning |7| 
+|Testing set overfitting| 8 & 9| 
+| Round up |10|
 
 ---
 class: left
@@ -113,51 +199,16 @@ class: middle, inverse
 class: left
 
 .left-column[
-
-<img src='img/Turtles_all_the_Way_Down.jpeg'/>
-
+<img src="img/Turtles_all_the_Way_Down.jpeg">
 ]
 
 .right-column[
-## Interaction effects all the way down
+### Interaction effects all the way down
 - High-dimensional datasets with many features (predictors) may have complex patterns.
 - For $p$ features there may be up to $2^p-p-1$ interaction effects.
 - Unlike ML algorithms, econometric models do not *learn* the structure of the data.
 - In classical linear regression the model specification may easily miss some interactions, whereas, an ML algorithm, such as a decision tree, will recursively partition a dataset into subsets with simple patterns, which can be fit independently with simple linear specifications.  
 ]
-<!-- --- -->
-<!-- class:left -->
-<!-- # Your turn: Interaction excercise -->
-
-<!-- .panelset[ -->
-<!-- .panel[.panel-name[R Code] -->
-
-<!-- ```{r panel-chunk, fig.show='hide'} -->
-<!-- # Load rpart and rpart.plot -->
-<!-- library(rpart) -->
-<!-- library(rpart.plot) -->
-<!-- # Create a decision tree model -->
-<!-- read_csv("data/creditcard.csv")->dat -->
-<!-- tree <- rpart(Class~., data=dat, cp=.01) -->
-
-<!-- ``` -->
-<!-- ] -->
-
-<!-- .panel[.panel-name[Plot] -->
-<!-- ```{r plot_tree, out.height="50%"} -->
-<!-- # Visualize the decision tree with rpart.plot -->
-<!-- rpart.plot(tree, box.palette="RdBu", shadow.col="gray", nn=TRUE) -->
-<!-- ``` -->
-<!-- ] -->
-<!-- .panel[.panel-name[Explain] -->
-
-<!-- - The data is 300,000 credit card transaction, a small proportion of which are fraudulent. -->
-<!-- - The major of the features are annoymised, and it is sourced from kaggle.com -->
-<!-- - The data has 30 features, which equates to how many potential interactions? -->
-<!-- - A naive decision tree is fitted and shows that the final depth is 5, suggesting that there are potentially interactions of order 5 which are useful in predicting fraud. -->
-
-<!-- ] -->
-<!-- ] -->
 ---
 class: middle, inverse
 # Empirically Driven Asset Pricing
@@ -277,10 +328,19 @@ class: middle
  - Is a branch of ML which has been the media darling of AI industry expansion
  - At its core it is using neural networks; algorithms inspired by the structure of the human brain.
  - Statisticians are less impressed, and prefer to categorise these models as semi-parametric to non-parametric.
-<<<<<<< HEAD
- - Opposite is a useful mental image to understand what deep learning is.
-=======
->>>>>>> 487bc2730c67c76c0a00438b0f69a85b90c65226
+
+---
+class:inverse
+# A deep learning explainer
+
+
+---
+class: middle,center
+background-image: url(img/title-slide-img.png)
+background-size: cover
+# A breathing break
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cEqZthCaMpo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ---
 name: statistics
@@ -561,19 +621,3 @@ class: middle inverse
 .large[**Backtest are not controlled experiments.**]  
 Only a theory can state the cause-effect mechanism, and formulate a wide range of predictions and implications that can be independently tested for facts and counterfacts
 ]
-
----
-class:middle
-# Schedule
-
-| Topic | Week | Learning | Pre-class reading |
-| :---:|:---:|----------|:-------------:|:--------------:|
-| Why study financial machine learning (FML)? | 1| FML misconceptions, Future of financial research, ML versus Econometrics, FML in industry |Book 1 Chapter 1 (Easley et al., 2020; Wasserstein et al., 2019; Chen, 2020)|
-|Data Denoising and detoning | 2 |Book 1 Chapter 2|  |
-|Distance metrics | 3| Book 1 Chapter 3| |
-| Optimal clustering |4 |Book 1 Chapter 4| |
-| Financial labels | 5|Book 1 Chapter 5| |
-| Explainable machine learning |6 & 7| Book 1 Chapter 6| Apley et al., (2020), Strumbelj and Kononenko (2014)]
-|Testing set overfitting| 8 & 9|Book 1 Chapter 8, Book 2 Chapters 12-15| Prado(2019)
-| Round up and numerai project |10| | | |
-
