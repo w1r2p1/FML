@@ -197,11 +197,11 @@ class:top
 ---
 class:middle
 ## Deep dive: What is a determinant?
-```{r squareunit, echo=FALSE, fig.cap="Figure 1",out.width="50%",fig.align='left'}
+```{r squareunit1, echo=FALSE, fig.cap="Figure 1",out.width="50%",fig.align='left'}
 knitr::include_graphics(path="img/squareunit.png")
 ```
 
-```{r squareunit, echo=FALSE, fig.cap="Figure 1",out.width="50%",fig.align='right'}
+```{r squareunit2, echo=FALSE, fig.cap="Figure 1",out.width="50%",fig.align='right'}
 knitr::include_graphics(path="img/4squnits.png")
 ```
 
@@ -229,7 +229,7 @@ class:middle
 `r emo::ji("confused")`
 ]
 .right-column[
-```{r squareunit, echo=FALSE, fig.cap="Figure 3",out.width="50%",fig.align='right'}
+```{r squareunit3, echo=FALSE, fig.cap="Figure 3",out.width="50%",fig.align='right'}
 knitr::include_graphics(path="img/detcalc.png")
 ```
 - In 2-D finding the eigenvalue is then a task of solving a quadratic
@@ -245,7 +245,7 @@ class:middle
 `r emo::ji("confused")`
 ]
 .right-column[
-```{r squareunit, echo=FALSE, fig.cap="Figure 4",out.width="50%",fig.align='right'}
+```{r squareunit4, echo=FALSE, fig.cap="Figure 4",out.width="50%",fig.align='right'}
 knitr::include_graphics(path="img/detcalc1.png")
 ```
 - By plugging in the discovered eigenvalues into our originally derived equation, we find the eigenvectors
@@ -259,14 +259,14 @@ knitr::include_graphics(path="img/detcalc1.png")
 ]
 ---
 class:middle
-## Deep dive: Machine learning and Eigenvectors
+## Deep dive: Machine learning and eigenvectors
 - Principal component analysis (PCA) is a common unsupervised machine learning technique that seeks to reduce the dimensionality of data whilst retaining key statistical measures like variance and mean.
 
 - Consider a financial data set with 100 features (100-Dimensions), we can attempt to reduce this to 2-D using PCA.
 
 -Firstly, the algorithm constructs the covariance matrix, which evaluates (in a sense) how correlated two variables are.
 
-- This matrix as a whole defines the **shape** of the data.
+- The full covariance matrix defines the **shape** of the data
 
 .footnote[We see come across this **shape** concept again when we using code.]
 
@@ -274,11 +274,18 @@ class:middle
 class:middle
 ## Deep dive: Machine learning and eigenvectors
 
----
-class:middle
-## Deep dive: the
----
+- Eigenvectors of the covariance matrix are used to reorient the data among the x and y axes along lines of the great variance.
 
+- Eigenvectors facilities a snapshot of the matrix, which tells the algorithm which areas to amplify and which to mute.
+
+- Countless other applications of eigenvectors and eigenvalues, from machine learning to topology, utilise the key feature that eigenvectors provide so much useful information about a matrix.
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[Perhaps the reason why eigenvectors and eigenvalues are so special is because of its definition : *the vectors whose direction remains unchanged whilst space around them is warped, pointing forever through the complexity at the true beauty of the matrix* 
+
+`r tufte::quote_footer("Andre Ye 2020")`
+]
+
+---
 class: middle,center
 background-image: url(img/title-slide-img.png)
 background-size: cover

@@ -105,6 +105,26 @@ ol li::before {
   text-shadow: 0 0 0;
 }
 
+.title-slide {
+  background-image: url(img/title-slide-img.png);
+  background-size: cover;
+}
+
+.title-slide h1 {
+  text-shadow: none;
+  color: #F7F8FA;
+  margin-top: -70px;
+}
+
+.title-slide h2, .title-slide h3 {
+  color: #e7e8e2; 
+  line-height: 1.5em;
+}
+.title-slide .remark-slide-number {
+  display: none;
+}
+
+
 
 
 /* links */

@@ -18,6 +18,28 @@ a, a > code {
 .inverse h1, .inverse h2, .inverse h3 {
   color: #f3f3f3;
 }
+
+/* custom title slide */
+.title-slide {
+  background-image: url(https://github.com/barryquinn1/FML/blob/main/img/title-slide-img.png);
+  background-size: cover;
+}
+
+.title-slide h1 {
+  text-shadow: none;
+  color: #F7F8FA;
+  margin-top: -70px;
+}
+
+.title-slide h2, .title-slide h3 {
+  color: #e7e8e2; 
+  line-height: 1.5em;
+}
+.title-slide .remark-slide-number {
+  display: none;
+}
+
+
 /* Two-column layout */
 .left-column {
   color: #777;

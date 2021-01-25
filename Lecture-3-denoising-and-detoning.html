@@ -68,7 +68,7 @@ background-size: cover
 
 # .fancy[Lecture 3: Extracting signal from noisy data]
 
-.large[Barry Quinn PhD CStat | Queen's Management School | 2021-01-23]
+.large[Barry Quinn PhD CStat | Queen's Management School | 2021-01-24]
 
 &lt;!-- this ends up being the title slide since seal = FALSE--&gt;
 
@@ -112,7 +112,6 @@ class: middle
 class:middle
 ## The story of the billion dollar eigenvector
 
-
 - .heatinline[Larry page and Sergy Bin built a  dollar company based on solving a linear alegbra problem using eigenvectors]
 - In the following clip, Professor Steve Strogatz tells the story of the eigenvector, and its billion dollar application in Google.
 
@@ -131,7 +130,7 @@ class:middle
 - Understand what they are is vital to be successful in modern finance. 
 ---
 class:middle
-# Deep dive into the nature of matrices
+# Deep dive: What is a matrix?
 .left-column[
 ![](img/vectors.png)
 ]
@@ -143,7 +142,7 @@ class:middle
 
 ---
 class:middle
-# Deep dive into the nature of matrices
+# Deep dive: Matrix are linear transformers
 .left-column[
 ![](img/lineartransform.png)
 ]
@@ -157,7 +156,7 @@ class:middle
 
 ---
 middle:class
-# Deep dive into matrices
+# Deep dive: What are eigenvectors and eigenvalues?
 .left-column[
 ![](img/lineartransform2.png)
 ]
@@ -173,11 +172,10 @@ middle:class
 
 ---
 class:middle
-# Deep dive into matrices
+# Deep dive: Eigenvectors explained
 .pull-left[
 ![](img/eigenvector_messy.png)
- - Eigenvectors and eigenvalues are messy
- - They are seldom whole numbers and easy calculate
+ - Eigenvectors and eigenvalues are seldom whole numbers and challenging to calculate with accuracy
 ]
 .pull-right[
 - The nature of eigenvectors means that scaling an *Original* eigenvector in the same or directly opposite direction will yield yet another *scaled* eigenvector
@@ -186,7 +184,7 @@ class:middle
 
 ---
 class:top,left
-# Deep dive into the nature of matrices
+# Deep dive: The world in 3-dimensions
 .pull-left[
 - In 3-D, the matrix describes a transformation of 3 axes, x, y and z, corresponding to the three coordinates that represent the transformation each coordinate undergoes.
 - For this reason, *eigenvectors* and *eigenvalues* are only defined for square matrices
@@ -201,33 +199,119 @@ class:top,left
 .footnote.mid-gray[A square matrix is a general `\(n\)` by `\(n\)` matrix describing the transformation of `\(n\)` axes, each corresponding to a coordinate with `\(n\)` elements]
 ---
 class:top
-# Deep dive into matrices
+## Deep dive: Calculating the eigenvector and eigenvalue
 .pull-left[
+![](img/matrixalgebra.png)
 
-&lt;img src="img/matrixalgebra.png" width="100%"&gt;
-
-- Rarrange the equality to make all terms on the right side (A is a matrix and `\(\lambda\)` is a number so we have to an identity matrix `\(I\)` which applies no transformation at all) to find a solution fo the eigenvalue.
-- As the previous plot shows, there are infinite number of *trivial solutions*, or solutions that can be achieved simply by scaling an eigenvector by any number.
-In order to get rid of trivial solutions, we use the determinant.
 ]
 .pull-right[
+- Rearrange the equality to make all terms on the right side (A is a matrix and `\(\lambda\)` is a number so we have to an identity matrix `\(I\)` which applies no transformation at all) to find a solution fo the eigenvalue.
 
-&lt;img src="img/squareunit.png" width="60%" align="left"&gt;
-The determinant is simply a measure of the factor in which area is stretched by a transformation matrix.
-In the above image, one standard square on the coordinate plan ha an area of one square unit
+- As the previous plot shows, there are infinite number of *trivial solutions*, or solutions that can be achieved simply by scaling an eigenvector by any number.
 
-&lt;img src="img/4squnits.png" width="60%" align="right"&gt;
-
-- When the space is stretched by a transformation matrix, the new area is four square units
-- Because the area increases by a factor of four, the determinant of the matrix is four
+- In order to get rid of trivial solutions, we use the .red[determinant].
 ]
 ---
-class: middle
+class:middle
+## Deep dive: What is a determinant?
+&lt;div class="figure" style="text-align: left"&gt;
+&lt;img src="img/squareunit.png" alt="Figure 1" width="50%" /&gt;
+&lt;p class="caption"&gt;Figure 1&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="figure" style="text-align: right"&gt;
+&lt;img src="img/4squnits.png" alt="Figure 1" width="50%" /&gt;
+&lt;p class="caption"&gt;Figure 1&lt;/p&gt;
+&lt;/div&gt;
+
+- The .red[determinant] is a measure of the factor in which area is stretched by a transformation matrix.
+
+- Figure 1 shows one standard square on the coordinate space, with an area of one square unit.
+
+- When the space is stretched `\(\begin{bmatrix} 2&amp;1\\0 &amp;2\end{bmatrix}\)` , the new area is four square units
+
+- **Because the area increases by a factor of four, the determinant of the matrix is four**
+---
+class:middle
+## Deep dive: What is the determinant is zero?
+![](img/det.png)
+- When the determinant is zero, the area of the square is collapsed to zero, meaning that the two vectors describing the locations of the axes are on the same line.
+
+- .heatinline[when the determinant equals zero all of space is warped into one single line (one-dimensional)]
+
+.heat[Therefore to make the previous equality easily solvable (by discarding the space of redundant or trivial solutions) it must be true that the determinant of the matrix must be equal to zero]
+
+---
+class:middle
+## Deep dive: Get ready for the math! 
+.left-column[
+😕
+]
+.right-column[
+&lt;div class="figure" style="text-align: right"&gt;
+&lt;img src="img/detcalc.png" alt="Figure 3" width="50%" /&gt;
+&lt;p class="caption"&gt;Figure 3&lt;/p&gt;
+&lt;/div&gt;
+- In 2-D finding the eigenvalue is then a task of solving a quadratic
+- Figure 3 shows that the eigenvalues of the matrix `\(\begin{bmatrix}1&amp;4\\3&amp;2\end{bmatrix}\)` are 5 and -2
+- This means that when the eigenvectors of the matrix are multiplied by the matrix, their vector length will be stretched by a factor of 5 and -2, respective to each of the eigenvectors
+]
+
+.footnote[.red.bold[ For three or more dimension matrice, a different form of the determinant formula must be used]]
+---
+class:middle
+## Deep dive: Even more math!
+.left-column[
+😕
+]
+.right-column[
+&lt;div class="figure" style="text-align: right"&gt;
+&lt;img src="img/detcalc1.png" alt="Figure 4" width="50%" /&gt;
+&lt;p class="caption"&gt;Figure 4&lt;/p&gt;
+&lt;/div&gt;
+- By plugging in the discovered eigenvalues into our originally derived equation, we find the eigenvectors
+- In the case of the calculation in figure 4, when we plug in `\(\lambda=5\)` we get `\(x=\begin{bmatrix}1\\1\end{bmatrix}\)`
+- When we plug in when we plug in `\(\lambda=-2\)` we get `\(x=\begin{bmatrix}-4\\3\end{bmatrix}\)`
+
+.heatinline.bold[Given only the eigenvectors and eigenvalues of any matrix, one can easily completely reconstruct the original matrix]
+
+.saltinline.bold[This special property guarantees that eigenvectors will show up in almost all financial data science problems]
+
+]
+---
+class:middle
+## Deep dive: Machine learning and eigenvectors
+- Principal component analysis (PCA) is a common unsupervised machine learning technique that seeks to reduce the dimensionality of data whilst retaining key statistical measures like variance and mean.
+
+- Consider a financial data set with 100 features (100-Dimensions), we can attempt to reduce this to 2-D using PCA.
+
+-Firstly, the algorithm constructs the covariance matrix, which evaluates (in a sense) how correlated two variables are.
+
+- The full covariance matrix defines the **shape** of the data
+
+.footnote[We see come across this **shape** concept again when we using code.]
+
+---
+class:middle
+## Deep dive: Machine learning and eigenvectors
+
+- Eigenvectors of the covariance matrix are used to reorient the data among the x and y axes along lines of the great variance.
+
+- Eigenvectors facilities a snapshot of the matrix, which tells the algorithm which areas to amplify and which to mute.
+
+- Countless other applications of eigenvectors and eigenvalues, from machine learning to topology, utilise the key feature that eigenvectors provide so much useful information about a matrix.
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[Perhaps the reason why eigenvectors and eigenvalues are so special is because of its definition : *the vectors whose direction remains unchanged whilst space around them is warped, pointing forever through the complexity at the true beauty of the matrix* 
+
+&lt;footer&gt;Andre Ye 2020&lt;/footer&gt;
+]
+
+---
+class: middle,center
 background-image: url(img/title-slide-img.png)
 background-size: cover
 # A breathing break
-background-image: url(img/title-slide-img.png)
-background-size: cover
+
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/cEqZthCaMpo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
 
 ---
@@ -437,33 +521,33 @@ eMax0, var0 = findMaxEval(np.diag(eVal01), q, bWidth=.01);
 ```
 
 ```
-## sse:750.352645137873
-## sse:750.3525508673242
-## sse:287.02204549845
-## sse:287.022041327251
-## sse:277.7669747802201
-## sse:277.76697939953976
-## sse:224.81351650496984
-## sse:224.81352429216977
-## sse:346.0965315250172
-## sse:346.0964756554871
-## sse:60.23759519045325
-## sse:60.237606406983396
-## sse:18.187167967314657
-## sse:18.18717022735248
-## sse:5610.616460959162
-## sse:5610.615896508957
-## sse:71.75750603451911
-## sse:71.75748421565402
-## sse:17.4751019451357
-## sse:17.47510231742134
-## sse:17.456457771010484
-## sse:17.4564577508393
-## sse:17.456403498411326
-## sse:17.456403498576883
-## sse:17.456403494835804
-## sse:17.456403494835854
-## found errPDFs0.6778616403954383
+## sse:745.8036815250815
+## sse:745.8035865857668
+## sse:288.49231070194026
+## sse:288.492306517261
+## sse:278.890115946097
+## sse:278.8901208300812
+## sse:227.05582225087468
+## sse:227.05582966927847
+## sse:335.7517478854639
+## sse:335.75169395783496
+## sse:60.51849315556292
+## sse:60.51850458757039
+## sse:18.46025236533975
+## sse:18.460254854810426
+## sse:13943.200351675065
+## sse:13943.19888818092
+## sse:210.3719631288349
+## sse:210.3719232798255
+## sse:17.60708705076497
+## sse:17.607087486567004
+## sse:17.5817915064856
+## sse:17.581791482307153
+## sse:17.581714373483617
+## sse:17.581714373699793
+## sse:17.581714367420837
+## sse:17.581714367420908
+## found errPDFs0.6776975978102636
 ```
 
 ```python
