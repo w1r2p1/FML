@@ -18,6 +18,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+library(htmltools)
 options(htmltools.dir.version = FALSE)
 library(knitr)
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
@@ -27,8 +28,6 @@ library(fontawesome)
 library(DiagrammeR)
 library(xaringanExtra)
 library(timevis)
-library(htmltools)
-library(praise)
 ```
 
 layout: true
@@ -90,12 +89,17 @@ class:inverse
 - .salt[Some case studies]
 ---
 class:middle
-## Cloud computing intro
-- This course will expose you to the flexibility of cloud computing and combining R and Python.
-- The School has a high performance compute virtual machine, set-up in Microsoft Azure.
-- Financial institutions have a long history of heavily investing in technology for gaining market share and defending their current position.
+background-image: url(img/recticulated_python.png)
+background-size: cover
+
+## Introduction
+.large[
+- This course will expose you to the flexibility of cloud computing
+- We will learn how to build agile analytics by combining `r fa(name="r-project")` `r fa(name="plus")` `r fa(name="python")` 
+- Financial institutions have a long history of heavily investing in technology for gaining market share and defending their current position
 - The democratisation of computing processing power by cloud providers, has lead to an explosion in financial machine learning applications.
 - Today technology that would have costed millions 20 years ago can be rented for thousand from these cloud providers
+]
 
 >Meriwther spent $20 million on a state-of-the-art computer system and hired a crack team of financial engineers to run the show at LTCM..... 
 `r tufte::quote_footer('Scott Patterson, The Quants, 2010')`
@@ -104,7 +108,8 @@ class: middle
 # What is cloud computing ?
 - .heat[Cloud computing shares many of the similarities of electricity]
 
-.center.large[In the early days of electrical power, corporations and factories where powered by on-site small-scale power plants. Today, large scale power plants with efficient transmission networks have powered modern industrial society, allowing electricity to be at everyone's disposal ar reasonable prices]
+- .large[In the early days of electrical power, corporations and factories where powered by on-site small-scale power plants.] 
+- .large[Today, large scale power plants with efficient transmission networks have powered modern industrial society, allowing electricity to be at everyone's disposal ar reasonable prices]
 
 - .heat[Much like electricity the core concept of cloud computing is resource sharing]
 ---
