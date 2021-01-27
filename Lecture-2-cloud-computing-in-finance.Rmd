@@ -16,7 +16,7 @@ output:
       beforeInit: "https://platform.twitter.com/widgets.js"
     seal: false 
 ---
-
+  
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 library(knitr)
@@ -204,13 +204,47 @@ tv
 ---
 
 class: middle
-## QMS High-Performance Cloud Computing
+## QMS Remote analytics Platform (Q-RaP)
+
+- We have recently introduced state-of-the-art cloud computing teaching for the masters students in the Management School
+
+- We have built a high-performance virtual machine in the Azure cloud to expose students to the production-level technologies they will experience in industry.
+
+- SPECIFICATION: A Linux (ubuntu 18.04) operating system (the most popular OS) with 64 vCPUs, 256 GiB of RAM and 100gb of vSSD.
+
+- This will allows us to teach 64-128 students concurrently (with toy computational tasks with each student limited to 1vCPU and 5 GiB RAM)
+
+---
+class:middle
+# Skills and knowledge in Quant Finance Industry
+
+<img src="img/gap.jpg" align="middle">
+
+---
+class:middle
+# Q-RaP software
+
+- To help fill this gap we will be using the last production level software on the Q-RaP
+
+<img src="https://d33wubrfki0l68.cloudfront.net/7e89f71ee68cff45427e783fdc58510a9e32dfc9/0da76/wp-content/uploads/2018/10/rstudio-logo-white.png" width="50%" align="left">
+
+- Programming language knowledge is like a fashion accessory to geeks
+
+<i class="fab fa-r-project"></i>
+
+
+- When first learning to code it is much better to learning how to integrate languages on a agile platform.
+
+
+
+- The user interface on the server will be power by Rstudio Team Product, the industry version of the free Rstudio IDE for R.
+
+- Learning to integrate programming languages as a quant finance professional be the communicative bridge between complex models and financial decisions
+
+- From this product suite we will be using RStudio Server Pro and RStudio connect
+
 - In this course we will be using a cloud-based Linux machine running [RStudio Server Pro](https://rstudio.com/products/rstudio-server-pro/)
 >Rstudio Server Pro us the preferred data analysis and integrated development experience for professional R users and data science teams who use R and Python. `r tufte::quote_footer("RStudio Team, 2020")`
-
-- This machine is hosted on Microsoft Azure running a Linux (ubuntu 18.04) operating system with 64 vCPUs and 256 GiB of RAM.
-- Student accounts will have approximately 1 vCPU and 4 GiB RAM.
-- This state-of-the-art student resource will allow you to integrate R and Python to produce agile analyitical solutions for assessment and beyond.
 
 ---
 class:top,center
@@ -334,7 +368,7 @@ graph [label='Figure 1: Inherently serial']
 
 .right-column[
 
-- Another important aspect of parallel computing is whether the parallel computing problem is *scaleable*.
+- Another important aspect of parallel computing is whether the parallel computing problem is *scalable*.
 - An inherently serial problem cannot be parallelised, e.g. Figure 1
 - Scalable problems have either a scalable problem size or scalable parallelism.
 - Either the solution time reduces with the increasing of parallelism or the performance of the solution increases with the problem size.
@@ -404,9 +438,10 @@ class:middle
 - `r fa('windows')` **Ctrl+Shift+i**
 - `r fa('apple')` **Cmd+Shift+i**
 
-```{r}
+```{r python+r set-up}
 library(reticulate)
-use_python("/Users/barry/opt/anaconda3/bin/python3") # If you are running this locally you need to point to the binary version of python on your machine.  One the server this has been done automatically for you so you do not need to run this line.
+use_python("/Users/barry/opt/anaconda3/bin/python3.7") 
+# If you are running this locally you need to point to the binary version of python on your machine.  One the server this has been done automatically for you so you do not need to run this line.
 ```
 - Can you insert a `python` code chunk and tell it to print "Hello World"?
 --
@@ -550,10 +585,11 @@ def mcs_simulation_py(p):
 ]
 
 .panel[.panel-name[Execution for MC simulator]
+
 ```{python,time_it=TRUE}
 I=1000
 M=100
-S = mcs_simulation_py((M,I))
+S = mcs_simulation_py((M,I));
 ```
 
 ]
@@ -613,7 +649,7 @@ def mcs_simulation_np(p):
 ]
 .panel[.panel-name[Execution time for MC simulator]
 ```{python,time_it=TRUE}
-S = mcs_simulation_np((M,I))
+S = mcs_simulation_np((M,I));
 ```
 
 - In this instance this is not much faster than the base Python code.
