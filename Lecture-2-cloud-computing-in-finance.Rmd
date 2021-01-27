@@ -5,7 +5,7 @@ author: "Barry Quinn"
 date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
-    css: ["default", "css/sfah.css", "css/fonts.css"]
+    css: ["css/fonts.css","default", "css/sfah.css"]
     lib_dir: libs
     nature:
       countdown: 120000
@@ -16,12 +16,11 @@ output:
       beforeInit: "https://platform.twitter.com/widgets.js"
     seal: false 
 ---
-  
+
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 library(knitr)
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
-# options(knitr.table.format = "html")
 library(tidyverse)
 library(babynames)
 library(fontawesome) 
@@ -29,7 +28,33 @@ library(DiagrammeR)
 library(xaringanExtra)
 library(timevis)
 library(htmltools)
+library(praise)
+```
 
+layout: true
+  
+<div class="my-footer"><span>quinference.com</span></div>
+
+---
+name: ATL-title
+class:inverse,left, middle
+background-image: url(img/title-slide-img.png)
+background-size: cover
+
+.salt[FIN7030]
+
+# Algorithmic Trading and Investing 
+
+# .fancy[Lecture 2: High performance cloud computing in finance]
+
+.large[Barry Quinn PhD CStat | Queen's Management School | `r Sys.Date()`]
+
+<!-- this ends up being the title slide since seal = FALSE-->
+
+```{r xaringan-logo, echo=FALSE}
+use_logo(
+  image_url = "img/redlogo.png"
+)
 knitr::knit_hooks$set(time_it = local({
   now <- NULL
   function(before, options) {
@@ -46,41 +71,18 @@ knitr::knit_hooks$set(time_it = local({
 }))
 ```
 
-layout: true
-  
-<div class="my-footer"><span>quinference.com</span></div>
-
-```{r xaringan-logo, echo=FALSE}
-use_logo(
-  image_url = "img/redlogo.png"
-)
+```{r xaringan-tile-view, echo=FALSE}
+xaringanExtra::use_tile_view()
+xaringanExtra::use_webcam()
+xaringanExtra::use_broadcast()
 ```
-
-```{r xaringanExtra, echo=FALSE}
-use_xaringan_extra(c("tileview", "webcam","panelset","tachuyon"))
-```
-
----
-name: ATL-title
-class: inverse,left, middle
-background-image: url(img/title-slide-img.png)
-background-size: cover
-
-# Algorithmic Trading and Investing (FIN7030)
-
-
-# .fancy[Lecture 2: High performance cloud computing in finance]
-
-.large[Barry Quinn PhD CStat | Queen's Management School | `r Sys.Date()`]
-
-<!-- this ends up being the title slide since seal = FALSE-->
 
 ---
 class:inverse
 # Outline 
 
 - .salt[What is cloud computing?]
-- .fat[Your Turn: Introduction to the QMS_HPCC]
+- .fat[Introduction to the Q-RaP]
 - .salt[Taxonomy of parallel computing]
 - .fat[Performance computing in Python]
 - .salt[Financial applications in the cloud]
@@ -215,52 +217,74 @@ class: middle
 - This will allows us to teach 64-128 students concurrently (with toy computational tasks with each student limited to 1vCPU and 5 GiB RAM)
 
 ---
-class:middle
-# Skills and knowledge in Quant Finance Industry
+class:inverse,top
+## Knowledge Gap in *Quant Finance* Industry
 
-<img src="img/gap.jpg" align="middle">
+<img src="img/gap.jpg" class="center" width="40%">
+
+---
+class:middle
+# Q-RaP software
+.pull-left[
+- To help fill this gap we will be using the last production level software on the Q-RaP.
+
+- This be preliminary through the RStudio professional product range
+
+<img src="img/RStudio-Logo.png" width="50%" class="center">
+
+]
+.pull-right[
+- Programming language knowledge is like a fashion accessory to geeks
+
+- When first learning to code it is much better to learning how to integrate languages on a agile platform.
+
+<img src="img/interoperableR.png" width="80%" class="center">]
+
+.heat[`r fa(name="r-project")` is design as an interperable language connecting many software]
 
 ---
 class:middle
 # Q-RaP software
 
-- To help fill this gap we will be using the last production level software on the Q-RaP
-
-<img src="https://d33wubrfki0l68.cloudfront.net/7e89f71ee68cff45427e783fdc58510a9e32dfc9/0da76/wp-content/uploads/2018/10/rstudio-logo-white.png" width="50%" align="left">
-
-- Programming language knowledge is like a fashion accessory to geeks
-
-<i class="fab fa-r-project"></i>
-
-
-- When first learning to code it is much better to learning how to integrate languages on a agile platform.
-
-
-
 - The user interface on the server will be power by Rstudio Team Product, the industry version of the free Rstudio IDE for R.
 
-- Learning to integrate programming languages as a quant finance professional be the communicative bridge between complex models and financial decisions
+- Learning to integrate programming languages as a quant finance professional is part of the communicative bridge building need to close the gap between complex models and financial decisions
 
-- From this product suite we will be using RStudio Server Pro and RStudio connect
+- From this product suite we will be using [RStudio Server Pro](https://rstudio.com/products/rstudio-server-pro/) and RStudio connect
 
-- In this course we will be using a cloud-based Linux machine running [RStudio Server Pro](https://rstudio.com/products/rstudio-server-pro/)
 >Rstudio Server Pro us the preferred data analysis and integrated development experience for professional R users and data science teams who use R and Python. `r tufte::quote_footer("RStudio Team, 2020")`
 
 ---
 class:top,center
-# Accessing the server
+# Accessing Q-RaP
 
 .pull-left[ 
-### Steps
+### Steps to access your RStudio IDE in the Cloud
 1. Open a web browser
-2. Navigate to: http://qms.uksouth.cloudapp.azure.com:8787/
+2. Navigate to: http://q-rap.qub.ac.uk:8787/
 3. login using the credential provided
 ]
 .pull-right[ 
-<img src="img/qms_rstudio_login.png" alt="server_login" />
+<img src="img/qms_rstudio_login.png" alt="server_login" >
 
 ]
 ---
+class:top,center
+# Accessing Q-RaP
+
+.pull-left[ 
+### Steps to access your RStudio Connect in the Cloud
+1. Open a web browser
+2. Navigate to: http://q-rap.qub.ac.uk
+3. Create an account using your <NAME>@qub.ac.uk email
+4. Use a recognisable username that identifies you, for example 
+]
+.pull-right[ 
+<img src="img/rsconnect_hp.png" alt="connect_login" >
+
+]
+---
+
 class:middle
 # Taxonomy of parallel computing
 - Computer processors process instructions sequentially.
