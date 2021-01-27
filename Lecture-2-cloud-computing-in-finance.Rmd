@@ -96,6 +96,7 @@ background-size: cover
 .large[
 - This course will expose you to the flexibility of cloud computing
 - We will learn how to build agile analytics by combining `r fa(name="r-project")` `r fa(name="plus")` `r fa(name="python")` 
+
 - Financial institutions have a long history of heavily investing in technology for gaining market share and defending their current position
 - The democratisation of computing processing power by cloud providers, has lead to an explosion in financial machine learning applications.
 - Today technology that would have costed millions 20 years ago can be rented for thousand from these cloud providers
@@ -106,10 +107,15 @@ background-size: cover
 ---
 class: middle
 # What is cloud computing ?
+
 - .heat[Cloud computing shares many of the similarities of electricity]
+
+--
 
 - .large[In the early days of electrical power, corporations and factories where powered by on-site small-scale power plants.] 
 - .large[Today, large scale power plants with efficient transmission networks have powered modern industrial society, allowing electricity to be at everyone's disposal ar reasonable prices]
+
+--
 
 - .heat[Much like electricity the core concept of cloud computing is resource sharing]
 ---
@@ -122,6 +128,8 @@ class: top
 
 `r tufte::quote_footer("National Institute of Standards and Technology(NIST) of the US Department of Commerce, 2019")`
 
+--
+
 >Simply put, cloud computing is the delivery of computing services – including servers, storage, databases, networking, software, analytics and intelligence – over the Internet (**"the cloud"**) to offer faster innovation, flexible resources and economies of scale. Typically, you only pay for cloud services you use, helping you lower your operating costs, run your infrastructure more efficiently and scale as your business needs change.
 
 `r tufte::quote_footer("Beginners guide to cloud computing, Microsoft Azure, 2020")`
@@ -132,23 +140,28 @@ class:top
 .heatinline[The follow distinguish cloud computing from other solutions, such as on-site high performance computing servers]
 
 - .large.fancy[On-demand self-service] 
-  - A consumer can provision computing capacity as needed without interaction with service provider.
+  - A consumer can provision computing capacity as needed without interaction with service provider
 - .large.fancy[Broad network access]
-  - Computing resources are available to the consumer through the network and can  be accessed fro mobile phones, tablets, laptops, and workstations.
+  - Computing resources are available to the consumer through the network and can  be accessed from mobile phones, tablets, laptops, and workstations.
 - .large.fancy[Resource pooling]
-  - Resources are dynamically assigned to customers' needs.
+  - Resources are dynamically assigned to customers' needs
 - .large.fancy[Rapid elasticity]
-  - Capacities can be reconfigured automatically to scale rapidly in response to the changing demand.
+  - Capacities can be reconfigured automatically to scale rapidly in response to the changing demand
 - .large.fancy[Measured service]
-  - The resource utilisation is automatically controlled and optimised by the cloud systems.  The usage is monitored, measured, and reported.
+  - The resource utilisation is automatically controlled and optimised by the cloud systems.  The usage is monitored, measured, and reported
 
 ---
 class: middle
 ## Why high performance computing and why now?
-.salt[Regulatory response to the flash crash of 2010]
+.salt[A key reason is the regulatory response to the flash crash of 2010]
 > On the 6th May, 2010 at 2.45 p.m.(EST), the US stock market experienced a nearly 10% drop in the Dow Jones Industrial Average, only to recover most of ther loss a few minutes later
 
-.saltinline[It took the regulatory agencies (SEC) five months to come up with an investigation report on this crash]
+<iframe width="560" height="315" src="https://www.youtube.com/embed/_ZDEWVJan0s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+class: middle
+## Why high performance computing and why now?
+
+.saltinline[It took the regulatory agencies (SEC) five months to come up with an investigation report on the 2010 flash crash]
 
 .heatinline[In the congressional hearings after the event, the SEC official give the primary reason for the long delay as the volumne of data to be investigated (~20 terabytes)]
 
@@ -157,59 +170,72 @@ class: middle
 .heatinline[After the congressional hearing Lawrence Berkley National Laboratory (LNBL) established the Computational Intelligence and Forecasting Technologies (CIFT) project to promote HPC tools and techniques for analysing of financial times series data]
 ---
 class:top
-.large.center[Evolution of financial problem complexity and cloud computing]
+### Evolution of finance complexity and cloud computing: *Early years*
 
-```{r cloud_timeline, echo=FALSE,out.width="100%",out.height="50%"}
+```{r cloud_timeline1, echo=FALSE,out.width="100%",out.height="50%"}
+
 c("Black-Scholes-Merton<br>options pricing model", 
-              "Stochastic modelling<br>of volatility"  ,
-              "Jump diffusion models",
-              "Flash Crash",
-              "Basel III",
-              "Rebentrost et al.2018<br> propose a quantum computational<br> algo to price derivatives",
-              "CME Smart Stream launched:<br> First derivatives exchange<br>to offer real-time cloud-based market data",
-              "Late Professor JohnMcCarthy (MIT) suggested<br>computing would be sold as a utility",
+              "Stochastic modelling<br>of volatility" ,
+              "Jump diffusion models")->financeMs
+
+            c("Late Professor JohnMcCarthy (MIT) suggested<br>computing would be sold as a utility",
               "IBM virtualised <br> operating systems",
               "APRANET <br> launched",
               "Nearly 100,000 computers connected to the internet",
               "World Wide Web launched; 1 million<br>computers connected to the Internet",
               "Compaq Computer Corp.introduce an<br>'An Internet Divisions Strategy for Cloud Computing'",
               "Amazon Web Services (AWS) launch public Cloud",
-              "OpenNebula research project launched; 'Big data'starts to become popular",
+              "OpenNebula research project launched;<br> Big data starts to become popular",
               "Amazon launch Elastic Compute Cloud (EC2)",
-              "Dropbox founded; Cloud storage becomes a service",
+              "Dropbox founded<br>; Cloud storage becomes a service")->cloudMs
+content<-c(financeMs,cloudMs)            
+start   = c("1973","1993","2000","1961","1967","1969","1988","1991","1996","2002","2005","2006","2007")
+
+i<-length(financeMs)
+j=length(cloudMs)
+
+timevis(
+  data.frame(
+  start=start,
+  content =content ,
+  group=c(rep(1,i),rep(2,j)),
+  style=c(rep("font-size: 0.5em; color: blue;",i),rep("font-size: 0.5em; color: red;",j))),
+  groups=data.frame(id = 1:2, content = c("Computational<br>Milestones<br>in<br>Finance","Cloud<br>Computing<br>Milestones"))) %>%
+  fitWindow(options=list(animation=FALSE))
+```
+---
+class:top
+### Evolution of financial problem complexity and cloud computing *last decade*
+
+```{r cloud_timeline2, echo=FALSE,out.width="100%",out.height="50%"}
+c("Flash Crash",
+              "Basel III",
+              "Rebentrost et al.2018<br> propose a quantum computational<br> algo to price derivatives",
+              "CME Smart Stream launched:<br> First derivatives exchange<br>to offer real-time cloud-based market data")->financeMs
+c(
               "Microsoft launch Azure",
-              "DigitalOcean launched; third largest cloud computing company (2020)",
+              "DigitalOcean launched; <br>third largest cloud computing company (2020)",
               "Real-time streaming data processed on AWS",
               "Machine learning services on the Cloud",
               "Microsoft launches under the sea data-centre",
-              "Google Tensor Processing Units (TPUs) avaliable on the Cloud")-> content
-start   = c("1973","1993","2000","2010","2013","2018","2019","1961","1967","1969","1988","1991","1996","2002","2005","2006","2007","2010","2012","2013","2015","2018","2019")
+              "Google Tensor Processing Units <br>(TPUs) avaliable on the Cloud")->cloudMs 
+content<-c(financeMs,cloudMs)
+start   = c("2010","2013","2018","2019","2010","2012","2013","2015","2018","2019")
 
-timevis(data.frame(
+i<-length(financeMs)
+j=length(cloudMs)
+
+timevis(
+  data.frame(
   start=start,
   content =content ,
-  group=c(rep(1,7),rep(2,length(content)-7)),
-  style=c(rep("font-size: 0.5em; color: blue;",7),rep("font-size: 0.5em; color: red;",length(content)-7))),
-  groups = data.frame(id = 1:2, content = c("Finance<Br> Computational<br>Milestones","Cloud<br>Computing<br>Milestones")),
-  fit=TRUE)->tv
-
-
-style = ".vis-timeline { 
-border-color: #269026;
-  background-color: lightblue;
-  font-size: 12px;}
-.vis-item {
-  border: 2px solid #5ace5a;
-  font-size: 10pt;
-  background: #d9ffd9;
-  font-family: lucinda console;
-  padding: 2px;}"
-
-tv <- tagList(tags$style(style), tv)
-tv
+  group=c(rep(1,i),rep(2,j)),
+  style=c(rep("font-size: 0.5em; color: blue;",i),rep("font-size: 0.5em; color: red;",j))),
+  groups=data.frame(id = 1:2, content = c("Computational<br>Milestones<br>in<br>Finance","Cloud<br>Computing<br>Milestones"))) %>%
+  fitWindow()
 ```
----
 
+---
 class: middle
 ## QMS Remote analytics Platform (Q-RaP)
 
@@ -231,7 +257,7 @@ class:inverse,top
 class:middle
 # Q-RaP software
 .pull-left[
-- To help fill this gap we will be using the last production level software on the Q-RaP.
+- To help fill this gap we will be using the last production level software on  Q-RaP.
 
 - This be preliminary through the RStudio professional product range
 
@@ -239,13 +265,14 @@ class:middle
 
 ]
 .pull-right[
-- Programming language knowledge is like a fashion accessory to geeks
+- Programming language knowledge is like a fashion accessory; picking a language to learning over all others can mean you are out of fashion very quick
 
 - When first learning to code it is much better to learning how to integrate languages on a agile platform.
+- `r fa(name="r-project")` is an interoperable language with widespread connectivity
 
 <img src="img/interoperableR.png" width="80%" class="center">]
 
-.heat[`r fa(name="r-project")` is design as an interperable language connecting many software]
+.heatinline[`r fa(name="r-project")` is design as an interperable language connecting many software]
 
 ---
 class:middle
@@ -253,21 +280,23 @@ class:middle
 
 - The user interface on the server will be power by Rstudio Team Product, the industry version of the free Rstudio IDE for R.
 
-- Learning to integrate programming languages as a quant finance professional is part of the communicative bridge building need to close the gap between complex models and financial decisions
+- .fatinline[Learning to integrate programming languages as a quant finance professional is part of the communicative bridge building needed to close the gap between complex models and financial decisions]
 
 - From this product suite we will be using [RStudio Server Pro](https://rstudio.com/products/rstudio-server-pro/) and RStudio connect
 
->Rstudio Server Pro us the preferred data analysis and integrated development experience for professional R users and data science teams who use R and Python. `r tufte::quote_footer("RStudio Team, 2020")`
+>Rstudio Server Pro is the preferred data analysis and integrated development experience for professional R users and data science teams who use R and Python. `r tufte::quote_footer("RStudio Team, 2020")`
 
 ---
 class:top,center
-# Accessing Q-RaP
+# Accessing RStudio on Q-RaP
 
 .pull-left[ 
-### Steps to access your RStudio IDE in the Cloud
+### Steps
 1. Open a web browser
 2. Navigate to: http://q-rap.qub.ac.uk:8787/
 3. login using the credential provided
+
+.heatinline[Note that these credentials are private and can only be accessed by the administrator (Me)]
 ]
 .pull-right[ 
 <img src="img/qms_rstudio_login.png" alt="server_login" >
@@ -275,29 +304,41 @@ class:top,center
 ]
 ---
 class:top,center
-# Accessing Q-RaP
+# Accessing Rstudio Connect on Q-RaP
 
 .pull-left[ 
-### Steps to access your RStudio Connect in the Cloud
+### Steps
 1. Open a web browser
 2. Navigate to: http://q-rap.qub.ac.uk
 3. Create an account using your <NAME>@qub.ac.uk email
-4. Use a recognisable username that identifies you, for example 
+4. Use a recognisable username that identifies you, for example `barry-quinn`
 ]
 .pull-right[ 
 <img src="img/rsconnect_hp.png" alt="connect_login" >
 
 ]
+
+.fat[We will be using these resources extensively for both growth learning and assessment]
+---
+
+---
+class: middle,center
+background-image: url(img/title-slide-img.png)
+background-size: cover
+# A breathing break
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PmBYdfv5RSk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ---
 
 class:middle
 # Taxonomy of parallel computing
-- Computer processors process instructions sequentially.
+- .large[Computer processors process instructions sequentially.
 - Traditional computing problems are serial by design.
 - The birth of multiprocessors (*multicore processors*) has innovated a new type of computing problem:
-
-.acid.center[how to utilise the parallel structure]
-- Roughly speaking, multicore processors are equivalent to running multiple computers at a time
+]
+.acid[how to utilise the parallel structure]
+- .large[Roughly speaking, multicore processors are equivalent to running multiple computers at a time]
 ---
 class:middle
 # Taxonomy of parallel computing
@@ -373,11 +414,13 @@ Job2->Job3[dir='both',label='Information',style='dashed']
 - In figure 1 there is no communication between Jobs, while in figure 2 some communication between Jobs is required
 ]
 ---
+class:inverse
+
 # Taxonomy of parallel computing
-class:middle
-- Problems can also be classified by there nature
-- Data parallelism focuses on distributing data across different processors
-- Job parallelism focuses on distributing execution processes (subtasks) to different processors
+.
+- .large[Problems can also be classified by there nature:
+- .heatinline[Data parallelism] focuses on distributing data across different processors
+- .heatinline[Job parallelism] focuses on distributing execution processes (subtasks) to different processors]
 ---
 class:middle,left
 # The serial-parallel scale
@@ -470,7 +513,7 @@ class:middle
 ```{r python+r set-up}
 library(reticulate)
 use_python("/Users/barry/opt/anaconda3/bin/python3.7") 
-# If you are running this locally you need to point to the binary version of python on your machine.  One the server this has been done automatically for you so you do not need to run this line.
+# If you are running this locally you need to point to the binary version of python on your machine.  Q-Rap Rstudio is optimise to run the appropriate version of python for all users
 ```
 - Can you insert a `python` code chunk and tell it to print "Hello World"?
 --

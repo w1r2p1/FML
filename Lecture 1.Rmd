@@ -21,7 +21,6 @@ output:
 options(htmltools.dir.version = FALSE)
 library(knitr)
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
-# options(knitr.table.format = "html")
 library(tidyverse)
 library(babynames)
 library(fontawesome) 

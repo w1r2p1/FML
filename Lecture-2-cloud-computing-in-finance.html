@@ -113,28 +113,33 @@ class:inverse
 - .salt[Some case studies]
 ---
 class:middle
+background-image: url(img/recticulated_python.png)
+background-size: cover
+
 ## Introduction
-.left-pull[
+.large[
 - This course will expose you to the flexibility of cloud computing
-- We will learn how to build agile analytics by combining 
-]
-&lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 581 512"&gt;&lt;path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/&gt;&lt;/svg&gt; &lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 448 512"&gt;&lt;path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/&gt;&lt;/svg&gt; &lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 448 512"&gt;&lt;path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/&gt;&lt;/svg&gt;
-.right-pull[
-![](img/reticulated_python.png)
-]
+- We will learn how to build agile analytics by combining &lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 581 512"&gt;&lt;path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/&gt;&lt;/svg&gt; &lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 448 512"&gt;&lt;path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"/&gt;&lt;/svg&gt; &lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 448 512"&gt;&lt;path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/&gt;&lt;/svg&gt; 
+
 - Financial institutions have a long history of heavily investing in technology for gaining market share and defending their current position
 - The democratisation of computing processing power by cloud providers, has lead to an explosion in financial machine learning applications.
 - Today technology that would have costed millions 20 years ago can be rented for thousand from these cloud providers
+]
 
 &gt;Meriwther spent $20 million on a state-of-the-art computer system and hired a crack team of financial engineers to run the show at LTCM..... 
 &lt;footer&gt;Scott Patterson, The Quants, 2010&lt;/footer&gt;
 ---
 class: middle
 # What is cloud computing ?
+
 - .heat[Cloud computing shares many of the similarities of electricity]
+
+--
 
 - .large[In the early days of electrical power, corporations and factories where powered by on-site small-scale power plants.] 
 - .large[Today, large scale power plants with efficient transmission networks have powered modern industrial society, allowing electricity to be at everyone's disposal ar reasonable prices]
+
+--
 
 - .heat[Much like electricity the core concept of cloud computing is resource sharing]
 ---
@@ -147,6 +152,8 @@ class: top
 
 &lt;footer&gt;National Institute of Standards and Technology(NIST) of the US Department of Commerce, 2019&lt;/footer&gt;
 
+--
+
 &gt;Simply put, cloud computing is the delivery of computing services – including servers, storage, databases, networking, software, analytics and intelligence – over the Internet (**"the cloud"**) to offer faster innovation, flexible resources and economies of scale. Typically, you only pay for cloud services you use, helping you lower your operating costs, run your infrastructure more efficiently and scale as your business needs change.
 
 &lt;footer&gt;Beginners guide to cloud computing, Microsoft Azure, 2020&lt;/footer&gt;
@@ -157,23 +164,28 @@ class:top
 .heatinline[The follow distinguish cloud computing from other solutions, such as on-site high performance computing servers]
 
 - .large.fancy[On-demand self-service] 
-  - A consumer can provision computing capacity as needed without interaction with service provider.
+  - A consumer can provision computing capacity as needed without interaction with service provider
 - .large.fancy[Broad network access]
-  - Computing resources are available to the consumer through the network and can  be accessed fro mobile phones, tablets, laptops, and workstations.
+  - Computing resources are available to the consumer through the network and can  be accessed from mobile phones, tablets, laptops, and workstations.
 - .large.fancy[Resource pooling]
-  - Resources are dynamically assigned to customers' needs.
+  - Resources are dynamically assigned to customers' needs
 - .large.fancy[Rapid elasticity]
-  - Capacities can be reconfigured automatically to scale rapidly in response to the changing demand.
+  - Capacities can be reconfigured automatically to scale rapidly in response to the changing demand
 - .large.fancy[Measured service]
-  - The resource utilisation is automatically controlled and optimised by the cloud systems.  The usage is monitored, measured, and reported.
+  - The resource utilisation is automatically controlled and optimised by the cloud systems.  The usage is monitored, measured, and reported
 
 ---
 class: middle
 ## Why high performance computing and why now?
-.salt[Regulatory response to the flash crash of 2010]
+.salt[A key reason is the regulatory response to the flash crash of 2010]
 &gt; On the 6th May, 2010 at 2.45 p.m.(EST), the US stock market experienced a nearly 10% drop in the Dow Jones Industrial Average, only to recover most of ther loss a few minutes later
 
-.saltinline[It took the regulatory agencies (SEC) five months to come up with an investigation report on this crash]
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/_ZDEWVJan0s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
+class: middle
+## Why high performance computing and why now?
+
+.saltinline[It took the regulatory agencies (SEC) five months to come up with an investigation report on the 2010 flash crash]
 
 .heatinline[In the congressional hearings after the event, the SEC official give the primary reason for the long delay as the volumne of data to be investigated (~20 terabytes)]
 
@@ -182,27 +194,28 @@ class: middle
 .heatinline[After the congressional hearing Lawrence Berkley National Laboratory (LNBL) established the Computational Intelligence and Forecasting Technologies (CIFT) project to promote HPC tools and techniques for analysing of financial times series data]
 ---
 class:top
-.large.center[Evolution of financial problem complexity and cloud computing]
+### Evolution of finance complexity and cloud computing: *Early years*
 
-<style>.vis-timeline { 
-border-color: #269026;
-  background-color: lightblue;
-  font-size: 12px;}
-.vis-item {
-  border: 2px solid #5ace5a;
-  font-size: 10pt;
-  background: #d9ffd9;
-  font-family: lucinda console;
-  padding: 2px;}</style>
-<div id="htmlwidget-cc767e4877955542b3b9" class="timevis html-widget" style="width:960px;height:500px;">
+<div id="htmlwidget-677e2798695306eaec3e" class="timevis html-widget" style="width:100%;height:50%;">
 <div class="btn-group zoom-menu">
 <button type="button" class="btn btn-default btn-lg zoom-in" title="Zoom in">+</button>
 <button type="button" class="btn btn-default btn-lg zoom-out" title="Zoom out">-</button>
 </div>
 </div>
-<script type="application/json" data-for="htmlwidget-cc767e4877955542b3b9">{"x":{"items":[{"start":"1973","content":"Black-Scholes-Merton<br>options pricing model","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"1993","content":"Stochastic modelling<br>of volatility","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2000","content":"Jump diffusion models","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2010","content":"Flash Crash","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2013","content":"Basel III","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2018","content":"Rebentrost et al.2018<br> propose a quantum computational<br> algo to price derivatives","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2019","content":"CME Smart Stream launched:<br> First derivatives exchange<br>to offer real-time cloud-based market data","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"1961","content":"Late Professor JohnMcCarthy (MIT) suggested<br>computing would be sold as a utility","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1967","content":"IBM virtualised <br> operating systems","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1969","content":"APRANET <br> launched","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1988","content":"Nearly 100,000 computers connected to the internet","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1991","content":"World Wide Web launched; 1 million<br>computers connected to the Internet","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1996","content":"Compaq Computer Corp.introduce an<br>'An Internet Divisions Strategy for Cloud Computing'","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2002","content":"Amazon Web Services (AWS) launch public Cloud","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2005","content":"OpenNebula research project launched; 'Big data'starts to become popular","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2006","content":"Amazon launch Elastic Compute Cloud (EC2)","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2007","content":"Dropbox founded; Cloud storage becomes a service","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2010","content":"Microsoft launch Azure","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2012","content":"DigitalOcean launched; third largest cloud computing company (2020)","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2013","content":"Real-time streaming data processed on AWS","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2015","content":"Machine learning services on the Cloud","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2018","content":"Microsoft launches under the sea data-centre","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2019","content":"Google Tensor Processing Units (TPUs) avaliable on the Cloud","group":"2","style":"font-size: 0.5em; color: red;"}],"groups":[{"id":"1","content":"Finance<Br> Computational<br>Milestones"},{"id":"2","content":"Cloud<br>Computing<br>Milestones"}],"showZoom":true,"zoomFactor":0.5,"fit":true,"options":[],"height":null,"timezone":null,"api":[]},"evals":[],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-677e2798695306eaec3e">{"x":{"items":[{"start":"1973","content":"Black-Scholes-Merton<br>options pricing model","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"1993","content":"Stochastic modelling<br>of volatility","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2000","content":"Jump diffusion models","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"1961","content":"Late Professor JohnMcCarthy (MIT) suggested<br>computing would be sold as a utility","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1967","content":"IBM virtualised <br> operating systems","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1969","content":"APRANET <br> launched","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1988","content":"Nearly 100,000 computers connected to the internet","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1991","content":"World Wide Web launched; 1 million<br>computers connected to the Internet","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"1996","content":"Compaq Computer Corp.introduce an<br>'An Internet Divisions Strategy for Cloud Computing'","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2002","content":"Amazon Web Services (AWS) launch public Cloud","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2005","content":"OpenNebula research project launched;<br> Big data starts to become popular","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2006","content":"Amazon launch Elastic Compute Cloud (EC2)","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2007","content":"Dropbox founded<br>; Cloud storage becomes a service","group":"2","style":"font-size: 0.5em; color: red;"}],"groups":[{"id":"1","content":"Computational<br>Milestones<br>in<br>Finance"},{"id":"2","content":"Cloud<br>Computing<br>Milestones"}],"showZoom":true,"zoomFactor":0.5,"fit":true,"options":[],"height":null,"timezone":null,"api":[{"method":"fitWindow","options":{"animation":false}}]},"evals":[],"jsHooks":[]}</script>
 ---
+class:top
+### Evolution of financial problem complexity and cloud computing *last decade*
 
+<div id="htmlwidget-385c608f6dbd44c9705e" class="timevis html-widget" style="width:100%;height:50%;">
+<div class="btn-group zoom-menu">
+<button type="button" class="btn btn-default btn-lg zoom-in" title="Zoom in">+</button>
+<button type="button" class="btn btn-default btn-lg zoom-out" title="Zoom out">-</button>
+</div>
+</div>
+<script type="application/json" data-for="htmlwidget-385c608f6dbd44c9705e">{"x":{"items":[{"start":"2010","content":"Flash Crash","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2013","content":"Basel III","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2018","content":"Rebentrost et al.2018<br> propose a quantum computational<br> algo to price derivatives","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2019","content":"CME Smart Stream launched:<br> First derivatives exchange<br>to offer real-time cloud-based market data","group":"1","style":"font-size: 0.5em; color: blue;"},{"start":"2010","content":"Microsoft launch Azure","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2012","content":"DigitalOcean launched; <br>third largest cloud computing company (2020)","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2013","content":"Real-time streaming data processed on AWS","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2015","content":"Machine learning services on the Cloud","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2018","content":"Microsoft launches under the sea data-centre","group":"2","style":"font-size: 0.5em; color: red;"},{"start":"2019","content":"Google Tensor Processing Units <br>(TPUs) avaliable on the Cloud","group":"2","style":"font-size: 0.5em; color: red;"}],"groups":[{"id":"1","content":"Computational<br>Milestones<br>in<br>Finance"},{"id":"2","content":"Cloud<br>Computing<br>Milestones"}],"showZoom":true,"zoomFactor":0.5,"fit":true,"options":[],"height":null,"timezone":null,"api":[{"method":"fitWindow"}]},"evals":[],"jsHooks":[]}</script>
+
+---
 class: middle
 ## QMS Remote analytics Platform (Q-RaP)
 
@@ -224,7 +237,7 @@ class:inverse,top
 class:middle
 # Q-RaP software
 .pull-left[
-- To help fill this gap we will be using the last production level software on the Q-RaP.
+- To help fill this gap we will be using the last production level software on  Q-RaP.
 
 - This be preliminary through the RStudio professional product range
 
@@ -232,13 +245,14 @@ class:middle
 
 ]
 .pull-right[
-- Programming language knowledge is like a fashion accessory to geeks
+- Programming language knowledge is like a fashion accessory; picking a language to learning over all others can mean you are out of fashion very quick
 
 - When first learning to code it is much better to learning how to integrate languages on a agile platform.
+- &lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 581 512"&gt;&lt;path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/&gt;&lt;/svg&gt; is an interoperable language with widespread connectivity
 
 &lt;img src="img/interoperableR.png" width="80%" class="center"&gt;]
 
-.heat[&lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 581 512"&gt;&lt;path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/&gt;&lt;/svg&gt; is design as an interperable language connecting many software]
+.heatinline[&lt;svg style="height:0.8em;top:.04em;position:relative;" viewBox="0 0 581 512"&gt;&lt;path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/&gt;&lt;/svg&gt; is design as an interperable language connecting many software]
 
 ---
 class:middle
@@ -246,21 +260,23 @@ class:middle
 
 - The user interface on the server will be power by Rstudio Team Product, the industry version of the free Rstudio IDE for R.
 
-- Learning to integrate programming languages as a quant finance professional is part of the communicative bridge building need to close the gap between complex models and financial decisions
+- .fatinline[Learning to integrate programming languages as a quant finance professional is part of the communicative bridge building needed to close the gap between complex models and financial decisions]
 
 - From this product suite we will be using [RStudio Server Pro](https://rstudio.com/products/rstudio-server-pro/) and RStudio connect
 
-&gt;Rstudio Server Pro us the preferred data analysis and integrated development experience for professional R users and data science teams who use R and Python. &lt;footer&gt;RStudio Team, 2020&lt;/footer&gt;
+&gt;Rstudio Server Pro is the preferred data analysis and integrated development experience for professional R users and data science teams who use R and Python. &lt;footer&gt;RStudio Team, 2020&lt;/footer&gt;
 
 ---
 class:top,center
-# Accessing Q-RaP
+# Accessing RStudio on Q-RaP
 
 .pull-left[ 
-### Steps to access your RStudio IDE in the Cloud
+### Steps
 1. Open a web browser
 2. Navigate to: http://q-rap.qub.ac.uk:8787/
 3. login using the credential provided
+
+.heatinline[Note that these credentials are private and can only be accessed by the administrator (Me)]
 ]
 .pull-right[ 
 &lt;img src="img/qms_rstudio_login.png" alt="server_login" &gt;
@@ -268,41 +284,53 @@ class:top,center
 ]
 ---
 class:top,center
-# Accessing Q-RaP
+# Accessing Rstudio Connect on Q-RaP
 
 .pull-left[ 
-### Steps to access your RStudio Connect in the Cloud
+### Steps
 1. Open a web browser
 2. Navigate to: http://q-rap.qub.ac.uk
 3. Create an account using your &lt;NAME&gt;@qub.ac.uk email
-4. Use a recognisable username that identifies you, for example 
+4. Use a recognisable username that identifies you, for example `barry-quinn`
 ]
 .pull-right[ 
 &lt;img src="img/rsconnect_hp.png" alt="connect_login" &gt;
 
 ]
+
+.fat[We will be using these resources extensively for both growth learning and assessment]
+---
+
+---
+class: middle,center
+background-image: url(img/title-slide-img.png)
+background-size: cover
+# A breathing break
+
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/PmBYdfv5RSk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen&gt;&lt;/iframe&gt;
+
 ---
 
 class:middle
 # Taxonomy of parallel computing
-- Computer processors process instructions sequentially.
+- .large[Computer processors process instructions sequentially.
 - Traditional computing problems are serial by design.
 - The birth of multiprocessors (*multicore processors*) has innovated a new type of computing problem:
-
-.acid.center[how to utilise the parallel structure]
-- Roughly speaking, multicore processors are equivalent to running multiple computers at a time
+]
+.acid[how to utilise the parallel structure]
+- .large[Roughly speaking, multicore processors are equivalent to running multiple computers at a time]
 ---
 class:middle
 # Taxonomy of parallel computing
 .pull-left.acid[Parallel computing problems in contrast to serial computing problems, refer to the type of problem that can be divided into small Jobs which can be processed simultaneously ]
 .pull-right[
 **embarrassingly parallel computing**:
-<div id="htmlwidget-899920e1887662d8bcec" style="width:504px;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-899920e1887662d8bcec">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-52f58d8864dbd9ef5587" style="width:504px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-52f58d8864dbd9ef5587">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 **nonembarrassingly parallel computing**:
-<div id="htmlwidget-f7b2393e373e9d44d2c6" style="width:504px;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-f7b2393e373e9d44d2c6">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\nJob1->Job2[dir=\"both\",label=\"Information\",style=\"dashed\"]\nJob2->Job3[dir=\"both\",label=\"Information\",style=\"dashed\"]\n{rank=same; Job1;Job2;Job3}\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-12ea25af5589f201b8d5" style="width:504px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-12ea25af5589f201b8d5">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\nJob1->Job2[dir=\"both\",label=\"Information\",style=\"dashed\"]\nJob2->Job3[dir=\"both\",label=\"Information\",style=\"dashed\"]\n{rank=same; Job1;Job2;Job3}\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ]
 ---
 class:top
@@ -312,12 +340,12 @@ class:top
 .pull-left[
 
 #### Figure 1: embarrassingly parallel computing
-<div id="htmlwidget-b27bb8e28fbe06981cdc" style="width:504px;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b27bb8e28fbe06981cdc">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-482db276112ca1205358" style="width:504px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-482db276112ca1205358">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 #### Figure 2: snonembarrassingly parallel computing
-<div id="htmlwidget-db3c1f10b4c7f7e35373" style="width:504px;height:200px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-db3c1f10b4c7f7e35373">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\nJob1->Job2[dir=\"both\",label=\"Information\",style=\"dashed\"]\nJob2->Job3[dir=\"both\",label=\"Information\",style=\"dashed\"]\n{rank=same; Job1;Job2;Job3}\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-d169abb6d3f44c44a47a" style="width:504px;height:200px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d169abb6d3f44c44a47a">{"x":{"diagram":"\ndigraph rmarkdown {\n\"Input Data\"->{Job1,Job2,Job3}\n{Job1,Job2,Job3}->\"Results\"\nJob1->Job2[dir=\"both\",label=\"Information\",style=\"dashed\"]\nJob2->Job3[dir=\"both\",label=\"Information\",style=\"dashed\"]\n{rank=same; Job1;Job2;Job3}\n} \n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 ]
 .pull-right[
 -  Based on the dependence structure of sub-Jobs problems parallel computing problems can be further classified into *embarrassingly parallel* and  *non embarrassingly parallel*
@@ -326,17 +354,19 @@ class:top
 - In figure 1 there is no communication between Jobs, while in figure 2 some communication between Jobs is required
 ]
 ---
+class:inverse
+
 # Taxonomy of parallel computing
-class:middle
-- Problems can also be classified by there nature
-- Data parallelism focuses on distributing data across different processors
-- Job parallelism focuses on distributing execution processes (subtasks) to different processors
+.
+- .large[Problems can also be classified by there nature:
+- .heatinline[Data parallelism] focuses on distributing data across different processors
+- .heatinline[Job parallelism] focuses on distributing execution processes (subtasks) to different processors]
 ---
 class:middle,left
 # The serial-parallel scale
 .left-column[
-<div id="htmlwidget-caf63a111dc69632a13a" style="width:504px;height:400px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-caf63a111dc69632a13a">{"x":{"diagram":"\ndigraph  {\ngraph [label=\"Figure 1: Inherently serial\"]\n\"Input Data\"->Job1->\"Results\"->Job2->\"More Results\"->Job3\n} \n","config":{"engine":"dot","options":"margin: auto !important;"}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-c81aef7c783cf4f23b6c" style="width:504px;height:400px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-c81aef7c783cf4f23b6c">{"x":{"diagram":"\ndigraph  {\ngraph [label=\"Figure 1: Inherently serial\"]\n\"Input Data\"->Job1->\"Results\"->Job2->\"More Results\"->Job3\n} \n","config":{"engine":"dot","options":"margin: auto !important;"}},"evals":[],"jsHooks":[]}</script>
 ]
 
 .right-column[
@@ -415,7 +445,7 @@ class:middle
 ```r
 library(reticulate)
 use_python("/Users/barry/opt/anaconda3/bin/python3.7") 
-# If you are running this locally you need to point to the binary version of python on your machine.  One the server this has been done automatically for you so you do not need to run this line.
+# If you are running this locally you need to point to the binary version of python on your machine.  Q-Rap Rstudio is optimise to run the appropriate version of python for all users
 ```
 - Can you insert a `python` code chunk and tell it to print "Hello World"?
 --
@@ -487,10 +517,10 @@ average_py(n)
 ```
 
 ```
-## 0.4996494441687581
+## 0.4999503088050249
 ```
 
-Time for this code chunk to run: 0.377430200576782
+Time for this code chunk to run: 0.681728839874268
 
 ]
 ]
@@ -524,10 +554,10 @@ average_np(n)
 ```
 
 ```
-## 0.49985844377174715
+## 0.49923542103983126
 ```
 
-Time for this code chunk to run: 0.20259952545166
+Time for this code chunk to run: 0.493387460708618
 
 ]
 .panel[.panel-name[Vectorisation and Memory]
@@ -585,7 +615,7 @@ M=100
 S = mcs_simulation_py((M,I));
 ```
 
-Time for this code chunk to run: 0.407303094863892
+Time for this code chunk to run: 0.696533918380737
 
 ]
 .panel[.panel-name[Plot 1000 Price Paths in R]
@@ -635,7 +665,7 @@ def mcs_simulation_np(p):
 S = mcs_simulation_np((M,I));
 ```
 
-Time for this code chunk to run: 0.594169616699219
+Time for this code chunk to run: 0.848816871643066
 
 - In this instance this is not much faster than the base Python code.
 
@@ -659,7 +689,7 @@ mcs_simulation_nb=numba.jit(mcs_simulation_np)
 S=mcs_simulation_nb((M,I))
 ```
 
-Time for this code chunk to run: 1.37138843536377
+Time for this code chunk to run: 0.890127658843994
 
 ### This call excludes the compile time overhead
 
@@ -668,7 +698,7 @@ Time for this code chunk to run: 1.37138843536377
 S=mcs_simulation_nb((M,I))
 ```
 
-Time for this code chunk to run: 0.456214427947998
+Time for this code chunk to run: 0.450743675231934
 
 - Again a significant improvement on the raw Python
 - After compilation `Numba` is much faster than `Numpy`
@@ -703,7 +733,7 @@ p=10
 S= np.hstack(pool.map(mcs_simulation_np,p*[(M,int(I/p))]))
 ```
 
-Time for this code chunk to run: 0.746777772903442
+Time for this code chunk to run: 0.759126901626587
 
 - .heatinline[In this instance there is no more speed-up to be observed.]
 ]
