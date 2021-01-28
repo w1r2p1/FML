@@ -84,9 +84,7 @@ class:inverse
 - .fat[Introduction to the Q-RaP]
 - .salt[Taxonomy of parallel computing]
 - .fat[Performance computing in Python]
-- .salt[Financial applications in the cloud]
-- .salt[Economics of the cloud computing]
-- .salt[Some case studies]
+- .salt[Economics of AI in Business]
 ---
 class:middle
 background-image: url(img/recticulated_python.png)
@@ -784,6 +782,35 @@ S= np.hstack(pool.map(mcs_simulation_np,p*[(M,int(I/p))]))
 - .heatinline[In this instance there is no more speed-up to be observed.]
 ]
 ]
+
+---
+class:middle 
+## The economics of AI tools in Business
+
+- Much like the semiconductor reduced the cost of arithmetic , recent advances in AI make the task of prediction abundant and inexpensive.  
+
+- Advancements have been built around the rubric of machine learning where recent developments in algorithms, computational speed, data storage, and data retrieval have combined to reduce the cost of machine learning predictions.
+
+- The successful deployment of AI tools requires an insight into how best to insert AI into the workflow of a company.  
+
+## Consulting example
+.pull-left[
+- Recently, myself and Dr Byron Graham we recently involved in an consultation exercise on price intelligence for a global price comparison company
+- .heatinline[Pricing intelligence involves monitoring competitor prices and updating prices accordingly 
+- We we tasked with outlining how to using Machine Learning techniques to improve and scale their current legacy software.
+- Opposite is the workflow of the legacy system.
+]
+.pull-right[
+![](img/workflow_company.png)
+]
+
+
+- Firstly, the workflow should be broken down into "jobs" or "tasks".  Each of these tasks usually has a human decision or action attached, which has the potential to be automated via an AI tool.  For instance, the CPW workflow has two critical decisions:
+1.	Given a URL, where on the web page is the product price located?
+2.	How can the price be efficiently and dynamically retrieved?
+ A successful corporate AI strategy requires clear and meaningful decomposition of the workflow.  Each task in the workflow needs to be decomposed in order to see where AI prediction can be inserted.  This, in turn, allows estimation of the benefit of enhanced prediction and the cost of generating that prediction.  Once reasonable estimates have been made, the potential AI projects can be rank-ordered from highest to lowest return on investment.  Management can then start at the top and implement AI tools as long as the expected ROI makes sense.
+
+
 ---
 class:middle
 # Terminology   
